@@ -14,7 +14,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* App Theam */
+  --background-color: white;
+  --text-color: black;
+  --primary-color: #125ee0;
+  --secondary-color: #000000;
+  
 }
+
+
+
 
 @font-face {
   font-family: 'Hero New Bold';
@@ -62,6 +72,11 @@
   src: url('/assets/fonts/swiper-icons.ttf') format('truetype');
 }
 
+
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.1s ease;
   font-family: 'Hero New Light';
 }
+
