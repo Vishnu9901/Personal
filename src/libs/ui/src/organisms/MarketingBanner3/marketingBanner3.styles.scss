@@ -1,16 +1,20 @@
 .marketingbanner3 {
-    @apply flex flex-col lg:flex-row lg:h-[40rem] bg-black;
+    @apply lg:h-[40rem] bg-black grid grid-cols-1 lg:grid-cols-3 lg:gap-8;
 
     &-image {
-        @apply lg:w-[27%] h-[11.5rem] lg:h-full;
+        @apply w-full h-[11.5rem] lg:h-full object-cover pb-10 lg:pb-0;
     }
 
     &>.bannerDeatails {
-        @apply text-white bg-black flex flex-col justify-center px-16;
+        @apply text-white bg-black flex flex-col justify-center pb-12 px-5 lg:px-16 col-span-2;
 
         h2 {
-            // font-size: 3rem;
-            @apply text-5xl;
+            @apply text-2xl lg:text-5xl;
+            line-height: 125%;
+        }
+
+        .learnMore {
+            @apply py-[13.5px] px-4 flex border border-transparent font-HeroNewBold hover:border-white;
         }
     }
 }
