@@ -1,0 +1,16 @@
+.marketingbanner3 {
+    @apply flex flex-col lg:flex-row lg:h-[40rem] bg-black;
+
+    &-image {
+        @apply lg:w-[27%] h-[11.5rem] lg:h-full;
+    }
+
+    &>.bannerDeatails {
+        @apply text-white bg-black flex flex-col justify-center px-16;
+
+        h2 {
+            // font-size: 3rem;
+            @apply text-5xl;
+        }
+    }
+}

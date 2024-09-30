@@ -6,7 +6,12 @@ export default {
   ],
   theme: {
     extend: {
-
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px'
+      },
       padding: {
         'appPaddingLeft': '4.5rem',
         'appPaddingRight': '4.5rem',
