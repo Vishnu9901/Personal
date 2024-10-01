@@ -1,4 +1,4 @@
-import { marketingBanner3Data } from "../../../../utils/testData";
+import { IndividualBenefits, marketingBanner3Data } from "../../../../utils/testData";
 import { MarketingBannerThree } from "../../organisms/MarketingBanner3";
 import { PromotionBanner } from "../../organisms/PromotionBanner";
 
@@ -16,8 +16,8 @@ export const LandingPageTemplate = () => {
                 {/* <MarketingBannerList marketingBannersData={marketingBannersData} /> */}
 
                 {/* promotion-banner-1 */}
-                <div className="px-16">
-                    <PromotionBanner></PromotionBanner>
+                <div className="lg:px-16">
+                    <PromotionBanner banners={IndividualBenefits}></PromotionBanner>
                 </div>
 
                 {/* <PromotionBannerSection banners={promotionBannersData} /> */}

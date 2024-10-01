@@ -1,16 +1,16 @@
-import { IndividualBenefits } from '../../../../utils/testData'
-import { IndividualBenefitsCard } from '../../molecules/IndividualBenefitsCard';
+
+import { IndividualBenefitsCard, IndividualBenefitsCardProps } from '../../molecules/IndividualBenefitsCard';
 import Slider from 'react-slick';
 import './PromotionBanner.styles.scss'
-
-interface PromotionBannerData {
-    heading: string;
-    subtext: string;
-    imageUrl: string;
-}
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import React from 'react';
+import { SecondaryButton } from '../../molecules/ScecondaryButton';
+import arrowIcon from '../../../assets/Arrow-right-blue.495910aa.svg';
+import hoverArrowIcon from '../../../assets/Arrow-right.8d33ac71.svg'
 
 interface PromotionBannerListProps {
-    banners: PromotionBannerData[];
+    banners: IndividualBenefitsCardProps[];
 }
 
 interface ArrowProps {
@@ -56,7 +56,7 @@ const settings = {
         },
     ],
 };
-export const PromotionBanner = () => {
+export const PromotionBanner: React.FC<PromotionBannerListProps> = ({ banners }) => {
     return (<>
         <div className="grid grid-cols-4">
             <div className="col-span-4 text-center pt-6 px-4 lg:m-auto lg:max-w-[66.666667%]">
@@ -65,23 +65,41 @@ export const PromotionBanner = () => {
                 <div className="max-w-4xl m-auto text-[0.875rem] promotionbanner-des leading-6">When it comes to your business, trust the experts. PCA SKIN takes a bold approach to customer service that is unmatched in the clinical skincare industry. We work closely with our professionals to help them build their own successful practices by providing marketing tools, product knowledge, and more. Why? Because PCA SKIN Certified Professionals are an extension of our mission to deliver the best patient results. Together, we can transform skin and lives around the globe.</div>
             </div>
             <div className='hidden col-span-4 lg:grid grid-cols-4 lg:gap-8 lg:py-8'>
-                {IndividualBenefits.map((benifit) => {
+                {banners.map((benifit) => {
                     return <IndividualBenefitsCard {...benifit}></IndividualBenefitsCard>
                 })}
             </div>
-            {/* lg:hidden */}
-            <div className="lg:hidden px-4 py-3">
-                {/* <Slider
+            <div className="lg:hidden px-4 py-3 col-span-4 ">
+                <Slider
                     {...settings}
                     prevArrow={<PrevArrow currentSlide={0} slideCount={0} />}
                     nextArrow={<NextArrow currentSlide={0} slideCount={0} />}
                 >
-                    {IndividualBenefits.map((benifit, index) => {
-                        return <IndividualBenefitsCard key={index} {...benifit}></IndividualBenefitsCard>
-                    })}
-                </Slider> */}
-                <p>Slider</p>
+                    {banners.map((benifit) => (<IndividualBenefitsCard {...benifit}></IndividualBenefitsCard>))}
+
+                </Slider>
+                <div className='pt-10 lg:pt-4 pb-12 lg:pb-32 flex justify-center'>
+                    <SecondaryButton
+                        onClick={() => console.log('Button clicked!')}
+                        className="flex font-HeroNewBold hover:underline items-center !m-0 justify-center !text-[#125ce0] border !border-[#125ee0] font-bold px-6 py-2.5 hover:!bg-black hover:!border-transparent group hover:!text-white"
+                    >
+                        Learn More
+                        <div className="ml-2 flex items-center">
+                            <img
+                                src={arrowIcon}
+                                alt="Arrow icon"
+                                className='flex group-hover:hidden'
+                            />
+                            <img
+                                src={hoverArrowIcon}
+                                alt="Arrow hover icon"
+                                 className='hidden group-hover:flex'
+                            />
+                        </div>
+                    </SecondaryButton>
+                </div>
             </div>
+
         </div>
     </>)
 }

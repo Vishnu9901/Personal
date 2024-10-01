@@ -1,6 +1,6 @@
 
 import { Image } from "../../atoms/Image"
-import arrow from '../../../assets/svgs/Right-Icon.e85181bb.svg'
+import arrow from '../../../assets/Right-Icon.e85181bb.svg'
 import { PrimaryButton } from "../../molecules/PrimaryButton"
 import './marketingBanner3.styles.scss'
 interface MarketingBannerThreeProps {

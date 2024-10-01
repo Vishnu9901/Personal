@@ -1,6 +1,6 @@
 import { Image } from "../../atoms/Image"
 
-interface IndividualBenefitsCardProps {
+export interface IndividualBenefitsCardProps {
     imageSrc: string,
     title: string,
     description: string
