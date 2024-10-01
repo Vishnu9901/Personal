@@ -1,11 +1,8 @@
-import { PrimaryButton } from "../../molecules/PrimaryButton"
+import { marketingBanner3Data } from "../../../../utils/testData";
 import { MarketingBannerThree } from "../../organisms/MarketingBanner3";
+import { PromotionBanner } from "../../organisms/PromotionBanner";
 
-const marketingBanner3Data = {
-    imgSrc:'https://www.pcaskinpro.com/cms/assets/5239f229-b873-4bd1-b36c-3b92745ebf8a.jpg?key=pca-en-us-default',
-    title:'PCA SKIN Professional Peel Certification',
-    subTitle:`Complete this course as a certified PCA SKIN Professional, ready to promptly apply new protocols, optimal techniques, and treatment strategies. Gain entry to PCA SKIN's extensive selection of professional treatment products, encompassing top-of-the-line professional peels, therapeutic treatment masks, and alternative treatments.`
-}
+
 
 export const LandingPageTemplate = () => {
 
@@ -19,6 +16,10 @@ export const LandingPageTemplate = () => {
                 {/* <MarketingBannerList marketingBannersData={marketingBannersData} /> */}
 
                 {/* promotion-banner-1 */}
+                <div className="px-16">
+                    <PromotionBanner></PromotionBanner>
+                </div>
+
                 {/* <PromotionBannerSection banners={promotionBannersData} /> */}
 
                 {/* marketing-banner-2" */}
@@ -33,8 +34,8 @@ export const LandingPageTemplate = () => {
         <PopularProducts products={products}></PopularProducts>
       </div> */}
 
-                <p>Landing page template</p>
-                <PrimaryButton> Hello</PrimaryButton>
+                {/* <p>Landing page template</p>
+                <PrimaryButton> Hello</PrimaryButton> */}
             </div>
 
         </>
