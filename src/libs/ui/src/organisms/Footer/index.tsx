@@ -10,19 +10,19 @@ export const Footer = () => {
                 <footer>
                     <div className="grid grid-cols-4 grid-rows-2 bg-black text-white">
                         <div>
-                            <FooterTitle className="">{SHOP_D}</FooterTitle>
+                            <FooterTitle>{SHOP_D}</FooterTitle>
                             <FooterLinks options={shop}></FooterLinks>
                         </div>
                         <div>
-                            <FooterTitle className="">{LEARN}</FooterTitle>
+                            <FooterTitle>{LEARN}</FooterTitle>
                             <FooterLinks options={Learn}></FooterLinks>
                         </div>
                         <div>
-                            <FooterTitle className="">{ABOUT}</FooterTitle>
+                            <FooterTitle>{ABOUT}</FooterTitle>
                             <FooterLinks options={About}></FooterLinks>
                         </div>
                         <div>
-                            <FooterTitle className="">{CUSTOMER_SERVICE}</FooterTitle>
+                            <FooterTitle>{CUSTOMER_SERVICE}</FooterTitle>
                             <FooterLinks options={CustomerService}></FooterLinks>
                         </div>
                         <div>Logo Block</div>
