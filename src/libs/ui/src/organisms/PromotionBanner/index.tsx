@@ -5,9 +5,10 @@ import './PromotionBanner.styles.scss'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import React from 'react';
-import { SecondaryButton } from '../../molecules/ScecondaryButton';
-import arrowIcon from '../../../assets/Arrow-right-blue.495910aa.svg';
-import hoverArrowIcon from '../../../assets/Arrow-right.8d33ac71.svg'
+import { LearnMore } from '../LearnMoreButton';
+import { Variants } from '../../../../utils/enums';
+
+
 
 interface PromotionBannerListProps {
     banners: IndividualBenefitsCardProps[];
@@ -78,26 +79,11 @@ export const PromotionBanner: React.FC<PromotionBannerListProps> = ({ banners })
                     {banners.map((benifit) => (<IndividualBenefitsCard {...benifit}></IndividualBenefitsCard>))}
 
                 </Slider>
-                <div className='pt-10 lg:pt-4 pb-12 lg:pb-32 flex justify-center'>
-                    <SecondaryButton
-                        onClick={() => console.log('Button clicked!')}
-                        className="flex font-HeroNewBold hover:underline items-center !m-0 justify-center !text-[#125ce0] border !border-[#125ee0] font-bold px-6 py-2.5 hover:!bg-black hover:!border-transparent group hover:!text-white"
-                    >
-                        Learn More
-                        <div className="ml-2 flex items-center">
-                            <img
-                                src={arrowIcon}
-                                alt="Arrow icon"
-                                className='flex group-hover:hidden'
-                            />
-                            <img
-                                src={hoverArrowIcon}
-                                alt="Arrow hover icon"
-                                 className='hidden group-hover:flex'
-                            />
-                        </div>
-                    </SecondaryButton>
-                </div>
+
+            </div>
+
+            <div className='pt-10 lg:pt-4 pb-12 lg:pb-32 flex justify-center col-span-4'>
+                <LearnMore variant={Variants.Secondary} onClick={() => { console.log('Learn More') }}></LearnMore>
             </div>
 
         </div>

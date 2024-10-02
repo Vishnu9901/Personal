@@ -1,4 +1,5 @@
 import { IndividualBenefits, marketingBanner3Data } from "../../../../utils/testData";
+import { MarketingBanner1 } from "../../organisms/MarketingBanner1";
 import { MarketingBannerThree } from "../../organisms/MarketingBanner3";
 import { PromotionBanner } from "../../organisms/PromotionBanner";
 
@@ -13,6 +14,10 @@ export const LandingPageTemplate = () => {
                 {/* <Carousel slides={carouselData} /> */}
 
                 {/* marketing-banner-1*/}
+                <div className="hidden lg:flex py-12 px-16">
+                    <MarketingBanner1></MarketingBanner1>
+                </div>
+
                 {/* <MarketingBannerList marketingBannersData={marketingBannersData} /> */}
 
                 {/* promotion-banner-1 */}

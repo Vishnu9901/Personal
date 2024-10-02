@@ -1,0 +1,6 @@
+.learnMorebutton {
+    @apply flex font-HeroNewBold hover:underline items-center 
+           justify-center text-[#125ce0] border border-[#125ee0] 
+           font-bold hover:!bg-black hover:!border-white hover:!text-white !py-2.5 !px-6 ;
+   
+}
