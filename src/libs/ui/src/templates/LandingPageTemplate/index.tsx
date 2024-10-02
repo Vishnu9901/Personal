@@ -2,6 +2,7 @@ import { IndividualBenefits, marketingBanner3Data } from "../../../../utils/test
 import { MarketingBanner1 } from "../../organisms/MarketingBanner1";
 import { MarketingBannerThree } from "../../organisms/MarketingBanner3";
 import { PromotionBanner } from "../../organisms/PromotionBanner";
+import { PromotionCarousel } from "../../organisms/PromotionCarousel";
 
 
 
@@ -11,7 +12,7 @@ export const LandingPageTemplate = () => {
         <>
             <div>
                 {/* Carousel */}
-                {/* <Carousel slides={carouselData} /> */}
+                {/* <PromotionCarousel slides={[1,2,3,4]}></PromotionCarousel> */}
 
                 {/* marketing-banner-1*/}
                 <div className="hidden lg:flex py-12 px-16">

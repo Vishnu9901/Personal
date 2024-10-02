@@ -1,18 +1,20 @@
 import { Outlet } from "react-router-dom"
+import { Header } from "../../libs/ui/src/organisms/Header"
+import { Footer } from "../../libs/ui/src/organisms/Footer"
 
 export const MainModule = () => {
 
     return (
         <>
             {/* Header */}
-            {/* <header>Header</header> */}
+            <Header></Header>
             {/* Main block */}
             <div>
                 <Outlet></Outlet>
             </div>
 
             {/* Footer */}
-            {/* <footer>Footer</footer> */}
+            <Footer></Footer>
         </>
     )
 }
