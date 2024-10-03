@@ -9,12 +9,12 @@ interface FooterLinks {
         url: string
     }[],
 }
-export const FooterLinks: React.FC<FooterLinks> = ({ options }) => {
+export const FooterOtherLinks: React.FC<FooterLinks> = ({ options }) => {
 
-    return <ul>
+    return <ul className="flex">
         {
-            options.map((link) => (<FooterLink className={''}
-            ><FooterAnchor>{link.label}</FooterAnchor>
+            options.map((link) => (<FooterLink className={'-ml-4 !px-4'}
+            ><FooterAnchor className="text-sm">{link.label}</FooterAnchor>
             </FooterLink>)
             )
         }

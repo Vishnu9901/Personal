@@ -29,7 +29,7 @@ export const LandingPageTemplate = () => {
                 {/* <PromotionBannerSection banners={promotionBannersData} /> */}
 
                 {/* marketing-banner-2" */}
-                <div className="">
+                <div className="pb-4">
                     <MarketingBannerThree {...marketingBanner3Data}></MarketingBannerThree>
                 </div>
 
