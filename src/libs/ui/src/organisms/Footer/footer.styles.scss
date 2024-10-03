@@ -3,4 +3,8 @@
     .container {
         max-width: 90rem;
     }
+
+    &-accordion {
+        @apply bg-black text-white;
+    }
 }

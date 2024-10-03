@@ -26,6 +26,10 @@ export default {
         'appPaddingLeft': '4.5rem',
         'appPaddingRight': '4.5rem',
       },
+      spacing: {
+        'footerlogoWidth': 'var(--footer-brand-logo-width)',
+        'footerlogoHeight': 'var(--footer-brand-logo-height)'
+      },
       colors:{
         'appTheme': 'var(--primary-color)',
         'appBlackTheme':'var(--secondary-color)',
