@@ -1,8 +1,6 @@
-import { shop, Learn, About, CustomerService, SHOP_D, LEARN, ABOUT, CUSTOMER_SERVICE, OtherLinks, APPOWNER } from "../../../../utils/constants"
-import { Image } from "../../atoms/Image";
+import { shop, Learn, About, CustomerService, SHOP_D, LEARN, ABOUT, CUSTOMER_SERVICE, OtherLinks } from "../../../../utils/constants"
 import { FooterOtherLinks } from "../../molecules/FooterOtherLinks";
 import './footer.styles.scss'
-import PCA_LOGO from '../../../assets/appSvgs/PCA_LOGO.svg';
 import { FooterSection } from "../../molecules/FooterSetion";
 import { FooterAccordion } from "../../molecules/FooterAccordion";
 import { FooterLogoSection } from "../../molecules/FooterLogoSection";
