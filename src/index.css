@@ -26,14 +26,14 @@
   --footer-brand-logo-width: 12.5rem;
 
   /* Header */
-    --navigation-logo-height-desk: 5rem;
-    --navigation-logo-height-mobile: 4rem;
-    --navigation-header-height-mobile: 4rem;
-    --navigation-header-height-desk: 5rem;
+  --navigation-logo-height-desk: 5rem;
+  --navigation-logo-height-mobile: 4rem;
+  --navigation-header-height-mobile: 4rem;
+  --navigation-header-height-desk: 5rem;
 
-    /* navbar height */
-    --utility-nav-height-desk: 2.5rem;
-    --utility-nav-height-mob: 2.188rem;
+  /* navbar height */
+  --utility-nav-height-desk: 2.5rem;
+  --utility-nav-height-mob: 2.188rem;
 }
 
 
@@ -89,18 +89,23 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  transition: all 0.1s ease;
+  transition: all 0.3s ease;
   font-family: 'Hero New Light';
 }
 
-.marginLeftRightAuto{
+.marginLeftRightAuto {
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (min-width: 1021px) {
   .container {
-      max-width: 90rem;
+    max-width: 90rem;
   }
 }
 
+/* Override Tailwind Classes */
+.text-tertiary-400 {
+  --tw-text-opacity: 1;
+  color: rgb(85 85 85 / var(--tw-text-opacity));
+}

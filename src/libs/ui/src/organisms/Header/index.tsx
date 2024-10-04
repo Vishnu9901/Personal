@@ -12,7 +12,7 @@ export const Header = () => {
         <div>
             <TopHeader>
                 <div className='flex'>
-                    <img src={sell} alt="sell Logo" className="w-[18px] h-[18px] mr-3"  />
+                    <img src={sell} alt="sell Logo" className="w-[18px] h-[18px] mr-3" />
                     <p>Spend $1200 and receive 10 PCA SKIN Holiday Bags + Free Shipping</p>
                 </div>
             </TopHeader>
@@ -22,14 +22,14 @@ export const Header = () => {
                     <div className='text-center'>
                         <NavigationContainer></NavigationContainer>
                     </div>
-                    <div className='flex justify-end'>
-                        <div className='header-icon flex items-center justify-center p-4'>
+                    <div className='flex justify-end gap-8'>
+                        <div className='headerContainer-icon '>
                             <Image src={searchIcon} alt='searchIcon'></Image>
                         </div>
-                        <div className='header-icon flex items-center justify-center p-4'>
+                        <div className='headerContainer-icon'>
                             <Image src={profile} alt='profile'></Image>
                         </div>
-                        <div className='header-icon flex items-center justify-center p-4'>
+                        <div className='headerContainer-icon'>
                             <Image src={cart} alt='cart'></Image>
                         </div>
                     </div>
