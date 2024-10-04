@@ -1,5 +1,8 @@
 .headerContainer {
-    grid-template-columns: 20% auto;
+    // grid-template-columns: 20% auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     height: var(--navigation-header-height-desk);
     justify-content: space-between;
     margin-left: auto;
@@ -17,6 +20,6 @@
 
 @media (min-width: 1024px) {
     .headerContainer {
-        grid-template-columns: auto auto auto !important;
+        // grid-template-columns: auto auto auto !important;
     }
 }
