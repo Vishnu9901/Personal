@@ -98,10 +98,13 @@ body {
   margin-right: auto;
 }
 
-@media (min-width: 1021px) {
+/* @media (min-width: 1021px) {
   .container {
     max-width: 90rem;
   }
+} */
+.container {
+  max-width: 90rem;
 }
 
 /* Override Tailwind Classes */

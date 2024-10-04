@@ -1,6 +1,5 @@
 .headerContainer {
-    // grid-template-columns: 20% auto 30%;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 20% auto;
     height: var(--navigation-header-height-desk);
     justify-content: space-between;
     margin-left: auto;
@@ -12,9 +11,12 @@
         &:hover {
             --tw-bg-opacity: 1;
             background-color: rgb(243 243 243 / var(--tw-bg-opacity));
-            // svg {
-            //     // fill: var(--primary-color);
-            // }
         }
+    }
+}
+
+@media (min-width: 1024px) {
+    .headerContainer {
+        grid-template-columns: auto auto auto !important;
     }
 }

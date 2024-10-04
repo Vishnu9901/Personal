@@ -7,10 +7,12 @@ export default {
   theme: {
     extend: {
       screens: {
+        'xsm':'327px',
         'sm': '640px',
         'md': '768px',
         'lg': '1024px',
-        'xl': '1280px'
+        'xl': '1280px',
+
       },
       fontFamily: {
         HeroNewBold: ['Hero New Bold'],

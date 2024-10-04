@@ -7,6 +7,8 @@ import cart from '../../../assets/cart.svg'
 import { TopHeader } from '../TopHeader';
 import { NavigationContainer } from '../../molecules/HeaderNavigationContainer';
 import sell from '../../../assets/sell.svg';
+import hambargar from '../../../assets/Hambargar.svg';
+import { Button } from '../../atoms/Button';
 export const Header = () => {
     return (
         <div>
@@ -17,21 +19,32 @@ export const Header = () => {
                 </div>
             </TopHeader>
             <header className='shadow-bottom'>
-                <div className="container grid headerContainer pl-appPaddingLeft pr-appPaddingRight items-center">
-                    <div className=''> <Image src={logo} alt='logo'></Image></div>
-                    <div className='text-center'>
+                <div className="container grid pl-6 pr-6 headerContainer lg:pl-appPaddingLeft lg:pr-appPaddingRight items-center">
+                    <div className='p-4 max-xsm:p-3'>
+                        <Image src={logo} alt='logo' className='lg:flex hidden'></Image>
+                        <Button className='lg:hidden flex'>
+                            <Image src={hambargar} alt="hambargar"></Image>
+                        </Button>
+                    </div>
+
+                    <div className='hidden lg:text-center lg:flex '>
                         <NavigationContainer></NavigationContainer>
                     </div>
-                    <div className='flex justify-end gap-8'>
-                        <div className='headerContainer-icon '>
-                            <Image src={searchIcon} alt='searchIcon'></Image>
+
+                    <div className='flex justify-end  lg:gap-8'>
+                        <Image src={logo} alt='logo' className='lg:hidden flex'></Image>
+                        <div className='flex'>
+                            <button className='headerContainer-icon max-xsm:p-1'>
+                                <Image src={searchIcon} alt='searchIcon'></Image>
+                            </button>
+                            <button className='headerContainer-icon lg:flex hidden'>
+                                <Image src={profile} alt='profile'></Image>
+                            </button>
+                            <button className='headerContainer-icon max-xsm:p-1'>
+                                <Image src={cart} alt='cart'></Image>
+                            </button>
                         </div>
-                        <div className='headerContainer-icon'>
-                            <Image src={profile} alt='profile'></Image>
-                        </div>
-                        <div className='headerContainer-icon'>
-                            <Image src={cart} alt='cart'></Image>
-                        </div>
+
                     </div>
                 </div>
             </header>
