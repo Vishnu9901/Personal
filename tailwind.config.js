@@ -23,8 +23,8 @@ export default {
         SwiperIconns:['swiper-icons']
       },
       padding: {
-        'appPaddingLeft': '4.5rem',
-        'appPaddingRight': '4.5rem',
+        'appPaddingLeft': '3.5rem',
+        'appPaddingRight': '3.5rem',
       },
       spacing: {
         'footerlogoWidth': 'var(--footer-brand-logo-width)',
@@ -34,6 +34,9 @@ export default {
         'appTheme': 'var(--primary-color)',
         'appBlackTheme':'var(--secondary-color)',
         'appTextColor': 'var(--app-text-color)'
+      },
+      boxShadow: {
+        'bottom': '0 10px 15px -3px rgba(0, 0, 0, 0.1)', 
       }
     },
   },

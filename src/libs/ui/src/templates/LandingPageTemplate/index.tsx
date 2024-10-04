@@ -22,7 +22,7 @@ export const LandingPageTemplate = () => {
                 {/* <MarketingBannerList marketingBannersData={marketingBannersData} /> */}
 
                 {/* promotion-banner-1 */}
-                <div className="lg:px-16">
+                <div className="container marginLeftRightAuto lg:px-16">
                     <PromotionBanner banners={IndividualBenefits}></PromotionBanner>
                 </div>
 

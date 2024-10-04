@@ -7,8 +7,8 @@ import { FooterLogoSection } from "../../molecules/FooterLogoSection";
 
 export const Footer = () => {
     return (
-        <div className="footer bg-black">
-            <div className="container px-6 lg:pl-appPaddingLeft lg:pr-appPaddingRight">
+        <div className="footer  bg-black">
+            <div className="container marginLeftRightAuto px-6 lg:pl-appPaddingLeft lg:pr-appPaddingRight">
                 <footer>
                     <div className="hidden lg:grid grid-cols-4  bg-black text-white pt-14">
                         <FooterSection title={SHOP_D} options={shop}></FooterSection>

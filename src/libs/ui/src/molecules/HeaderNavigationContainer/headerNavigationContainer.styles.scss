@@ -1,0 +1,14 @@
+.headerNavigation {
+    &-item {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    &-item:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(238 244 255 / var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(18 92 224 / var(--tw-text-opacity));
+    }
+
+
+}

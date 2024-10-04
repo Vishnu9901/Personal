@@ -25,6 +25,15 @@
   --footer-brand-logo-height: 2rem;
   --footer-brand-logo-width: 12.5rem;
 
+  /* Header */
+    --navigation-logo-height-desk: 5rem;
+    --navigation-logo-height-mobile: 4rem;
+    --navigation-header-height-mobile: 4rem;
+    --navigation-header-height-desk: 5rem;
+
+    /* navbar height */
+    --utility-nav-height-desk: 2.5rem;
+    --utility-nav-height-mob: 2.188rem;
 }
 
 
@@ -83,3 +92,15 @@ body {
   transition: all 0.1s ease;
   font-family: 'Hero New Light';
 }
+
+.marginLeftRightAuto{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1021px) {
+  .container {
+      max-width: 90rem;
+  }
+}
+
