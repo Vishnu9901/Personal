@@ -8,10 +8,11 @@ export const MainModule = () => {
         <>
             {/* Header */}
             <Header></Header>
+
             {/* Main block */}
-            <div>
+            <main>
                 <Outlet></Outlet>
-            </div>
+            </main>
 
             {/* Footer */}
             <Footer></Footer>

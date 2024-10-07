@@ -7,9 +7,6 @@ export interface IndividualBenefitsCardProps {
     imageAlt: string
 }
 
-// https://www.pcaskinpro.com/cms/assets/f0fb8ed6-a79c-445e-a75f-461973c31ee7.jpg?key=pca-en-us-default
-// Order Management
-// Effortlessly handle orders and invoices in your account and stay up-to-date on any and all business affairs.
 export const IndividualBenefitsCard: React.FC<IndividualBenefitsCardProps> = ({
     imageSrc, title, description, imageAlt = ''
 }) => {
