@@ -1,3 +1,5 @@
+const url = import.meta.env.VITE_SCROLL__PCA_VTEXASSETS;
+
 export const marketingBanner3Data = {
     imgSrc: 'https://www.pcaskinpro.com/cms/assets/5239f229-b873-4bd1-b36c-3b92745ebf8a.jpg?key=pca-en-us-default',
     title: 'PCA SKIN Professional Peel Certification',
@@ -51,27 +53,94 @@ export const marketingBannersData = [
 
 export const carouselData = [
     {
-      imgSrc: 'https://www.pcaskinpro.com/cms/assets/b3ba90eb-9481-45fe-8587-ceff7344e45a.jpg?key=pca-en-us-hero-large',
-      imgAlt: 'Banner Image 1',
-      heading: 'Break the cycle of breakouts',
-      subheading: 'Provide powerful at-home recommendations with PCA SKIN advanced corrective products to dramatically improve skin health.',
-      buttonText: 'Shop Now',
-      bgColor:'bg-gray-100'
+        imgSrc: 'https://www.pcaskinpro.com/cms/assets/b3ba90eb-9481-45fe-8587-ceff7344e45a.jpg?key=pca-en-us-hero-large',
+        imgAlt: 'Banner Image 1',
+        heading: 'Break the cycle of breakouts',
+        subheading: 'Provide powerful at-home recommendations with PCA SKIN advanced corrective products to dramatically improve skin health.',
+        buttonText: 'Shop Now',
+        bgColor: 'bg-gray-100'
     },
     {
-      imgSrc: 'https://www.pcaskinpro.com/cms/assets/01200ff0-3aa4-488a-867f-e3747abf19b3.jpg?key=pca-en-us-hero-large',
-      imgAlt: 'Banner Image 2',
-      heading: 'Our NEW Hyaluronic Acid Microneedle Eye Patches ',
-      subheading: 'Your overnight refresh for under eyes with 22% reduction in wrinkles in just one treatment ',
-      buttonText: 'Shop Now',
-      bgColor:'bg-black text-white'
+        imgSrc: 'https://www.pcaskinpro.com/cms/assets/01200ff0-3aa4-488a-867f-e3747abf19b3.jpg?key=pca-en-us-hero-large',
+        imgAlt: 'Banner Image 2',
+        heading: 'Our NEW Hyaluronic Acid Microneedle Eye Patches ',
+        subheading: 'Your overnight refresh for under eyes with 22% reduction in wrinkles in just one treatment ',
+        buttonText: 'Shop Now',
+        bgColor: 'bg-black text-white'
     },
     {
-      imgSrc: 'https://www.pcaskinpro.com/cms/assets/201d2cde-cfcb-419b-a2e6-32407713196b.jpg?key=pca-en-us-hero-large',
-      imgAlt: 'Banner Image 3',
-      heading: 'Tailor your patients’ regimens ',
-      subheading: 'Provide powerful at-home recommendations with PCA SKIN advanced corrective products to dramatically improve skin health.',
-      buttonText: 'Shop Now',
-      bgColor:'bg-gray-100'
+        imgSrc: 'https://www.pcaskinpro.com/cms/assets/201d2cde-cfcb-419b-a2e6-32407713196b.jpg?key=pca-en-us-hero-large',
+        imgAlt: 'Banner Image 3',
+        heading: 'Tailor your patients’ regimens ',
+        subheading: 'Provide powerful at-home recommendations with PCA SKIN advanced corrective products to dramatically improve skin health.',
+        buttonText: 'Shop Now',
+        bgColor: 'bg-gray-100'
     },
-  ];
+];
+
+export const products = [
+    {
+        id: 1,
+        name: 'Sensi Peel®',
+        image:
+            `${url}/ids/156900-608-auto/sensi-peel.jpg?v=638579579116970000&width=608&height=auto&aspect=true`,
+        rating: 5.0,
+        isBestSeller: true,
+    },
+    {
+        id: 2,
+        name: 'Collagen Hydrator',
+        image:
+            `${url}/ids/156792-608-auto/collagen-hydrator.jpg?v=638578871156130000&width=608&height=auto&aspect=true`,
+        rating: 4.8,
+        isBestSeller: false,
+    },
+    {
+        id: 3,
+        name: 'ExLinea® Pro Peptide Serum',
+        image:
+            `${url}/ids/156810-608-auto/exlinea-pro.jpg?v=638578896004000000&width=608&height=auto&aspect=true`,
+        rating: 5.0,
+        isBestSeller: false,
+    },
+    {
+        id: 4,
+        name: 'Hyaluronic Acid Boosting Serum',
+        image: `${url}/ids/157014-608-auto/HABS-elle-shape-newbeauty-1oz.jpg?v=638633086347900000&width=608&height=auto&aspect=true`,
+        rating: 4.6,
+        isBestSeller: true,
+    },
+    {
+        id: 5,
+        name: 'Brighten: Therapeutic Blackberry Mask',
+        image:
+            `${url}/ids/156918-608-auto/Brighten-Therapeutic-Blackberry-Mask.jpg?v=638579600468300000&width=608&height=auto&aspect=true`,
+        rating: 2.8,
+        isBestSeller: false,
+    },
+
+    {
+        id: 6,
+        name: 'ExLinea® Peptide Smoothing Serum',
+        image:
+            `${url}/ids/156998-608-auto/exlinea-peptide-serum-1oz-N.jpg?v=638610792735570000&width=608&height=auto&aspect=true`,
+        rating: 4.6,
+        isBestSeller: true,
+    },
+    {
+        id: 7,
+        name: 'Nutrient Toner',
+        image:
+            `${url}/ids/156767-608-auto/Nutrient_Toner_21104_4.4oz.jpg?v=638578766353170000&width=608&height=auto&aspect=true`,
+        rating: 4.5,
+        isBestSeller: true,
+    },
+    {
+        id: 8,
+        name: 'Advanced Treatment Booster',
+        image:
+            `${url}/ids/156889-608-auto/advancted-treatment-booster.jpg?v=638579570407470000&width=608&height=auto&aspect=true`,
+        rating: 5.0,
+        isBestSeller: true,
+    },
+];
