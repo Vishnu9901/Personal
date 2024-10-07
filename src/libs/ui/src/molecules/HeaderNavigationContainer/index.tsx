@@ -1,4 +1,4 @@
-import { HeaderNavigationItem } from '../../atoms/HeaderNavigationItem'
+import { HeaderNavigationItem } from '@ui/atoms/HeaderNavigationItem'
 import './headerNavigationContainer.styles.scss'
 
 export const NavigationContainer = () => {

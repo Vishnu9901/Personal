@@ -1,5 +1,5 @@
-import { FooterLinks } from "../FooterLinks"
-import { FooterTitle } from "../FooterTitle";
+import { FooterLinks } from "@ui/molecules/FooterLinks"
+import { FooterTitle } from "@ui/molecules/FooterTitle";
 interface FooterSetion {
     title: string,
     options: {

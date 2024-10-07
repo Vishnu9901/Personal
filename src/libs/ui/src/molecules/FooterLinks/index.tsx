@@ -1,6 +1,6 @@
 import React from "react"
-import { FooterLink } from "../FooterLink"
-import { FooterAnchor } from "../../atoms/Link"
+import { FooterLink } from "@ui/molecules/FooterLink"
+import { FooterAnchor } from "@ui/atoms/Link"
 
 
 interface FooterLinks {

@@ -1,8 +1,8 @@
-import { SecondaryButton } from "../../molecules/ScecondaryButton"
+import { SecondaryButton } from "@ui/molecules/ScecondaryButton"
 import arrowIcon from '../../../assets/Arrow-right-blue.495910aa.svg';
 import hoverArrowIcon from '../../../assets/Arrow-right.8d33ac71.svg'
 import './learnMoreButton.styles.scss'
-import { Variants } from "../../../../utils/enums";
+import { Variants } from "@utils/enums";
 
 interface LearnMoreProps {
     onClick: () => void

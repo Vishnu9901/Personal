@@ -1,6 +1,6 @@
 
-import { marketingBannersData } from "../../../../utils/testData";
-import { PromotionCard } from "../../molecules/PromotionCard";
+import { marketingBannersData } from "@utils/testData";
+import { PromotionCard } from "@ui/molecules/PromotionCard";
 import './marketingBanner1.styles.scss';
 
 export const MarketingBanner1 = () => {

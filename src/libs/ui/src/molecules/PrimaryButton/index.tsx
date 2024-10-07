@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from "react"
-import { Button } from "../../atoms/Button"
+import { Button } from "@ui/atoms/Button"
 
 interface PrimaryButtonPros extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode,

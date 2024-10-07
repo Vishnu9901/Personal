@@ -1,12 +1,12 @@
 
-import { IndividualBenefitsCard, IndividualBenefitsCardProps } from '../../molecules/IndividualBenefitsCard';
+import { IndividualBenefitsCard, IndividualBenefitsCardProps } from '@ui/molecules/IndividualBenefitsCard';
 import Slider from 'react-slick';
 import './PromotionBanner.styles.scss'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import React from 'react';
-import { LearnMore } from '../LearnMoreButton';
-import { Variants } from '../../../../utils/enums';
+import { LearnMore } from '@ui/organisms/LearnMoreButton';
+import { Variants } from '@utils/enums';
 
 
 

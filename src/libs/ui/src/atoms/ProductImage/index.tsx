@@ -1,6 +1,5 @@
 import React from 'react';
-import { Image } from '../Image';
-// Adjust the import path as needed
+import { Image } from '@ui/atoms/Image';
 
 interface ProductImageProps {
     src: string;

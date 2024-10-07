@@ -1,13 +1,13 @@
 
 // import React from 'react';
-import { PopularProductsHeader } from "../../molecules/ProductsHeader"
+import { PopularProductsHeader } from "@ui/molecules/ProductsHeader"
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useRef } from "react";
-import { sliderSettings } from '../../../../utils/settings';
-import { Product } from "../../molecules/Product";
-import { ProductProps } from '../../../../utils/interfaces'
+import { sliderSettings } from '@utils/settings';
+import { Product } from "@ui/molecules/Product";
+import { ProductProps } from '@utils/interfaces'
 interface PopularProductsProps {
     products: ProductProps[]
 }

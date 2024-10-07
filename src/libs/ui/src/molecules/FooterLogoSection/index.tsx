@@ -1,6 +1,6 @@
-import { Image } from "../../atoms/Image"
+import { Image } from "@ui/atoms/Image"
 import PCA_LOGO from '../../../assets/appSvgs/PCA_LOGO.svg';
-import { APPOWNER } from "../../../../utils/constants";
+import { APPOWNER } from "@utils/constants";
 export const FooterLogoSection = () => {
     return (
         <>

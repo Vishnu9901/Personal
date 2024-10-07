@@ -1,4 +1,4 @@
-import { Image } from "../../atoms/Image"
+import { Image } from "@ui/atoms/Image"
 
 export interface IndividualBenefitsCardProps {
     imageSrc: string,

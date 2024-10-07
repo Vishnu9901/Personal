@@ -1,6 +1,6 @@
-import { Variants } from "../../../../utils/enums"
-import { Image } from "../../atoms/Image"
-import { LearnMore } from "../../organisms/LearnMoreButton"
+import { Variants } from "@utils/enums"
+import { Image } from "@ui/atoms/Image"
+import { LearnMore } from "@ui/organisms/LearnMoreButton"
 import './promotionCard.styles.scss'
 interface PromotionCardProps {
     title: string;

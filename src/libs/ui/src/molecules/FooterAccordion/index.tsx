@@ -1,9 +1,7 @@
 import React from "react"
-import { shop, SHOP_D } from "../../../../utils/constants"
-import { FooterAnchor } from "../../atoms/Link"
-import Accordion from "../Accordion"
-import { FooterLink } from "../FooterLink"
-
+import Accordion from "@ui/molecules/Accordion"
+import { FooterLink } from "@ui/molecules/FooterLink"
+import { FooterAnchor } from "@ui/atoms/Link"
 interface FooterAccordion {
     title: string,
     options: {

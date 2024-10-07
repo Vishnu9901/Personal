@@ -1,14 +1,15 @@
-import { Image } from '../../atoms/Image';
+import { Image } from '@ui/atoms/Image';
+import { TopHeader } from '@ui/organisms/TopHeader';
+import { Button } from '@ui/atoms/Button';
+import { NavigationContainer } from '@ui/molecules/HeaderNavigationContainer';
 import './header.styles.scss';
 import logo from '../../../assets/Logo.svg';
 import searchIcon from '../../../assets/searchIcon.svg';
 import profile from '../../../assets/profile.svg';
 import cart from '../../../assets/cart-wheels.svg'
-import { TopHeader } from '../TopHeader';
-import { NavigationContainer } from '../../molecules/HeaderNavigationContainer';
 import sell from '../../../assets/sell.svg';
 import hambargar from '../../../assets/Hambargar.svg';
-import { Button } from '../../atoms/Button';
+
 export const Header = () => {
     return (
         <div>

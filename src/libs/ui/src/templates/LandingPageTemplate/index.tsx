@@ -1,10 +1,10 @@
-import { IndividualBenefits, marketingBanner3Data } from "../../../../utils/testData";
-import { MarketingBanner1 } from "../../organisms/MarketingBanner1";
-import { MarketingBannerThree } from "../../organisms/MarketingBanner3";
-import { PopularProducts } from "../../organisms/PopularProudct";
-import { PromotionBanner } from "../../organisms/PromotionBanner";
-import { PromotionCarousel } from "../../organisms/PromotionCarousel";
-import { products } from '../../../../utils/testData';
+import { IndividualBenefits, marketingBanner3Data } from "@utils/testData";
+import { MarketingBanner1 } from "@ui/organisms/MarketingBanner1";
+import { MarketingBannerThree } from "@ui/organisms/MarketingBanner3";
+import { PopularProducts } from "@ui/organisms/PopularProudct";
+import { PromotionBanner } from "@ui/organisms/PromotionBanner";
+// import { PromotionCarousel } from "../../organisms/PromotionCarousel";
+import { products } from '@utils/testData';
 
 export const LandingPageTemplate = () => {
 

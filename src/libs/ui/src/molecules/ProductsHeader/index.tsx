@@ -1,5 +1,5 @@
-import { Button } from "../../atoms/Button"
-import { PrimaryButton } from "../PrimaryButton"
+import { Button } from "@ui/atoms/Button";
+import { PrimaryButton } from "@ui/molecules/PrimaryButton";
 import NavigateNextBlue from '../../../assets/Navigatenextblue.svg';
 import NavigateNextBlueDark from '../../../assets/Navigate-next-bluedark.svg';
 import NavigatePrevBlue from '../../../assets/Navigateprevblue.svg';

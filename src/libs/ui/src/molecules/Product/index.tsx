@@ -1,10 +1,10 @@
 
 // import StarRating from '@ui/atoms/StarRating';
 
-import { ProductProps } from '../../../../utils/interfaces';
-import Badge from '../../atoms/Badge';
-import { Button } from '../../atoms/Button';
-import { ProductImage } from '../../atoms/ProductImage';
+import { ProductProps } from '@utils/interfaces';
+import Badge from '@ui/atoms/Badge';
+import { Button } from '@ui/atoms/Button';
+import { ProductImage } from '@ui/atoms/ProductImage';
 import StarRating from '../StarRating';
 
 export const Product: React.FC<ProductProps> = ({ image, name, isBestSeller, rating }) => {

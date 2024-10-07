@@ -1,7 +1,7 @@
 
-import { Image } from "../../atoms/Image"
+import { Image } from "@ui/atoms/Image"
 import arrow from '../../../assets/Right-Icon.e85181bb.svg'
-import { PrimaryButton } from "../../molecules/PrimaryButton"
+import { PrimaryButton } from "@ui/molecules/PrimaryButton"
 import './marketingBanner3.styles.scss'
 interface MarketingBannerThreeProps {
     className?: string
