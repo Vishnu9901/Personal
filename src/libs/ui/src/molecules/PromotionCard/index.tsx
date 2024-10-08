@@ -27,7 +27,7 @@ export const PromotionCard: React.FC<PromotionCardProps> = ({
                 </div>
 
             </div>
-            <div className="flex">
+            <div className="flex lg:max-h-[--marketing-banner-img-height-desk] lg:min-h-[--marketing-banner-img-height-desk]">
                 <Image src={imageUrl}
                     alt={title}
                     className="w-full"

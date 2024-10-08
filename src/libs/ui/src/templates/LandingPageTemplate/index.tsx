@@ -3,9 +3,9 @@ import { MarketingBanner1 } from "@ui/organisms/MarketingBanner1";
 import { MarketingBannerThree } from "@ui/organisms/MarketingBanner3";
 import { PopularProducts } from "@ui/organisms/PopularProudct";
 import { PromotionBanner } from "@ui/organisms/PromotionBanner";
-// import { PromotionCarousel } from "../../organisms/PromotionCarousel";
+import { PromotionCarousel } from "@ui/organisms/PromotionCarousel";
 import { products } from '@utils/testData';
-
+import { carouselData } from '@utils/testData';
 export const LandingPageTemplate = () => {
 
     return (
@@ -14,7 +14,7 @@ export const LandingPageTemplate = () => {
 
 
                 {/* Carousel */}
-                {/* <PromotionCarousel slides={[1,2,3,4]}></PromotionCarousel> */}
+                <PromotionCarousel slides={carouselData}></PromotionCarousel>
 
                 {/* marketing-banner-1*/}
                 <div className="hidden lg:flex py-12 px-16">

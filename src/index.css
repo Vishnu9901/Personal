@@ -34,6 +34,33 @@
   /* navbar height */
   --utility-nav-height-desk: 2.5rem;
   --utility-nav-height-mob: 2.188rem;
+
+  /* Marketing bannet */
+  --marketing-banner-img-width-desk: 40.5rem;
+  --marketing-banner-img-width-mob: 20.438rem;
+  --marketing-banner-img-height-desk: 20.188rem;
+  --marketing-banner-img-height-mob: 20.188rem;
+
+  /* Hero Banner */
+  --hero-banner-height-desk: 30rem;
+  --hero-banner-rounded-br: 2.5rem;
+  --hero-banner-content-maxwidth: 26.3rem;
+  --hero-banner-content-maxheight-mob: 16rem;
+  --hero-banner-cta-button-min-width: 9rem;
+  --hero-banner-height-mob: 12rem;
+  --swiper-navigation-size :1.2rem;
+
+  /* swiper */
+  /* --swiper-pagination-bullet-opacity: */
+  /* --.swiper-button-prev:after, .swiper-button-next:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+    font-size: 1.2rem;
+} */
 }
 
 

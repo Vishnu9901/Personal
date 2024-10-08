@@ -10,7 +10,7 @@ export const Image: React.FC<ImageProps> = ({ src, alt, className = '', width, h
         <img
             src={src}
             alt={alt}
-            className={className}
+            className={`${className}` }
             width={width}
             height={height}
         />
