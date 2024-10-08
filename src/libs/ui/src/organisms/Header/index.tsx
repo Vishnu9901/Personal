@@ -9,8 +9,28 @@ import profile from '../../../assets/profile.svg';
 import cart from '../../../assets/cart-wheels.svg'
 import sell from '../../../assets/sell.svg';
 import hambargar from '../../../assets/Hambargar.svg';
+import { useEffect, useRef, useState } from 'react';
 
 export const Header = () => {
+    const [isFixed, setIsFixed] = useState<boolean>(false);
+    const isFirstRender = useRef(true);
+
+    const handleScroll = () => {
+        setIsFixed(window.scrollY > 40);
+    };
+    useEffect(() => {
+        
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isFixed]);
+    
     return (
         <div>
             <TopHeader>
@@ -19,7 +39,7 @@ export const Header = () => {
                     <p>Spend $1200 and receive 10 PCA SKIN Holiday Bags + Free Shipping</p>
                 </div>
             </TopHeader>
-            <header className='shadow-bottom'>
+            <header className={`shadow-bottom bg-white ${isFixed ? 'header-fixed w-full z-50  ' : ''}`}>
                 <div className="container pl-6 pr-6 headerContainer lg:pl-appPaddingLeft lg:pr-appPaddingRight items-center">
                     <div className='p-4 max-xsm:p-3'>
                         <Image src={logo} alt='logo' className='lg:flex hidden'></Image>
