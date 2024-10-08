@@ -43,7 +43,7 @@ export const PromotionCarousel: React.FC<CarouselProps> = ({ slides }) => {
                 }}
                 navigation={true}
                 modules={[Pagination, Navigation, Autoplay]}
-                className={`${theam}`}
+                className={`${theam == SlideTheam.Dark ? 'darkTheam' : ''}`}
             >
                 {slides.map((slide: any, index: any) => (
                     <SwiperSlide >
