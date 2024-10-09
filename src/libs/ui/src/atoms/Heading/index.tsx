@@ -1,12 +1,10 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode } from 'react'
 
 interface HeadingProps {
-    children: ReactNode
-    className?: string
+  children: ReactNode
+  className?: string
 }
 
 export const Heading: React.FC<HeadingProps> = ({ className, children }) => {
-    return (<>
-        <h1 className={`${className}`}>{children}</h1>
-    </>)
+  return (<h1 className={`${className}`}>{children}</h1>)
 }

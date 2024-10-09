@@ -1,8 +1,6 @@
 
-import { TestTemplate } from "../../libs/ui/src/templates/TestTemplate"
+import { TestTemplate } from '../../libs/ui/src/templates/TestTemplate'
 
 export const TestPage = () => {
-    return (<>
-        <TestTemplate></TestTemplate>
-    </>)
+  return (<TestTemplate></TestTemplate>)
 }

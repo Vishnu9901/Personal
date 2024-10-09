@@ -1,18 +1,22 @@
 import { HeaderNavigationItem } from '@ui/atoms/HeaderNavigationItem'
 import './headerNavigationContainer.styles.scss'
 
-export const NavigationContainer = () => {
-    return (
-        <>
-        {/* grid grid-cols-6 */}
-            <ul className="flex">
-                <HeaderNavigationItem>Shop</HeaderNavigationItem>
-                <HeaderNavigationItem>Academy</HeaderNavigationItem>
-                <HeaderNavigationItem>Events</HeaderNavigationItem>
-                <HeaderNavigationItem>About</HeaderNavigationItem>
-                <HeaderNavigationItem>Business tools</HeaderNavigationItem>
-                <HeaderNavigationItem>Student</HeaderNavigationItem>
-            </ul>
-        </>
-    )
+interface NavigationContainerProps {
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+    onClick?: (name: any) => void
+}
+
+export const NavigationContainer: React.FC<NavigationContainerProps> = ({ onClick }) => {
+  return (
+    <>
+      <ul className="flex">
+        <HeaderNavigationItem onClick={onClick}>Shop</HeaderNavigationItem>
+        <HeaderNavigationItem onClick={onClick}>Academy</HeaderNavigationItem>
+        <HeaderNavigationItem onClick={onClick}>Events</HeaderNavigationItem>
+        <HeaderNavigationItem onClick={onClick}>About</HeaderNavigationItem>
+        <HeaderNavigationItem onClick={onClick}>Business tools</HeaderNavigationItem>
+        <HeaderNavigationItem onClick={onClick}>Student</HeaderNavigationItem>
+      </ul>
+    </>
+  )
 }

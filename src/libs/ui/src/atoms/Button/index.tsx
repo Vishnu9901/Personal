@@ -10,7 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<ButtonProps> = ({ children, type = 'button', className = '', ...rest }) => (
-    <button type={type} className={className} {...rest}>
-        {children}
-    </button>
+  <button type={type} className={className} {...rest}>
+    {children}
+  </button>
 )

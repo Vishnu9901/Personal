@@ -1,9 +1,9 @@
-import { Button } from "../../atoms/Button"
+import { Button } from '../../atoms/Button'
 
 export const TestTemplate = () => {
-    return (
-        <>
-         <Button>Login</Button>
-        </>
-    )
+  return (
+    <>
+      <Button>Login</Button>
+    </>
+  )
 }

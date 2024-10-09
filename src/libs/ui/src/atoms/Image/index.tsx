@@ -6,13 +6,13 @@ interface ImageProps {
     height?: string | number;
 }
 export const Image: React.FC<ImageProps> = ({ src, alt, className = '', width, height }) => {
-    return (
-        <img
-            src={src}
-            alt={alt}
-            className={`${className}` }
-            width={width}
-            height={height}
-        />
-    );
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`${className}`}
+      width={width}
+      height={height}
+    />
+  );
 };

@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 interface FooterAnchor {
     className?: string,
@@ -6,5 +6,5 @@ interface FooterAnchor {
 }
 
 export const FooterAnchor: React.FC<FooterAnchor> = ({ children, className = '' }) => {
-    return <a className={`hover:text-brand-white-100 font-light text-base group-hover:underline  group-hover:underline-offset-1 ${className}`}>{children}</a>
+  return <a className={`hover:text-brand-white-100 font-light text-base group-hover:underline  group-hover:underline-offset-1 ${className}`}>{children}</a>
 }

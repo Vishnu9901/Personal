@@ -4,7 +4,7 @@ interface SubHeadingProps {
 }
 
 export const SubHeading: React.FC<SubHeadingProps> = ({ children, classNames }) => {
-    return (
-        <p className={`${classNames}`}>{children}</p>
-    )
+  return (
+    <p className={`${classNames}`}>{children}</p>
+  )
 }

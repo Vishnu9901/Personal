@@ -1,21 +1,21 @@
-import { Outlet } from "react-router-dom"
-import { Header } from "../../libs/ui/src/organisms/Header"
-import { Footer } from "../../libs/ui/src/organisms/Footer"
+import { Outlet } from 'react-router-dom'
+import { Header } from '../../libs/ui/src/organisms/Header'
+import { Footer } from '../../libs/ui/src/organisms/Footer'
 
 export const MainModule = () => {
 
-    return (
-        <>
-            {/* Header */}
-            <Header></Header>
+  return (
+    <>
+      {/* Header */}
+      <Header></Header>
 
-            {/* Main block */}
-            <main>
-                <Outlet></Outlet>
-            </main>
+      {/* Main block */}
+      <main>
+        <Outlet></Outlet>
+      </main>
 
-            {/* Footer */}
-            <Footer></Footer>
-        </>
-    )
+      {/* Footer */}
+      <Footer></Footer>
+    </>
+  )
 }
