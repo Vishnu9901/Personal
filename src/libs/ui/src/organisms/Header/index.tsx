@@ -12,14 +12,14 @@ import hambargar from '../../../assets/Hambargar.svg';
 import { useEffect, useRef, useState } from 'react';
 import { SubMenu } from '../SubMenu';
 import { links } from '@utils/constants';
+import { MobileSubMenu } from '../HeaderMobileSubMenu';
 
 export const Header = () => {
   const [isFixed, setIsFixed] = useState<boolean>(false);
   const isFirstRender = useRef(true);
   const [showSubMenu, setShowSubMenu] = useState(false);
-  // const headerState = useReducer(subMenuReducer)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selectedCatagory, setCatagory] = useState('');
+  const [toggleMobileSubMenu, SettoggleMobileSubMenu] = useState(false)
+
   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const [subMenu, SetSubMenu] = useState<any>([])
 
@@ -27,17 +27,10 @@ export const Header = () => {
     setIsFixed(window.scrollY > import.meta.env.VITE_SCROLL_TOP_HEADER_HEIGHT);
   };
 
-  // const subMenuHandler = (title: string) => {
-  //   const subMenuOptions = links.filter((option) => option.title === title)
-  //   SetSubMenu(subMenuOptions[0].submenu)
-  //   setCatagory(title)
-  //   setShowSubMenu(!showSubMenu);
-  // }
 
   const mouseEnter = (title: string) => {
     const subMenuOptions = links.filter((option) => option.title.toLocaleLowerCase() === title.toLocaleLowerCase());
     SetSubMenu(subMenuOptions[0].submenu)
-    setCatagory(title)
     setShowSubMenu(true);
   }
 
@@ -52,6 +45,11 @@ export const Header = () => {
     console.log('subMenuLeave');
     setShowSubMenu(false);
   }
+
+  const openMobileSubMenu = () => {
+    SettoggleMobileSubMenu(!toggleMobileSubMenu)
+  }
+
   useEffect(() => {
 
     if (isFirstRender.current) {
@@ -79,7 +77,7 @@ export const Header = () => {
           <div className="container pl-6 pr-6 headerContainer lg:pl-appPaddingLeft lg:pr-appPaddingRight items-center">
             <div className='p-4 max-xsm:p-3' onMouseEnter={subMenuLeave}>
               <Image src={logo} alt='logo' className='lg:flex hidden' ></Image>
-              <Button className='lg:hidden flex'>
+              <Button className='lg:hidden flex' onClick={openMobileSubMenu}>
                 <Image src={hambargar} alt="hambargar"></Image>
               </Button>
             </div>
@@ -87,7 +85,8 @@ export const Header = () => {
             <div className='hidden lg:text-center lg:flex '>
               <NavigationContainer
                 onMouseEnter={mouseEnter}
-                onMouseLeave={mouseLeave}></NavigationContainer>
+                onMouseLeave={mouseLeave}>
+              </NavigationContainer>
             </div>
 
             <div className='hidden lg:flex justify-end lg:gap-8' onMouseEnter={subMenuLeave}>
@@ -114,13 +113,23 @@ export const Header = () => {
             </div>
           </div>
         </header>
-        {showSubMenu && <div className='absolute w-full bg-white top-20'>
+        {showSubMenu && <div className=' hidden lg:block absolute w-full bg-white top-20'>
           <SubMenu options={subMenu}
             className='shadow-bottom'
             onMouseEnter={subMenuEnter}
             onMouseLeave={subMenuLeave}
-          ></SubMenu>
+          >
+          </SubMenu>
         </div>}
+
+        {/* Mobile Submenu */}
+        {toggleMobileSubMenu && <>
+          <MobileSubMenu options={links} goBack={() => {
+            SettoggleMobileSubMenu(!toggleMobileSubMenu)
+          }}>
+          </MobileSubMenu>
+        </>}
+
       </div>
     </div>
 

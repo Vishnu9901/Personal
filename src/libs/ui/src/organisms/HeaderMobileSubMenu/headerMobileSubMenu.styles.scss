@@ -1,0 +1,42 @@
+.mobileMenu {
+    .title {
+        margin: 0;
+        border-bottom-width: 1px;
+        border-style: solid;
+        --tw-border-opacity: 1;
+        border-color: rgb(153 153 153 / var(--tw-border-opacity));
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .close {
+        background-image: url('../../../assets/modalSvgs/closeButton.svg');
+    }
+
+    .sub-cta {
+        border-bottom-width: 1px;
+        border-style: solid;
+        --tw-border-opacity: 1;
+        border-color: rgb(153 153 153 / var(--tw-border-opacity));
+        padding-bottom: 1rem;
+    }
+
+    .signOut {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 243 243 / var(--tw-bg-opacity));
+
+        &-account {
+            background-image: url('../../../assets/AccountSingOut.svg');
+        }
+        &-account:hover {
+            background-image: url('../../../assets/AccountSingOutHover.svg');
+        }
+
+        .direction {
+            background-image: url('../../../assets/blue_next.svg');
+        }
+    }
+
+}
