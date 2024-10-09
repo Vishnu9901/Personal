@@ -43,7 +43,14 @@ export const Header = () => {
 
   const mouseLeave = () => {
     console.log('mouseLeave')
+  }
 
+  const subMenuEnter = () => {
+    console.log('subMenuEnter')
+  }
+  const subMenuLeave = () => {
+    console.log('subMenuLeave');
+    setShowSubMenu(false);
   }
   useEffect(() => {
 
@@ -67,23 +74,23 @@ export const Header = () => {
         </div>
       </TopHeader>
 
-      <div className={`bg-white ${isFixed ? 'header-fixed w-full z-50  ' : ''}`}>
+      <div className={`bg-white relative w-full z-50  ${isFixed ? 'header-fixed' : ''}`}>
         <header className={'shadow-bottom '}>
           <div className="container pl-6 pr-6 headerContainer lg:pl-appPaddingLeft lg:pr-appPaddingRight items-center">
-            <div className='p-4 max-xsm:p-3'>
-              <Image src={logo} alt='logo' className='lg:flex hidden'></Image>
+            <div className='p-4 max-xsm:p-3' onMouseEnter={subMenuLeave}>
+              <Image src={logo} alt='logo' className='lg:flex hidden' ></Image>
               <Button className='lg:hidden flex'>
                 <Image src={hambargar} alt="hambargar"></Image>
               </Button>
             </div>
 
             <div className='hidden lg:text-center lg:flex '>
-              <NavigationContainer 
+              <NavigationContainer
                 onMouseEnter={mouseEnter}
                 onMouseLeave={mouseLeave}></NavigationContainer>
             </div>
 
-            <div className='hidden lg:flex justify-end lg:gap-8'>
+            <div className='hidden lg:flex justify-end lg:gap-8' onMouseEnter={subMenuLeave}>
               <Button className='headerContainer-icon max-xsm:p-1'>
                 <Image src={searchIcon} alt='searchIcon'></Image>
               </Button>
@@ -107,7 +114,13 @@ export const Header = () => {
             </div>
           </div>
         </header>
-        {showSubMenu && <SubMenu options={subMenu} className='shadow-bottom'></SubMenu>}
+        {showSubMenu && <div className='absolute w-full bg-white top-20'>
+          <SubMenu options={subMenu}
+            className='shadow-bottom'
+            onMouseEnter={subMenuEnter}
+            onMouseLeave={subMenuLeave}
+          ></SubMenu>
+        </div>}
       </div>
     </div>
 

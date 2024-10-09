@@ -3,12 +3,17 @@ import { SubMenuConatiner } from '@ui/molecules/SubMenuContainer';
 import { HeaderNavigationItem } from '@utils/interfaces';
 
 interface SubMenuProps {
-    options: HeaderNavigationItem[]
-    className?: string
+  options: HeaderNavigationItem[]
+  className?: string
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
 }
-export const SubMenu: React.FC<SubMenuProps> = ({ options, className }) => {
+export const SubMenu: React.FC<SubMenuProps> = ({ options, className, onMouseEnter = () => console.log(''), onMouseLeave = () => console.log('') }) => {
   return (
-    <div className={`flex pl-appPaddingLeft pr-appPaddingRight py-8 ${className}`}>
+    <div className={`flex pl-appPaddingLeft pr-appPaddingRight py-8 ${className}`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {options.map((option) => {
         return (
           <div className="flex-1" key={option?.title}>
