@@ -17,6 +17,7 @@ export const Header = () => {
   const [isFixed, setIsFixed] = useState<boolean>(false);
   const isFirstRender = useRef(true);
   const [showSubMenu, setShowSubMenu] = useState(false);
+  // const headerState = useReducer(subMenuReducer)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedCatagory, setCatagory] = useState('');
   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
@@ -25,11 +26,24 @@ export const Header = () => {
   const handleScroll = () => {
     setIsFixed(window.scrollY > import.meta.env.VITE_SCROLL_TOP_HEADER_HEIGHT);
   };
-  const subMenuHandler = (title: string) => {
-    const subMenuOptions = links.filter((option) => option.title === title)
+
+  // const subMenuHandler = (title: string) => {
+  //   const subMenuOptions = links.filter((option) => option.title === title)
+  //   SetSubMenu(subMenuOptions[0].submenu)
+  //   setCatagory(title)
+  //   setShowSubMenu(!showSubMenu);
+  // }
+
+  const mouseEnter = (title: string) => {
+    const subMenuOptions = links.filter((option) => option.title.toLocaleLowerCase() === title.toLocaleLowerCase());
     SetSubMenu(subMenuOptions[0].submenu)
     setCatagory(title)
-    setShowSubMenu(!showSubMenu);
+    setShowSubMenu(true);
+  }
+
+  const mouseLeave = () => {
+    console.log('mouseLeave')
+
   }
   useEffect(() => {
 
@@ -64,7 +78,9 @@ export const Header = () => {
             </div>
 
             <div className='hidden lg:text-center lg:flex '>
-              <NavigationContainer onClick={subMenuHandler}></NavigationContainer>
+              <NavigationContainer 
+                onMouseEnter={mouseEnter}
+                onMouseLeave={mouseLeave}></NavigationContainer>
             </div>
 
             <div className='hidden lg:flex justify-end lg:gap-8'>
