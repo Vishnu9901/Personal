@@ -4,6 +4,7 @@ import Logo from '../../../assets/Logo.svg'
 import { Input } from '@ui/atoms/Input';
 import './headerSearchBar.styles.scss'
 import { Button } from '@ui/atoms/Button';
+import { useNavigate } from 'react-router-dom';
 interface SearchBarHeaderProps {
     searchQuery: string;
     setSearchQuery: (query: string) => void;
@@ -12,10 +13,12 @@ interface SearchBarHeaderProps {
     onClose: () => void;
 }
 
-const SearchBarHeader: React.FC<SearchBarHeaderProps> = ({ searchQuery, setSearchQuery, handleClear, handleSearch, onClose }) => (
-    <div className="headerSearchbar grid grid-cols-12">
-        <div className="tm:hidden col-start-1 col-end-3">
-            <Image src={Logo} alt='logo' />
+const SearchBarHeader: React.FC<SearchBarHeaderProps> = ({ searchQuery, setSearchQuery, handleClear, handleSearch, onClose }) => {
+   const navigate = useNavigate();
+   
+   return (<div className="headerSearchbar grid grid-cols-12">
+        <div className="tm:hidden col-start-1 col-end-3" onClick={()=>{navigate('/'); onClose()}}>
+            <Image src={Logo} alt='logo'  />
         </div>
         <div className="w-full flex col-start-1 lg:col-start-3 col-end-12">
             <div className='relative w-full'>
@@ -47,7 +50,7 @@ const SearchBarHeader: React.FC<SearchBarHeaderProps> = ({ searchQuery, setSearc
         </div>
 
 
-    </div>
-);
+    </div>)
+};
 
 export default SearchBarHeader;
