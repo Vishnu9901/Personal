@@ -29,7 +29,7 @@ export const HeaderSearch: React.FC<HeaderSearchProps> = ({ onClose }) => {
     };
     return (
         <div className={`fixed !ml-0 h-[360px] inset-0 flex items-start justify-center z-50  overflow-y-scroll  ${closing ? 'animate-slideOut' : 'animate-slideIn'}`}>
-            <div className={`bg-white pr-10 lg:px-14 w-full h-[24rem] max-h-[119vh] shadow-lg transform duration-300 ${closing ? 'slide-out' : 'slide-in'} pt-8`}>
+            <div className={`bg-white px-8 lg:px-14 w-full h-[24rem] max-h-[119vh] shadow-lg transform duration-300 ${closing ? 'slide-out' : 'slide-in'} pt-8`}>
                 <SearchBarHeader searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
                     handleClear={handleClear}

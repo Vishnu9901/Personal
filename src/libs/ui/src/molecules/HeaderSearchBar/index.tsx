@@ -1,6 +1,4 @@
 import React from 'react';
-import searchIcon from '../../../assets/searchIcon.svg';
-import clearIcon from '../../../assets/clearIcon.svg';
 import { Image } from '@ui/atoms/Image';
 import Logo from '../../../assets/Logo.svg'
 import { Input } from '@ui/atoms/Input';
@@ -14,11 +12,11 @@ interface SearchBarHeaderProps {
 }
 
 const SearchBarHeader: React.FC<SearchBarHeaderProps> = ({ searchQuery, setSearchQuery, handleClear, handleSearch, onClose }) => (
-    <div className="headerSearchbar lg:grid grid-cols-12">
+    <div className="headerSearchbar grid grid-cols-12">
         <div className="tm:hidden col-start-1 col-end-3">
             <Image src={Logo} alt='logo' />
         </div>
-        <div className="w-full flex col-start-3 col-end-12">
+        <div className="w-full flex col-start-1 lg:col-start-3 col-end-12">
             <div className='relative w-full'>
                 <Input
                     type="text"
