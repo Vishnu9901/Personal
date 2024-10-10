@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import animations from '@midudev/tailwind-animations'
 export default {
   content: [
     './index.html',
@@ -7,11 +8,13 @@ export default {
   theme: {
     extend: {
       screens: {
-        'xsm':'327px',
+        'xsm': '327px',
         'sm': '640px',
         'md': '768px',
         'lg': '1024px',
         'xl': '1280px',
+        'tm': { 'max': '1020px' },  // max-width 1020px
+        'tl': { 'min': '1021px' },
 
       },
       fontFamily: {
@@ -22,7 +25,7 @@ export default {
         HeroNewSemiBold: ['Hero New SemiBold'],
         HeroNewThin: ['Hero New Thin'],
         HeroNewUltraLight: ['Hero New UltraLight'],
-        SwiperIconns:['swiper-icons']
+        SwiperIconns: ['swiper-icons']
       },
       padding: {
         'appPaddingLeft': '3.5rem',
@@ -32,15 +35,29 @@ export default {
         'footerlogoWidth': 'var(--footer-brand-logo-width)',
         'footerlogoHeight': 'var(--footer-brand-logo-height)'
       },
-      colors:{
+      colors: {
         'appTheme': 'var(--primary-color)',
-        'appBlackTheme':'var(--secondary-color)',
+        'appBlackTheme': 'var(--secondary-color)',
         'appTextColor': 'var(--app-text-color)'
       },
       boxShadow: {
-        'bottom': '0 10px 15px -3px rgba(0, 0, 0, 0.1)', 
+        'bottom': '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
       }
     },
+    animation: {
+      slideIn: 'slideIn 0.8s forwards',
+      slideOut: 'slideOut 0.8s forwards',
+    },
+    keyframes: {
+      slideIn: {
+        '0%': { transform: 'translateY(-100%)' },
+        '100%': { transform: 'translateY(0)' },
+      },
+      slideOut: {
+        '0%': { transform: 'translateY(0)' },
+        '100%': { transform: 'translateY(-100%)' },
+      },
+    },
   },
-  plugins: [],
+  plugins: [animations],
 }

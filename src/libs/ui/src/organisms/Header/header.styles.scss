@@ -17,6 +17,37 @@
         }
     }
 
+    .cart {
+        .cart-icon {
+            background-image: url('../../../assets/cart-wheels.svg');
+        }
+
+
+        &:hover .cart-icon {
+            background-image: url('../../../assets/hover-cart.svg');
+        }
+    }
+
+    .profile {
+        .profile-icon {
+            background-image: url('../../../assets/profile.svg');
+        }
+
+        &:hover .profile-icon {
+            background-image: url('../../../assets/hover-profile.svg');
+        }
+    }
+
+    .search {
+        .search-icon {
+            background-image: url('../../../assets/searchIcon.svg');
+        }
+
+        &:hover .search-icon {
+            background-image: url('../../../assets/HoverSearch.svg');
+        }
+    }
+
 }
 
 .header-fixed {

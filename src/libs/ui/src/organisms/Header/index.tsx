@@ -13,12 +13,14 @@ import { useEffect, useRef, useState } from 'react';
 import { SubMenu } from '../SubMenu';
 import { links } from '@utils/constants';
 import { MobileSubMenu } from '../HeaderMobileSubMenu';
+import { HeaderSearch } from '../HeaderSearch';
 
 export const Header = () => {
   const [isFixed, setIsFixed] = useState<boolean>(false);
   const isFirstRender = useRef(true);
   const [showSubMenu, setShowSubMenu] = useState(false);
-  const [toggleMobileSubMenu, SettoggleMobileSubMenu] = useState(false)
+  const [toggleMobileSubMenu, SettoggleMobileSubMenu] = useState(false);
+  const [toggleSearch, SetToggleSearch] = useState(false)
 
   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const [subMenu, SetSubMenu] = useState<any>([])
@@ -48,6 +50,9 @@ export const Header = () => {
 
   const openMobileSubMenu = () => {
     SettoggleMobileSubMenu(!toggleMobileSubMenu)
+  }
+  const closeSearchBar = () => {
+    SetToggleSearch(false)
   }
 
   useEffect(() => {
@@ -90,24 +95,28 @@ export const Header = () => {
             </div>
 
             <div className='hidden lg:flex justify-end lg:gap-8' onMouseEnter={subMenuLeave}>
-              <Button className='headerContainer-icon max-xsm:p-1'>
-                <Image src={searchIcon} alt='searchIcon'></Image>
+              <Button className='headerContainer-icon search max-xsm:p-1' onClick={() => {
+                SetToggleSearch(true)
+              }}>
+                <span className='search-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
-              <Button className='headerContainer-icon lg:flex hidden'>
-                <Image src={profile} alt='profile'></Image>
+              <Button className='headerContainer-icon profile lg:flex hidden'>
+                <span className='profile-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
-              <Button className='headerContainer-icon max-xsm:p-1'>
-                <Image src={cart} alt='cart'></Image>
+              <Button className='headerContainer-icon cart max-xsm:p-1'>
+                <span className='cart-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
             </div>
             <div className='lg:hidden flex justify-end lg:gap-8'>
               <Image src={logo} alt='logo' className='lg:hidden flex'></Image>
               <div className='flex'>
-                <Button className='headerContainer-icon max-xsm:p-1'>
-                  <Image src={searchIcon} alt='searchIcon'></Image>
+                <Button className='headerContainer-icon search max-xsm:p-1' onClick={() => {
+                  SetToggleSearch(true)
+                }}>
+                  <span className='search-icon w-6 h-6 bg-no-repeat'></span>
                 </Button>
-                <Button className='headerContainer-icon max-xsm:p-1'>
-                  <Image src={cart} alt='cart'></Image>
+                <Button className='headerContainer-icon cart max-xsm:p-1'>
+                  <span className='cart-icon w-6 h-6 bg-no-repeat'></span>
                 </Button>
               </div>
             </div>
@@ -129,7 +138,7 @@ export const Header = () => {
           }}>
           </MobileSubMenu>
         </>}
-
+        {toggleSearch && <HeaderSearch onClose={closeSearchBar}></HeaderSearch>}
       </div>
     </div>
 
