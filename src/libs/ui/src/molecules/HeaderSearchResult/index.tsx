@@ -13,7 +13,7 @@ export const HeaderSearchResult: React.FC<HeaderSearchResultProps> = ({ query })
         }, 2000)
     }, [query])
 
-    return <div className="px-10 py-8 lg:py-0 lg:px-0 lg:grid grid-cols-12">
+    return <div className="px-10 py-8 lg:pb-0 lg:pt-7 lg:px-0 lg:grid grid-cols-12">
         <div className="col-start-3 col-end-10">
             <h3 className="!font-bold tracking-[0.3px] mb-2 font-HeroNewBold">Popular Searches</h3>
             <div className={`${isLoading ? 'flex-col  lg:flex-row flex justify-between' : ''}`}>

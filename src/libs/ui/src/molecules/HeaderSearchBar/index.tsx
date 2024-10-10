@@ -14,32 +14,30 @@ interface SearchBarHeaderProps {
 }
 
 const SearchBarHeader: React.FC<SearchBarHeaderProps> = ({ searchQuery, setSearchQuery, handleClear, handleSearch, onClose }) => (
-    <div className="flex items-center justify-between headerSearchbar">
-        <div className="tm:hidden self-end">
+    <div className="headerSearchbar lg:grid grid-cols-12">
+        <div className="tm:hidden col-start-1 col-end-3">
             <Image src={Logo} alt='logo' />
         </div>
-        <div className="relative flex-1 pb-[35px] tm:pb-0 text-center">
-            <div className='lg:w-[55rem] relative mx-auto'>
+        <div className="w-full flex col-start-3 col-end-12">
+            <div className='relative w-full'>
                 <Input
                     type="text"
                     value={searchQuery}
                     onChange={(e: any) => setSearchQuery(e.target.value)}
-                    className="lg:w-[55rem] border-b border-[#999] focus:outline-none focus:border-b focus:border-[#999] border-t-0 border-l-0 border-r-0 w-full py-2 px-4 font-HeroNewRegular tm:w-[90%]"
+                    className="border-b border-[#999] focus:outline-none focus:border-b focus:border-[#999] border-t-0 border-l-0 border-r-0 w-full py-2 px-4 font-HeroNewRegular"
                     placeholder="Search..."
                 />
 
                 {searchQuery && (
                     <span className="absolute top-2 cursor-pointer inputClear h-6 w-6 inline-block bg-no-repeat right-16" onClick={handleClear}>
-                        {/* <Image src={clearIcon} alt="Clear Search" className="relative right-[4rem] top-[0.2rem] tm:!right-[3rem]" /> */}
                     </span>
                 )}
                 <span className="absolute top-2 cursor-pointer tm:unset searchIcon h-6 w-6 inline-block bg-no-repeat  right-8" onClick={handleSearch}>
-                    {/* <Image src={searchIcon} alt="searchIcon" className="relative right-[1.75rem]" /> */}
                 </span>
             </div>
 
         </div>
-        <div className='self-end'>
+        <div className='flex w-full col-start-12 justify-end self-end'>
             <span
                 className="cursor-pointer hover:bg-[#f2f2f2] lg:rounded-[13rem] close-icon bg-no-repeat h-6 w-6 inline-block"
                 onClick={onClose}
