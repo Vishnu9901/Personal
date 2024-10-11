@@ -20,9 +20,10 @@ export const ProductImage: React.FC<ProductImageProps> = ({
     <Image
       src={src}
       alt={alt}
-      className={`object-cover ${className}`}
+      className={`object-contain ${className}`}
       width={width}
       height={height}
+      loading='lazy'
     />
   );
 };

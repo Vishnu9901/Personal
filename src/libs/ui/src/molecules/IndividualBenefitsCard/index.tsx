@@ -16,6 +16,8 @@ export const IndividualBenefitsCard: React.FC<IndividualBenefitsCardProps> = ({
         <div className='relative mx-auto mb-5'>
           <Image src={imageSrc}
             alt={imageAlt}
+            loading='lazy'
+            className='w-full h-full'
           >
           </Image>
         </div>

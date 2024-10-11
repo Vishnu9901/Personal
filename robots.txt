@@ -1,0 +1,18 @@
+# Allow all crawlers to access everything
+User-agent: *
+Disallow:
+
+# Prevent specific crawlers from accessing a specific folder
+User-agent: BadBot
+Disallow: /
+
+# Block access to the private folder
+User-agent: *
+Disallow: /private/
+
+# Allow specific paths
+User-agent: *
+Allow: /public/
+
+# Sitemap URL (optional)
+Sitemap: http://localhost:4173/

@@ -12,7 +12,10 @@ export const Product: React.FC<ProductProps> = ({ image, name, isBestSeller, rat
 
     <div className="group relative p-2">
       <div>
-        <ProductImage src={image} alt={name}></ProductImage>
+        <div className='w-full h-[19rem]'>
+          <ProductImage src={image} alt={name} className='w-full h-full'></ProductImage>
+        </div>
+       
         {isBestSeller && (
           <Badge
             className={
