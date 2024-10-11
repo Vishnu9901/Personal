@@ -38,7 +38,9 @@ export default {
       colors: {
         'appTheme': 'var(--primary-color)',
         'appBlackTheme': 'var(--secondary-color)',
-        'appTextColor': 'var(--app-text-color)'
+        'appTextColor': 'var(--app-text-color)',
+        'appErrorMessage': 'var(--app-errorMessage-color)',
+        'formFieldBorder': 'var(--form-field-border)'
       },
       boxShadow: {
         'bottom': '0 10px 15px -3px rgba(0, 0, 0, 0.1)',

@@ -20,6 +20,8 @@
   --text-color: black;
   --primary-color: #125ee0;
   --secondary-color: #000000;
+  --app-errorMessage-color: #ce4635;
+  --form-field-border: #595959;
 
   /* width and height */
   --footer-brand-logo-height: 2rem;
@@ -48,7 +50,7 @@
   --hero-banner-content-maxheight-mob: 16rem;
   --hero-banner-cta-button-min-width: 9rem;
   --hero-banner-height-mob: 12rem;
-  --swiper-navigation-size :1.2rem;
+  --swiper-navigation-size: 1.2rem;
 
   /* swiper */
   /* --swiper-pagination-bullet-opacity: */
@@ -69,47 +71,52 @@
 @font-face {
   font-family: 'Hero New Bold';
   src: url('/assets/fonts/Hero New Bold.otf') format('truetype');
+  font-display: swap;
 
 }
 
 @font-face {
   font-family: 'Hero New ExtraBold';
   src: url('/assets/fonts/Hero New ExtraBold.otf') format('truetype');
+  font-display: swap;
 
 }
 
 @font-face {
   font-family: 'Hero New Light';
   src: url('/assets/fonts/Hero New Light.otf') format('truetype');
+  font-display: swap;
 
 }
 
 @font-face {
   font-family: 'Hero New Regular';
   src: url('/assets/fonts/Hero New Regular.otf') format('truetype');
-
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Hero New SemiBold';
   src: url('/assets/fonts/Hero New SemiBold.otf') format('truetype');
-
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Hero New UltraLight';
   src: url('/assets/fonts/Hero New UltraLight.otf') format('truetype');
-
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Hero New Thin';
   src: url('/assets/fonts/Hero New Thin.otf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'swiper-icons';
   src: url('/assets/fonts/swiper-icons.ttf') format('truetype');
+  font-display: swap;
 }
 
 

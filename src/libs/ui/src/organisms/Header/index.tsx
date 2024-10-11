@@ -4,9 +4,6 @@ import { Button } from '@ui/atoms/Button';
 import { NavigationContainer } from '@ui/molecules/HeaderNavigationContainer';
 import './header.styles.scss';
 import logo from '../../../assets/Logo.svg';
-import searchIcon from '../../../assets/searchIcon.svg';
-import profile from '../../../assets/profile.svg';
-import cart from '../../../assets/cart-wheels.svg'
 import sell from '../../../assets/sell.svg';
 import hambargar from '../../../assets/Hambargar.svg';
 import { useEffect, useRef, useState } from 'react';
@@ -15,7 +12,11 @@ import { links } from '@utils/constants';
 import { MobileSubMenu } from '../HeaderMobileSubMenu';
 import { HeaderSearch } from '../HeaderSearch';
 
-export const Header = () => {
+
+interface HeaderProps {
+  openLogin: () => void
+}
+export const Header:React.FC<HeaderProps> = ({openLogin}) => {
   const [isFixed, setIsFixed] = useState<boolean>(false);
   const isFirstRender = useRef(true);
   const [showSubMenu, setShowSubMenu] = useState(false);
@@ -82,7 +83,7 @@ export const Header = () => {
           <div className="container pl-6 pr-6 headerContainer lg:pl-appPaddingLeft lg:pr-appPaddingRight items-center">
             <div className='p-4 max-xsm:p-3' onMouseEnter={subMenuLeave}>
               <Image src={logo} alt='logo' className='lg:flex hidden' ></Image>
-              <Button className='lg:hidden flex' onClick={openMobileSubMenu}>
+              <Button id="menu" aria-label='hambargar-menu' className='lg:hidden flex' onClick={openMobileSubMenu}>
                 <Image src={hambargar} alt="hambargar"></Image>
               </Button>
             </div>
@@ -95,27 +96,27 @@ export const Header = () => {
             </div>
 
             <div className='hidden lg:flex justify-end lg:gap-8' onMouseEnter={subMenuLeave}>
-              <Button className='headerContainer-icon search max-xsm:p-1' onClick={() => {
+              <Button id="search-icon" aria-label='serch icon' className='headerContainer-icon search max-xsm:p-1' onClick={() => {
                 SetToggleSearch(true)
               }}>
                 <span className='search-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
-              <Button className='headerContainer-icon profile lg:flex hidden'>
+              <Button  id="profile-icon" aria-label='profile icon' className='headerContainer-icon profile lg:flex hidden'  onClick={openLogin}>
                 <span className='profile-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
-              <Button className='headerContainer-icon cart max-xsm:p-1'>
+              <Button id="cart-icon" aria-label='cart icon' className='headerContainer-icon cart max-xsm:p-1' onClick={openLogin}>
                 <span className='cart-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
             </div>
             <div className='lg:hidden flex justify-end lg:gap-8'>
               <Image src={logo} alt='logo' className='lg:hidden flex'></Image>
               <div className='flex'>
-                <Button className='headerContainer-icon search max-xsm:p-1' onClick={() => {
+                <Button id="search-icon" aria-label='search icon' className='headerContainer-icon search max-xsm:p-1' onClick={() => {
                   SetToggleSearch(true)
                 }}>
                   <span className='search-icon w-6 h-6 bg-no-repeat'></span>
                 </Button>
-                <Button className='headerContainer-icon cart max-xsm:p-1'>
+                <Button id="cart-icon" aria-label='cart icon' className='headerContainer-icon cart max-xsm:p-1'  onClick={openLogin}>
                   <span className='cart-icon w-6 h-6 bg-no-repeat'></span>
                 </Button>
               </div>

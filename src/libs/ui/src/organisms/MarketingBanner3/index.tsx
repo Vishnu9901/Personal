@@ -16,7 +16,10 @@ export const MarketingBannerThree: React.FC<MarketingBannerThreeProps> = ({ imgS
       <div className={`marketingbanner3 ${className}`}>
         <Image src={imgSrc}
           alt="product Image"
-          className="marketingbanner3-image">
+          className="marketingbanner3-image"
+          // loading='lazy'
+          loading="eager"
+          >
         </Image>
         <div className="bannerDeatails">
           <h2>{title}</h2>

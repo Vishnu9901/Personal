@@ -2,7 +2,6 @@ import React from 'react';
 import CloseSearch from '../../../assets/CloseSearch.svg';
 import searchIcon from '../../../assets/searchIcon.svg';
 import clearIcon from '../../../assets/clearIcon.svg';
-import { HeaderLogo } from '@ui/atoms/HeaderLogo';
 import { Image } from '@ui/atoms/Image';
 
 interface ModalHeaderProps {
@@ -16,7 +15,7 @@ interface ModalHeaderProps {
 const SearchModalHeader: React.FC<ModalHeaderProps> = ({ searchQuery, setSearchQuery, handleClear, handleSearch, onClose }) => (
   <div className="p-4 flex items-center justify-between">
     <div className="tm:hidden">
-      <HeaderLogo />
+      {/* <HeaderLogo /> */}
     </div>
     <div className="relative flex-1 pb-[35px] tm:pb-0">
       <input

@@ -36,12 +36,14 @@ export const Product: React.FC<ProductProps> = ({ image, name, isBestSeller, rat
       </div>
       <div className="flex pt-3 justify-center">
         <Button
+          id="login-btn"
           className="py-[0.625rem] px-6
           w-full text-appTheme border-appTheme border-2 text-[1rem] font-bold  font-HeroNewBold  leading-6 tracking-[0.3px]
           group-hover:bg-appBlackTheme group-hover:text-white group-hover:underline group-hover:border-white
           hover:bg-appBlackTheme hover:text-white hover:underline hover:border-white   
         "
           type={'submit'}
+          aria-label='login button'
         >
           {' Log In to Order'}
         </Button>

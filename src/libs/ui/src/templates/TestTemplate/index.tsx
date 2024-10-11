@@ -3,7 +3,7 @@ import { Button } from '../../atoms/Button'
 export const TestTemplate = () => {
   return (
     <>
-      <Button>Login</Button>
+      <Button id="test-login" aria-label='test login button'>Login</Button>
     </>
   )
 }

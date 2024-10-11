@@ -40,7 +40,7 @@ const SearchBarHeader: React.FC<SearchBarHeaderProps> = ({ searchQuery, setSearc
 
         </div>
         <div className='flex w-full col-start-12 justify-end self-end lg:pt-4'>
-            <Button className='h-10 w-10 lg:hover:bg-[#f2f2f2] lg:lg:rounded-[13rem] flex justify-center items-center'>
+            <Button id="closeIcon" className='h-10 w-10 lg:hover:bg-[#f2f2f2] lg:lg:rounded-[13rem] flex justify-center items-center' aria-label="closeIcon">
                 <span
                     className="cursor-pointer  close-icon bg-no-repeat h-[24px] w-[24px] inline-block"
                     onClick={onClose}

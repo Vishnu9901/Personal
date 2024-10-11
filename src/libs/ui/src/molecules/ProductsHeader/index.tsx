@@ -24,8 +24,10 @@ export const PopularProductsHeader: React.FC<PopularProductsHeaderProps> = ({ ti
               {description}
             </p>
             <Button
+              id="login-view-price-btn"
               className="text-base font-bold text-appTheme hover:text-white hover:bg-appTheme font-HeroNewBold"
               type="submit"
+              aria-label='login view price button'
             >
                             Log in to view prices
             </Button>

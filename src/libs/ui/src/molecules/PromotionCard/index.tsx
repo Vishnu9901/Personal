@@ -34,6 +34,7 @@ export const PromotionCard: React.FC<PromotionCardProps> = ({
           <Image src={imageUrl}
             alt={title}
             className="w-full"
+            loading="lazy"
           >
           </Image>
         </div>
