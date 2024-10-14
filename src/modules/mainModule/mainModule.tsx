@@ -7,7 +7,7 @@ import { toggleLoginModel } from '@store/services/slices/ModalSlice';
 import { LoginModal } from '@ui/organisms/LoginModal';
 
 
-export const MainModule = () => {
+const MainModule = () => {
   // Modal
   const dispatch = useDispatch();
 
@@ -38,3 +38,4 @@ export const MainModule = () => {
     </>
   )
 }
+export default MainModule;

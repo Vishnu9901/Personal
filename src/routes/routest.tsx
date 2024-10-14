@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
 import { TestPage } from '../pages/TestPage/TestPage'
-import { LandingPage } from '../pages/LandingPage'
-import { MainModule } from '../modules/mainModule/mainModule'
-import { Suspense } from 'react'
-import { AppSpinner } from '@ui/atoms/AppSpinner'
+import { lazy, Suspense } from 'react'
+import { AppSpinner } from '@ui/atoms/AppSpinner';
+
+const MainModule = lazy(() => import('../modules/mainModule/mainModule'));
+const LandingPage = lazy(() => import('../pages/LandingPage'))
+const RegisterPage = lazy(() => import('../pages/RegisterPage/index'));
 
 export const AppRoutes = () => {
   return (
@@ -14,7 +16,12 @@ export const AppRoutes = () => {
             <MainModule></MainModule>
           </Suspense>}>
           <Route path="test" element={<TestPage></TestPage>} />
-          <Route path="" element={<LandingPage></LandingPage>} />
+          <Route path="" element={<Suspense fallback>
+            <LandingPage></LandingPage>
+          </Suspense>} />
+          <Route path="auth/register" element={<Suspense fallback>
+            <RegisterPage></RegisterPage>
+          </Suspense>}></Route>
         </Route>
       </Routes>
     </>

@@ -11,6 +11,7 @@ import { SubMenu } from '../SubMenu';
 import { links } from '@utils/constants';
 import { MobileSubMenu } from '../HeaderMobileSubMenu';
 import { HeaderSearch } from '../HeaderSearch';
+import { useNavigate } from 'react-router-dom';
 
 
 interface HeaderProps {
@@ -18,10 +19,10 @@ interface HeaderProps {
 }
 export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
   const [isFixed, setIsFixed] = useState<boolean>(false);
-  // const isFirstRender = useRef(true);
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [toggleMobileSubMenu, SettoggleMobileSubMenu] = useState(false);
-  const [toggleSearch, SetToggleSearch] = useState(false)
+  const [toggleSearch, SetToggleSearch] = useState(false);
+  const navigate = useNavigate()
 
   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const [subMenu, SetSubMenu] = useState<any>([])
@@ -56,12 +57,10 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
     SetToggleSearch(false)
   }
 
+  const navigateHome = () => {
+    navigate('/');
+  }
   useEffect(() => {
-    // console.log('import.meta.env.VITE_DEV', import.meta.env.VITE_DEV)
-    // if (isFirstRender.current && import.meta.env.VITE_DEV === 'true') {
-    //   isFirstRender.current = false;
-    //   return;
-    // }
 
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -81,9 +80,8 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
       <div className={`bg-white relative w-full z-50  ${isFixed ? 'header-fixed' : ''}`}>
         <header className={'shadow-bottom '}>
           <div className="container pl-6 pr-6 headerContainer lg:pl-appPaddingLeft lg:pr-appPaddingRight items-center">
-            {/* p-4 max-xsm:p-3 */}
             <div onMouseEnter={subMenuLeave}>
-              <div className='lg:h-[var(--navigation-logo-height-mobile)] lg:py-2'>
+              <div className='lg:h-[var(--navigation-logo-height-mobile)] lg:py-2' onClick={navigateHome}>
                 <Image src={logo} alt='logo' className='lg:flex hidden h-full w-full' ></Image>
               </div>
 
@@ -113,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
               </Button>
             </div>
             <div className='lg:hidden flex justify-end lg:gap-8'>
-              <div className='flex items-center h-[var(--navigation-logo-height-mobile)] py-2'>
+              <div className='flex items-center h-[var(--navigation-logo-height-mobile)] py-2' onClick={navigateHome}>
                 <Image src={logo} alt='logo' className='lg:hidden flex w-full h-full'></Image>
               </div>
 

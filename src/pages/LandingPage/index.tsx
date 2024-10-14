@@ -1,5 +1,6 @@
 import { LandingPageTemplate } from '../../libs/ui/src/templates/LandingPageTemplate'
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return <LandingPageTemplate></LandingPageTemplate>
 }
+export default LandingPage;
