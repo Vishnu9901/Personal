@@ -43,7 +43,7 @@ const RegisterForm: React.FC = () => {
     console.log('Registering:', data);
   };
   const handleFocus = () => {
-    setModalOpen(true);
+    // setModalOpen(true);
   };
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
@@ -53,7 +53,7 @@ const RegisterForm: React.FC = () => {
   };
 
   const handleBlur = () => {
-    setModalOpen(false);
+    // setModalOpen(false);
   };
 
 
@@ -211,7 +211,7 @@ const RegisterForm: React.FC = () => {
                   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
                   onChange={(e: any) => {
                     field.onChange(e);
-                    setModalOpen(true);
+                    // setModalOpen(true);
                     setIsPasswordFieldEmpty(e.target.value === '');
                     if (errors.password) {
                       clearErrors('password');  // Clear password error on input change
