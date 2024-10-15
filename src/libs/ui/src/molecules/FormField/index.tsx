@@ -5,9 +5,9 @@ interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
-    ({ className, ...props }, ref) => {
-        return (
-            <input ref={ref} className={className} {...props} />
-        );
-    }
+  ({ className, ...props }, ref) => {
+    return (
+      <input ref={ref} className={className} {...props} />
+    );
+  }
 );

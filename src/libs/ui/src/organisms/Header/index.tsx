@@ -12,6 +12,8 @@ import { links } from '@utils/constants';
 import { MobileSubMenu } from '../HeaderMobileSubMenu';
 import { HeaderSearch } from '../HeaderSearch';
 import { useNavigate } from 'react-router-dom';
+import { LoginPopover, LoginPopoverConstants } from '../LoginPopover';
+
 
 
 interface HeaderProps {
@@ -22,6 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [toggleMobileSubMenu, SettoggleMobileSubMenu] = useState(false);
   const [toggleSearch, SetToggleSearch] = useState(false);
+  const [clickedProfile, SetClickedProfile] = useState(false);
   const navigate = useNavigate()
 
   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
@@ -60,6 +63,28 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
   const navigateHome = () => {
     navigate('/');
   }
+
+  const clickedLoginPopover = (name: string) => {
+    if (name === LoginPopoverConstants.Login) {
+      openLogin();
+      return;
+    }
+    navigate('auth/register');
+    closeLoginPopover();
+  }
+
+  const openLoginPopover = () => {
+    SetClickedProfile(true)
+  }
+
+  const closeLoginPopover = () => {
+    SetClickedProfile(false)
+  }
+
+  const toggleLoginPopover = () => {
+    SetClickedProfile(!clickedProfile)
+  }
+
   useEffect(() => {
 
     window.addEventListener('scroll', handleScroll);
@@ -103,10 +128,18 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
               }}>
                 <span className='search-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
-              <Button id="profile-icon" aria-label='profile icon' className='headerContainer-icon profile lg:flex hidden' onClick={openLogin}>
+              <Button id="profile-icon"
+                aria-label='profile icon'
+                className='headerContainer-icon profile lg:flex hidden'
+                onMouseEnter={openLoginPopover}
+                onMouseLeave={closeLoginPopover} >
                 <span className='profile-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
-              <Button id="cart-icon" aria-label='cart icon' className='headerContainer-icon cart max-xsm:p-1' onClick={openLogin}>
+              <Button id="cart-icon"
+                aria-label='cart icon'
+                className='headerContainer-icon cart max-xsm:p-1'
+                onMouseEnter={openLoginPopover}
+                onMouseLeave={closeLoginPopover}>
                 <span className='cart-icon w-6 h-6 bg-no-repeat'></span>
               </Button>
             </div>
@@ -116,12 +149,20 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
               </div>
 
               <div className='flex'>
-                <Button id="search-icon" aria-label='search icon' className='headerContainer-icon search max-xsm:p-1' onClick={() => {
-                  SetToggleSearch(true)
-                }}>
+                <Button id="search-icon"
+                  aria-label='search icon'
+                  className='headerContainer-icon search max-xsm:p-1'
+                  onClick={() => {
+                    SetToggleSearch(true)
+                    SetClickedProfile(false)
+                  }}>
                   <span className='search-icon w-6 h-6 bg-no-repeat'></span>
                 </Button>
-                <Button id="cart-icon" aria-label='cart icon' className='headerContainer-icon cart max-xsm:p-1' onClick={openLogin}>
+                <Button id="cart-icon"
+                  aria-label='cart icon'
+                  className='headerContainer-icon cart max-xsm:p-1'
+                  onMouseLeave={closeLoginPopover}
+                  onClick={toggleLoginPopover}>
                   <span className='cart-icon w-6 h-6 bg-no-repeat'></span>
                 </Button>
               </div>
@@ -145,6 +186,12 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
           </MobileSubMenu>
         </>}
         {toggleSearch && <HeaderSearch onClose={closeSearchBar}></HeaderSearch>}
+
+        {clickedProfile && <LoginPopover onClick={clickedLoginPopover}
+          onMouseEnter={openLoginPopover}
+          onMouseLeave={closeLoginPopover}
+          className='loginPopover'>
+        </LoginPopover>}
       </div>
     </div>
 

@@ -50,6 +50,10 @@
 
 }
 
+.loginPopover {
+    top: calc(var(--navigation-header-height-desk) - 10px)
+}
+
 .header-fixed {
     position: fixed !important;
     top: 0;

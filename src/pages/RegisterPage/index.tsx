@@ -1,6 +1,6 @@
-import { RegisterTemplatePage } from "@ui/templates/RegisterTemplate"
+import { RegisterTemplatePage } from '@ui/templates/RegisterTemplate'
 
 const RegisterPage = () => {
-    return <RegisterTemplatePage></RegisterTemplatePage>
+  return <RegisterTemplatePage></RegisterTemplatePage>
 }
 export default RegisterPage

@@ -14,14 +14,16 @@ export const AppRoutes = () => {
         <Route path="" element={
           <Suspense fallback={<AppSpinner />}>
             <MainModule></MainModule>
-          </Suspense>}>
+          </Suspense>
+        }>
           <Route path="test" element={<TestPage></TestPage>} />
           <Route path="" element={<Suspense fallback>
             <LandingPage></LandingPage>
           </Suspense>} />
           <Route path="auth/register" element={<Suspense fallback>
             <RegisterPage></RegisterPage>
-          </Suspense>}></Route>
+          </Suspense>}>
+          </Route>
         </Route>
       </Routes>
     </>
