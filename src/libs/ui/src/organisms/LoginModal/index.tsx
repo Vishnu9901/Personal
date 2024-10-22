@@ -3,12 +3,9 @@ import ModalHeader from '@ui/molecules/ModalHeader'
 import LoginForm from '../LoginForm'
 import { useState } from 'react';
 import ForgotPasswordForm from '../ForgotPasswordForm';
+import AlreadyRegistered from '../AlreadyRegisteredForm';
+import { LoginModalConstant } from '@utils/enums';
 
-enum LoginModalConstant {
-    Login = 'login',
-    ForgotPassword = 'ForgotPassword',
-    AlreadyRegistered = 'alreadyRegistered'
-}
 interface LoginModalProps {
     close: () => void,
 }
@@ -26,8 +23,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({ close }) => {
       <Modal>
         <ModalHeader onClose={close}></ModalHeader>
         {currentForm === LoginModalConstant.Login && <LoginForm onSubmit={onSubmit} forgotPassword={forgotPassword}></LoginForm>}
-        {currentForm === LoginModalConstant.ForgotPassword && <ForgotPasswordForm onSubmit={onSubmit} logiModal={()=> setCurrentForm(LoginModalConstant.Login)}></ForgotPasswordForm>}
-        {currentForm === LoginModalConstant.AlreadyRegistered && <ForgotPasswordForm onSubmit={onSubmit} logiModal={()=> setCurrentForm(LoginModalConstant.Login)}></ForgotPasswordForm>}
+        {currentForm === LoginModalConstant.ForgotPassword && <ForgotPasswordForm titleClassName='mb-8' onSubmit={onSubmit} loginModal={()=> setCurrentForm(LoginModalConstant.AlreadyRegistered)}></ForgotPasswordForm>}
+        {currentForm === LoginModalConstant.AlreadyRegistered && <AlreadyRegistered onSubmit={onSubmit} loginModal={()=> setCurrentForm(LoginModalConstant.ForgotPassword)}></AlreadyRegistered>}
       </Modal>
     </>
   )

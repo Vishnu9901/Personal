@@ -40,11 +40,15 @@ export default {
         'appBlackTheme': 'var(--secondary-color)',
         'appTextColor': 'var(--app-text-color)',
         'appErrorMessage': 'var(--app-errorMessage-color)',
-        'formFieldBorder': 'var(--form-field-border)'
+        'formFieldBorder': 'var(--form-field-border)',
+        
+        secondary: {
+          '400': 'var(--text-secondary-color)'
+        }
       },
       boxShadow: {
         'bottom': '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-      }
+      },
     },
     animation: {
       slideIn: 'slideIn 0.8s forwards',

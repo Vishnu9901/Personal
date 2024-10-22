@@ -8,16 +8,21 @@ import { LoginFormControls, ValidationForm } from '@utils/validation';
 
 interface ForgotPasswordFormProps {
   onSubmit: (data: { email: string }) => void;
-  logiModal: (value: boolean) => void;
+  loginModal: (value: boolean) => void;
   className?: string;
-  headclassname?: string;
+  headClassname?: string;
+  titleClassName?: string;
+  subTitleClassName?: string;
+  formClassName?: string
 }
 
 const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   onSubmit,
-  logiModal,
-  className,
-  headclassname,
+  loginModal,
+  titleClassName,
+  headClassname,
+  subTitleClassName,
+  formClassName
 }) => {
   const {
     control,
@@ -29,17 +34,17 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
 
   return (
     <>
-      <div className={`mb-8 ${className}`}>
-        <p className={`text-[32px] font-HeroNewRegular text-black ${headclassname}`}>
+      <div className={`${titleClassName}`}>
+        <p className={`lg:text-[32px] font-HeroNewRegular text-black ${headClassname}`}>
           Forgot Your Password?
         </p>
       </div>
-      <Paragraph className={`font-HeroNewRegular  font-normal text-black ${className}`}>
+      <Paragraph className={`font-HeroNewRegular  font-normal text-black ${subTitleClassName}`}>
         Recover your password. Please enter your email address below to receive a password reset link.
       </Paragraph>
-      <Paragraph className={`font-HeroNewRegular font-normal text-black ${className}`}> Allow for 15 mins, and check spam/junk folders before trying again.</Paragraph>
+      <Paragraph className={`font-HeroNewRegular font-normal text-black ${subTitleClassName}`}> Allow for 15 mins, and check spam/junk folders before trying again.</Paragraph>
 
-      <form onSubmit={handleSubmit(onSubmit)} className={`flex flex-col space-y-1 ${className}`}>
+      <form onSubmit={handleSubmit(onSubmit)} className={`flex flex-col space-y-1 ${formClassName}`}>
         <div className='flex text-xs font-heroNewLight'>
           <Label className="mt-2 text-xs font-HeroNewRegular">Email</Label>
           <Label className="mt-2 ml-0 text-s font-HeroNewRegular text-red-600"> *</Label>
@@ -53,7 +58,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
               {...field}
               type="email"
               className={`rounded-none pt-1 pb-1 pl-4 pr-4 !mt-3 !mb-6 h-[48px] text-base border-[1px] ${errors[LoginFormControls.Email] ? 'border-[#595959]' : 'border-[#d6d6d6]'
-              } ${isSubmitted && errors[LoginFormControls.Email] ? 'focus:outline-none' : 'focus:outline-none'}`}
+                } ${isSubmitted && errors[LoginFormControls.Email] ? 'focus:outline-none' : 'focus:outline-none'}`}
               placeholder=""
             />
           )}
@@ -64,7 +69,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
 
         <div className="flex justify-end items-center">
           <Button
-            onClick={() => logiModal(false)} // Go to Already Registered form
+            onClick={() => loginModal(false)} // Go to Already Registered form
             className="bg-none text-[14px] text-blue-600"
             type='submit'
           >

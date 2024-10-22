@@ -6,13 +6,15 @@ import { PromotionBanner } from '@ui/organisms/PromotionBanner';
 import { PromotionCarousel } from '@ui/organisms/PromotionCarousel';
 import { products } from '@utils/testData';
 import { carouselData } from '@utils/testData';
+import { WelcomeCard } from '@ui/organisms/WelcomCard';
 export const LandingPageTemplate = () => {
 
   return (
     <>
       <div>
-
-
+        {/* WelcomeCard */}
+        <WelcomeCard></WelcomeCard>
+        
         {/* Carousel */}
         <PromotionCarousel slides={carouselData}></PromotionCarousel>
 

@@ -15,6 +15,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+
+  /* Opacity */
+  --tw-text-opacity: 1;
+
   /* App Theam */
   --background-color: white;
   --text-color: black;
@@ -22,6 +26,7 @@
   --secondary-color: #000000;
   --app-errorMessage-color: #ce4635;
   --form-field-border: #595959;
+  --text-secondary-color:  rgb(85 85 85 / var(--tw-text-opacity));
 
   /* width and height */
   --footer-brand-logo-height: 2rem;
@@ -37,7 +42,7 @@
   --utility-nav-height-desk: 2.5rem;
   --utility-nav-height-mob: 2.188rem;
 
-  /* Marketing bannet */
+  /* Marketing banner */
   --marketing-banner-img-width-desk: 40.5rem;
   --marketing-banner-img-width-mob: 20.438rem;
   --marketing-banner-img-height-desk: 20.188rem;
@@ -51,23 +56,11 @@
   --hero-banner-cta-button-min-width: 9rem;
   --hero-banner-height-mob: 12rem;
   --swiper-navigation-size: 1.2rem;
-
-  /* swiper */
-  /* --swiper-pagination-bullet-opacity: */
-  /* --.swiper-button-prev:after, .swiper-button-next:after {
-    font-family: swiper-icons;
-    font-size: var(--swiper-navigation-size);
-    text-transform: none !important;
-    letter-spacing: 0;
-    font-variant: initial;
-    line-height: 1;
-    font-size: 1.2rem;
-} */
 }
 
 
 
-
+/* App Font Family */
 @font-face {
   font-family: 'Hero New Bold';
   src: url('/assets/fonts/Hero New Bold.otf') format('truetype');
@@ -142,7 +135,6 @@ body {
   max-width: 90rem;
 }
 
-/* Override Tailwind Classes */
 .text-tertiary-400 {
   --tw-text-opacity: 1;
   color: rgb(85 85 85 / var(--tw-text-opacity));
