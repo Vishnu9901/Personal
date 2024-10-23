@@ -73,7 +73,7 @@ const AlreadyRegistered: React.FC<LoginFormProps> = ({ onSubmit, loginModal, mod
                             rules={{ required: ValidationForm.Required }}
                             render={({ field }) => (
                                 <PasswordFeild
-                                    className={`rounded-none h-[48px] mb-5 px-4 text-base border-[1px] w-full ${errors[LoginFormControls.Password] ? 'border-[#595959]' : 'border-[#d6d6d6]'
+                                    className={`rounded-none h-[48px] px-4 text-base border-[1px] w-full ${errors[LoginFormControls.Password] ? 'border-[#595959]' : 'border-[#d6d6d6]'
                                         } ${isSubmitted && errors[LoginFormControls.Password] ? 'focus:outline-blue-700' : 'focus:outline-none'}`} // Conditional outline
                                     type={showPassword ? 'text' : 'password'}
                                     placeholder="Password *"
@@ -83,7 +83,7 @@ const AlreadyRegistered: React.FC<LoginFormProps> = ({ onSubmit, loginModal, mod
                                         setIsPasswordFieldEmpty(e.target.value === '');
                                     }}
                                     suffix={(
-                                        !isPasswordFieldEmpty && (
+                                        !isPasswordFieldEmpty && !isModal && (
                                             <button
                                                 type="button"
                                                 onClick={togglePasswordVisibility}
@@ -97,7 +97,7 @@ const AlreadyRegistered: React.FC<LoginFormProps> = ({ onSubmit, loginModal, mod
                             )}
                         />
                         {errors[LoginFormControls.Password] && (
-                            <span className="text-normal text-appErrorMessage font-HeroNewBold inline-block">
+                            <span className="text-normal text-appErrorMessage font-HeroNewBold inline-block mt-5">
                                 {errors[LoginFormControls.Password]?.message}
                             </span>
                         )}
