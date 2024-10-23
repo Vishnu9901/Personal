@@ -71,7 +71,7 @@ export const carouselData = [
     heading: 'Our NEW Hyaluronic Acid Microneedle Eye Patches ',
     subheading: 'Your overnight refresh for under eyes with 22% reduction in wrinkles in just one treatment ',
     buttonText: 'Shop Now',
-    bgColor: 'bg-black text-white'
+    bgColor: '!bg-black text-white'
   },
   {
     imgSrc: 'https://www.pcaskinpro.com/cms/assets/201d2cde-cfcb-419b-a2e6-32407713196b.jpg?key=pca-en-us-hero-large',

@@ -7,13 +7,13 @@ import { Label } from '@ui/atoms/Label';
 import { PasswordFeild } from '@ui/molecules/PasswordFeild';
 
 interface FormValues {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
 interface LoginFormProps {
-    onSubmit: (data: FormValues) => void;
-    forgotPassword: (value: boolean) => void;
+  onSubmit: (data: FormValues) => void;
+  forgotPassword: (value: boolean) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
@@ -37,10 +37,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
         {/* Email Input */}
         <div className="inline-grid">
-          <div className="flex text-xs">
-            <Label className="text-xs font-HeroNewUltraLight">Email</Label>
-            <Label className="ml-0 text-sm font-heroNewLight font-sans text-red-600"> *</Label>
-          </div>
+          <Label className="text-xs font-HeroNewUltraLight mb-3">Email <span className="text-sm font-heroNewLight font-sans text-red-600"> *</span></Label>
 
           <Controller
             name="email"
@@ -48,7 +45,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
             rules={{ required: ValidationForm.Required }}
             render={({ field }) => (
               <InputField
-                className={`rounded-none pt-1 pb-1 pl-4 pr-4 mt-3 mb-6 h-[48px] text-base border-[1px] ${errors[LoginFormControls.Email] ? 'border-[#595959]' : 'border-[#d6d6d6]'} ${isSubmitted && errors[LoginFormControls.Email] ? 'focus:outline-none' : 'focus:outline-none'}`}
+                className={`rounded-none py-1 px-4 h-[48px] text-base border-[1px] w-full ${errors[LoginFormControls.Email] ? 'border-[#595959]' : 'border-[#d6d6d6]'} ${isSubmitted && errors[LoginFormControls.Email] ? 'focus:outline-none' : 'focus:outline-none'}`}
                 type="email"
                 placeholder="Email *"
                 {...field}
@@ -56,7 +53,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
             )}
           />
           {errors.email && (
-            <span className="text-appErrorMessage text-normal font-HeroNewBold">
+            <span className="text-appErrorMessage text-normal font-HeroNewBold mt-4">
               {errors.email.message}
             </span>
           )}
@@ -64,18 +61,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
 
         {/* Password Input with Visibility Toggle */}
         <div className="inline-grid">
-          <div className="flex text-xs">
-            <Label className="text-xs text-black font-HeroNewUltraLight">Password</Label>
-            <Label className="text-sm font-heroNewLight font-sans text-red-600"> *</Label>
-          </div>
+          <Label className="text-xs text-black font-HeroNewUltraLight mb-3">Password <span className="text-sm font-heroNewLight font-sans text-red-600"> *</span></Label>
           <Controller
             name="password"
             control={control}
             rules={{ required: ValidationForm.Required }}
             render={({ field }) => (
               <PasswordFeild
-                className={`rounded-none mt-3  pt-1 pb-1 pl-4 pr-4 h-[48px] text-base border-[1px] ${errors[LoginFormControls.Email] ? 'border-[#595959]' : 'border-[#d6d6d6]'
-                } ${isSubmitted && errors[LoginFormControls.Email] ? 'focus:outline-none' : 'focus:outline-none'}`}
+                className={`rounded-none py-1 px-4 h-[48px] text-base border-[1px] ${errors[LoginFormControls.Email] ? 'border-[#595959]' : 'border-[#d6d6d6]'
+                  } ${isSubmitted && errors[LoginFormControls.Email] ? 'focus:outline-none' : 'focus:outline-none'}`}
                 type={showPassword ? 'text' : 'password'} // Password visibility toggle
                 placeholder="Password *"
                 {...field}
@@ -98,7 +92,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
             )}
           />
           {errors.password && (
-            <span className="text-appErrorMessage text-normal font-HeroNewBold mt-3">
+            <span className="text-appErrorMessage text-normal font-HeroNewBold mt-4">
               {errors.password.message}
             </span>
           )}
@@ -112,7 +106,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
           aria-label='Forgot password'
         >
           <span className="bg-none text-blue-700 mt-4 text-sm font-HeroNewRegular hover:font-semibold">
-                        Forgot password?
+            Forgot password?
           </span>
         </Button>
 
@@ -125,7 +119,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
             className="bg-appTheme w-[75px] h-[48px] text-white p-3 m-1 mt-14 mb-12 hover:bg-black text-[14px] hover:underline font-HeroNewBold"
             aria-label='Login'
           >
-                        Log in
+            Log in
           </Button>
         </div>
       </form>
