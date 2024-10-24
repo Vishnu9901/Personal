@@ -68,7 +68,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
             rules={{ required: ValidationForm.Required }}
             render={({ field }) => (
               <PasswordFeild
-                className={`rounded-none py-1 px-4 h-[48px] text-base border-[1px] ${errors[LoginFormControls.Email] ? 'border-[#595959]' : 'border-[#d6d6d6]'
+                className={`rounded-none py-1 pl-4 pr-14 h-[48px] text-base border-[1px] ${errors[LoginFormControls.Email] ? 'border-[#595959]' : 'border-[#d6d6d6]'
                   } ${isSubmitted && errors[LoginFormControls.Email] ? 'focus:outline-none' : 'focus:outline-none'}`}
                 type={showPassword ? 'text' : 'password'} // Password visibility toggle
                 placeholder="Password *"
@@ -77,6 +77,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, forgotPassword }) => {
                   field.onChange(e);
                   setIsPasswordFieldEmpty(e.target.value === ''); // Check if the field is empty
                 }}
+                suffixClassName='top-1/4 right-2'
                 suffix={
                   !isPasswordFieldEmpty && (
                     <button

@@ -8,14 +8,14 @@ import { LoginFormControls, ValidationForm } from '@utils/validation';
 import { SubtitleLabel } from '@ui/molecules/SubTitleLabel';
 import { Checkbox } from '@ui/molecules/Checkbox';
 import { ValidationCheckMark } from '@ui/atoms/ValidationCheckMark';
-
+import './register.styles.scss'
 interface FormValues {
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    checkbox: boolean;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  checkbox: boolean;
 }
 
 
@@ -70,11 +70,7 @@ const RegisterForm: React.FC = () => {
         </div>
 
         <div className="inline-grid text-start ">
-          <div className='flex text-xs font-heroNewLight,font-sans'>
-            <Label className="text-xs font-HeroNewUltraLight">Email Address</Label>
-            <Label className="ml-0 text-s font-HeroNewLight text-red-600"> *</Label>
-          </div>
-
+          <Label className="text-xs font-HeroNewUltraLight register-form-label">Email Address <span className="font-HeroNewLight text-red-600">*</span></Label>
           <Controller
             name="email"
             control={control}
@@ -93,12 +89,12 @@ const RegisterForm: React.FC = () => {
                   id="email"
                   placeholder=""
                   {...field}
-                  className={`h-12 rounded-none pt-1 pb-1 pl-4 pr-4 mt-3 mb-6 text-base border-[1px] w-full 
+                  className={`h-12 rounded-none register-form-control text-base border-[1px] w-full 
                   ${errors.email ? 'border-formFieldBorder' : 'border-slate-200'}
                   ${isSubmitted && errors.email ? 'focus:outline-none' : 'focus:outline-none'}`}
                 />
                 {watchEmail && !errors?.email && (
-                  <ValidationCheckMark></ValidationCheckMark>
+                  <ValidationCheckMark className='top-[19px]'></ValidationCheckMark>
                 )}
               </div>
 
@@ -108,10 +104,7 @@ const RegisterForm: React.FC = () => {
         </div>
         {/* First Name */}
         <div className="mb-2 inline-grid text-start">
-          <div className='flex text-xs font-heroNewLight,font-sans' >
-            <Label className="text-xs font-HeroNewUltraLight">First Name</Label>
-            <Label className="ml-0 text-s font-HeroNewLight,font-sans text-red-600"> *</Label>
-          </div>
+          <Label className="text-xs font-HeroNewUltraLight register-form-label">First Name <span className='text-red-600'>*</span></Label>
 
           <Controller
             name="firstName"
@@ -124,14 +117,13 @@ const RegisterForm: React.FC = () => {
                   id="firstname"
                   placeholder="First Name *"
                   {...field}
-                  className={`h-12 rounded-none pt-1 pb-1 pl-4 pr-4 mt-3 mb-6  text-base border-[1px] w-full 
+                  className={`h-12 rounded-none register-form-control text-base border-[1px] w-full 
                     ${errors.firstName ? 'border-formFieldBorder' : 'border-slate-200'}
                     ${isSubmitted && errors.email ? 'focus:outline-none' : 'focus:outline-none'}`}
                 />
                 {/* Conditionally render the checkmark icon */}
                 {watchFirstName && (
-                  <ValidationCheckMark></ValidationCheckMark>
-                // <Image src={'/src/libs/ui/assets/checkmarkValid.png'} alt='' className='w-[15px] h-[15px] absolute top-[28px] right-2'></Image>
+                  <ValidationCheckMark className='top-[19px]'></ValidationCheckMark>
                 )}
               </div>
             )}
@@ -143,10 +135,7 @@ const RegisterForm: React.FC = () => {
 
         {/* Last Name */}
         <div className="mb-2 inline-grid text-start">
-          <div className='flex text-xs font-heroNewLight,font-sans' >
-            <Label className=" text-xs font-HeroNewUltraLight">Last Name</Label>
-            <Label className="ml-0 text-s font-HeroNewLight,font-sans text-red-600"> *</Label>
-          </div>
+          <Label className=" text-xs font-HeroNewUltraLight register-form-label">Last Name <span className="text-red-600">*</span></Label>
           <Controller
             name="lastName"
             control={control}
@@ -158,12 +147,12 @@ const RegisterForm: React.FC = () => {
                   id="lastname"
                   placeholder="Last Name *"
                   {...field}
-                  className={`h-12 rounded-none pt-1 pb-1 pl-4 pr-4 mt-3 mb-6  text-base border-[1px] w-full 
+                  className={`h-12 rounded-none  register-form-control  text-base border-[1px] w-full 
                     ${errors.lastName ? 'border-formFieldBorder' : 'border-slate-200'}
                     ${isSubmitted && errors.email ? 'focus:outline-none' : 'focus:outline-none'}`}
                 />
                 {watchLasttName && (
-                  <ValidationCheckMark></ValidationCheckMark>
+                  <ValidationCheckMark className='top-[19px]'></ValidationCheckMark>
                 )}
               </div>
             )}
@@ -173,11 +162,7 @@ const RegisterForm: React.FC = () => {
 
         {/* Password */}
         <div className="mb-2 inline-grid text-start ">
-          <div className='flex text-xs font-heroNewLight,font-sans' >
-            <Label className="text-xs font-HeroNewUltraLight">Password</Label>
-            <Label className="ml-0 text-s font-HeroNewLight,font-sans text-red-600"> *</Label>
-          </div>
-
+          <Label className="text-xs font-HeroNewUltraLight register-form-label pb-1">Password <span className="text-red-600">*</span></Label>
           <Controller
             name="password"
             control={control}
@@ -211,36 +196,33 @@ const RegisterForm: React.FC = () => {
                   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
                   onChange={(e: any) => {
                     field.onChange(e);
-                    // setModalOpen(true);
                     setIsPasswordFieldEmpty(e.target.value === '');
                     if (errors.password) {
                       clearErrors('password');  // Clear password error on input change
                     }
                   }}
-                  className={`h-12 rounded-none pt-1 pb-1 pl-4 pr-4 mt-3 mb-6  text-base border-[1px] w-full 
+                  className={`h-12 rounded-none register-form-control  text-base border-[1px] w-full 
                     ${errors.password ? 'border-formFieldBorder' : 'border-slate-200'}
                     ${isSubmitted && errors.email ? 'focus:outline-none' : 'focus:outline-none'}`}
+                  suffixClassName='top-1/4 right-2'
+                  suffix={!isPasswordFieldEmpty && ( // Only show if the password field is not empty
+                    <button
+                      type="button"
+                      onClick={togglePasswordVisibility}
+                      className="focus:outline-none font-light text-black"
+                    >
+                      {showPassword ? 'hide' : 'show'}
+                    </button>
+                  )}
                 />
-                {/* Display error message if validation fails */}
-                {errors.password && (
-                  <span className="text-appErrorMessage text-normal font-HeroNewBold">
-                    {errors.password.message}
-                  </span>
-                )}
-
-                {/* Show/Hide password toggle */}
-                {!isPasswordFieldEmpty && ( // Only show if the password field is not empty
-                  <button
-                    type="button"
-                    onClick={togglePasswordVisibility}
-                    className="absolute inset-y-1/3 right-3 transform -translate-y-1/2 focus:outline-none font-light text-black"
-                  >
-                    {showPassword ? 'hide' : 'show'}
-                  </button>
-                )}
               </div>
             )}
           />
+          {errors.password && (
+            <span className="text-appErrorMessage text-normal font-HeroNewBold">
+              {errors.password.message}
+            </span>
+          )}
         </div>
 
         {/* Modal for password requirements */}
@@ -249,10 +231,7 @@ const RegisterForm: React.FC = () => {
 
         {/* Confirm Password */}
         <div className="mb-2 inline-grid text-start">
-          <div className='flex text-xs font-heroNewLight,font-sans' >
-            <Label className="text-xs font-HeroNewUltraLight">Confirm Password</Label>
-            <Label className="ml-0 text-s font-HeroNewUltraLight,font-sans text-red-600"> *</Label>
-          </div>
+          <Label className="text-xs font-HeroNewUltraLight register-form-label">Confirm Password <span className="text-red-600">*</span></Label>
           <Controller
             name="confirmPassword"
             control={control}
@@ -271,18 +250,19 @@ const RegisterForm: React.FC = () => {
                   field.onChange(e);
                   setIsConfirmPasswordFieldEmpty(e.target.value === ''); // Check if the field is empty
                 }}
-                className={`h-12 rounded-none pt-1 pb-1 pl-4 pr-4 mt-3 mb-6  text-base border-[1px] w-full 
+                className={`h-12 rounded-none register-form-control text-base border-[1px] w-full 
                   ${errors.confirmPassword ? 'border-formFieldBorder' : 'border-slate-200'}
                   ${isSubmitted && errors.email ? 'focus:outline-none' : 'focus:outline-none'}`}
+                suffixClassName='top-1/4 right-2'
                 suffix={(
                   !isConfirmPasswordFieldEmpty &&
-                                    <button
-                                      type="button"
-                                      onClick={toggleConfirmPasswordVisibility}
-                                      className="font-light text-black focus:outline-none"
-                                    >
-                                      {showConfirmPassword ? 'hide' : 'show'}
-                                    </button>
+                  <button
+                    type="button"
+                    onClick={toggleConfirmPasswordVisibility}
+                    className="font-light text-black focus:outline-none"
+                  >
+                    {showConfirmPassword ? 'hide' : 'show'}
+                  </button>
                 )}
               />
             )}
@@ -316,7 +296,7 @@ const RegisterForm: React.FC = () => {
             type="submit"
             className="bg-blue-600 text-white p-3 m-1 mt-10px text-sm hover:bg-black hover:underline font-HeroNewSemiBold"
           >
-                        Create Account
+            Create Account
           </Button>
         </div>
 

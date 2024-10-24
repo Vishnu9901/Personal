@@ -73,7 +73,7 @@ const AlreadyRegistered: React.FC<LoginFormProps> = ({ onSubmit, loginModal, mod
                             rules={{ required: ValidationForm.Required }}
                             render={({ field }) => (
                                 <PasswordFeild
-                                    className={`rounded-none h-[48px] px-4 text-base border-[1px] w-full ${errors[LoginFormControls.Password] ? 'border-[#595959]' : 'border-[#d6d6d6]'
+                                    className={`rounded-none h-[48px] pl-4 pr-14 text-base border-[1px] w-full ${errors[LoginFormControls.Password] ? 'border-[#595959]' : 'border-[#d6d6d6]'
                                         } ${isSubmitted && errors[LoginFormControls.Password] ? 'focus:outline-blue-700' : 'focus:outline-none'}`} // Conditional outline
                                     type={showPassword ? 'text' : 'password'}
                                     placeholder="Password *"
@@ -82,6 +82,7 @@ const AlreadyRegistered: React.FC<LoginFormProps> = ({ onSubmit, loginModal, mod
                                         field.onChange(e);
                                         setIsPasswordFieldEmpty(e.target.value === '');
                                     }}
+                                    suffixClassName='top-1/4 right-2'
                                     suffix={(
                                         !isPasswordFieldEmpty && !isModal && (
                                             <button

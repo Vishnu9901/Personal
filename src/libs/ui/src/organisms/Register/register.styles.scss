@@ -1,0 +1,13 @@
+.register {
+    &-form-label {
+        font-size: 12px;
+        font-weight: 400;
+        color: #333333;
+        margin-bottom: 15px;
+        // margin-top: 15px;
+    }
+
+    &-form-control {
+        @apply pl-4 pr-14 mb-4;
+    }
+}
