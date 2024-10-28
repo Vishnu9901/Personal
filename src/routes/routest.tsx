@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom'
 import { TestPage } from '../pages/TestPage/TestPage'
 import { lazy, Suspense } from 'react'
 import { AppSpinner } from '@ui/atoms/AppSpinner';
+import { ProductsModule } from 'src/modules/ProductsModules';
+import { PlpPage } from '@pages/PlpPage';
 
 const MainModule = lazy(() => import('../modules/mainModule/mainModule'));
 const LandingPage = lazy(() => import('../pages/LandingPage'))
@@ -23,6 +25,10 @@ export const AppRoutes = () => {
           <Route path="auth/register" element={<Suspense fallback>
             <RegisterPage></RegisterPage>
           </Suspense>}>
+          </Route>
+
+          <Route path='products' element={<ProductsModule></ProductsModule>}>
+            <Route path='' element={<PlpPage></PlpPage>}></Route>
           </Route>
         </Route>
       </Routes>
