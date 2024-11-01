@@ -17,6 +17,7 @@ export const FooterAccordion: React.FC<FooterAccordion> = ({ title, options }) =
       <Accordion title={title} containerClassName="footer-accordion border-b-[0.0625rem]"
         contentClassName="bg-black pb-1"
         className="pl-0"
+        svgIconColor='white'
         titleClassName="text-base font-bold pr-4 text-brand-white-100 font-HeroNewBold">
         {
           <ul>
