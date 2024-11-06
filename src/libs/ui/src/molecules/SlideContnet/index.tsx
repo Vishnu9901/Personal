@@ -23,7 +23,7 @@ export const SlideContent: React.FC<SlideContentProps> = ({
       <Button 
         id="promotion-btn"
         type='button'
-        className='h-11 text-base w-34 font-HeroNewBold rounded-none bg-appTheme hover:text-secondary-400 hover:bg-secondary-400 hover:bg-gray-400 text-white lg:text-[#125ce0] lg:bg-white py-2.5 px-6 lg:hover:bg-appTheme lg:hover:text-white'
+        className='h-11 text-base w-34 font-HeroNewBold rounded-none bg-appTheme hover:text-secondary-400 hover:bg-secondary-400 hover:bg-gray-400 text-white lg:text-appTheme lg:bg-white py-2.5 px-6 lg:hover:bg-appTheme lg:hover:text-white'
         onClick={onClick}
         aria-label='promotion button'>
         {btnText}

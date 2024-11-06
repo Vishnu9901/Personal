@@ -5,22 +5,24 @@ import './learnMoreButton.styles.scss'
 import { Variants } from '@utils/enums';
 
 interface LearnMoreProps {
-    onClick: () => void
-    variant?: Variants
-    className?: string
-    iconSize?:string
+  onClick: () => void
+  variant?: Variants
+  className?: string
+  iconSize?: string
+  showIcon?: boolean,
+  title?:string
 }
 
-export const LearnMore: React.FC<LearnMoreProps> = ({ onClick, variant = Variants.Primary , className = '', iconSize = ''}) => {
+export const LearnMore: React.FC<LearnMoreProps> = ({ onClick, variant = Variants.Primary, className = '', iconSize = '', showIcon = true, title="Learn More" }) => {
 
   return (
     <>
       <SecondaryButton
         onClick={onClick}
-        className={`learnMorebutton group ${variant === Variants.Primary ? '!bg-appTheme !text-white' : 'text-[#125ce0]'} ${className}`}
+        className={`learnMorebutton group ${variant === Variants.Primary ? '!bg-appTheme !text-white' : '!text-appTheme'} ${className}`}
       >
-                Learn More
-        <div className="ml-2 flex items-center">
+        {title}
+        {showIcon && <div className="ml-2 flex items-center">
           <img
             src={variant === Variants.Primary ? hoverArrowIcon : arrowIcon}
             alt="Arrow hover icon"
@@ -31,7 +33,7 @@ export const LearnMore: React.FC<LearnMoreProps> = ({ onClick, variant = Variant
             alt="Arrow hover icon"
             className={`hidden group-hover:flex ${iconSize}`}
           />
-        </div>
+        </div>}
       </SecondaryButton>
     </>
   )
