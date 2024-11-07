@@ -1,11 +1,19 @@
 
 // import StarRating from '@ui/atoms/StarRating';
 
-import { ProductProps } from '@utils/interfaces';
+
 import Badge from '@ui/atoms/Badge';
 import { Button } from '@ui/atoms/Button';
 import { ProductImage } from '@ui/atoms/ProductImage';
 import StarRating from '../StarRating';
+
+export interface ProductProps {
+  id: number;
+  name: string;
+  image: string;
+  rating: number;
+  isBestSeller: boolean;
+}
 
 export const Product: React.FC<ProductProps> = ({ image, name, isBestSeller, rating }) => {
   return (
@@ -15,14 +23,14 @@ export const Product: React.FC<ProductProps> = ({ image, name, isBestSeller, rat
         <div className='w-full h-[19rem]'>
           <ProductImage src={image} alt={name} className='w-full h-full'></ProductImage>
         </div>
-       
+
         {isBestSeller && (
           <Badge
             className={
               'absolute top-1 left-1 !bg-appTheme !text-appWhiteTheme !font-HeroNewBold w-[100px]  text-xs text-center leading-3  !tracking-[0.3px] !rounded-xl '
             }
           >
-                        Best-seller
+            Best-seller
           </Badge>
         )}
       </div>

@@ -43,6 +43,9 @@
       "@hooks/*": [
         "src/libs/hooks/*"
       ],
+      "@contexts/*": [
+        "src/libs/contexts/*"
+      ],
       // Ui level
       "@ui/atoms/*": [
         "src/libs/ui/src/atoms/*"

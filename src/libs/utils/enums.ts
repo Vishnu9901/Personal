@@ -13,3 +13,9 @@ export enum LoginModalConstant {
     ForgotPassword = 'ForgotPassword',
     AlreadyRegistered = 'alreadyRegistered'
 }
+
+export enum AccordionType {
+    Radio = 'Radio',
+    Checkbox = 'Checkbox',
+    Label = 'Label'
+}
