@@ -19,3 +19,8 @@ export enum AccordionType {
     Checkbox = 'Checkbox',
     Label = 'Label'
 }
+
+export enum PLPFilterActions {
+    Add='Add',
+    Remove ='Remove'
+}

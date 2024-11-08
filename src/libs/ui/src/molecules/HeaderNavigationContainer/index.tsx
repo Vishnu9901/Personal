@@ -12,6 +12,7 @@ export const NavigationContainer: React.FC<NavigationContainerProps> = ({ onClic
   return (
     <>
       <ul className="flex">
+        <HeaderNavigationItem onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>Shop</HeaderNavigationItem>
         <HeaderNavigationItem onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>Academy</HeaderNavigationItem>
         <HeaderNavigationItem onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>Events</HeaderNavigationItem>
         <HeaderNavigationItem onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>About</HeaderNavigationItem>

@@ -2,6 +2,7 @@
 import React, { createContext, useState, ReactNode, useMemo } from 'react';
 import { viewAllProducts } from '@utils/testData';
 import { Product } from '@utils/interfaces';
+import { PLPFilterActions } from '@utils/enums';
 
 interface ProductContextType {
   selectedProductCategory: string;
@@ -9,7 +10,7 @@ interface ProductContextType {
   isBestSeller: boolean;
   setIsBestSeller: (checked: boolean) => void;
   filters: string[];
-  updateFilters: (filters: string[]) => void;
+  updateFilters: (filters: string[], action:PLPFilterActions) => void;
   products: Product[];
   SetSortOption: (option: string) => void;
   sortOption: string;
@@ -27,24 +28,32 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
 
   // Calculate filtered products based on context values
   const products = useMemo(() => {
+    console.log('filters....', filters)
     return viewAllProducts.filter(product => {
       // const matchesCategory = selectedProductCategory === 'All Products' || product.category === selectedProductCategory;
       // const matchesBestSeller = !isBestSeller || product.isBestSeller;
-     const matchesCategory = selectedProductCategory === 'All Products'
+      const matchesCategory = selectedProductCategory === 'All Products'
       return matchesCategory || filters.includes(product.category);
     });
   }, [selectedProductCategory, isBestSeller, filters, sortOption]);
 
 
+  const updateFilters = (filterlist: string[], action: PLPFilterActions = PLPFilterActions.Add) => {
 
-  console.log('filteredProducts', products)
-  const updateFilters = (filter: string[] ) => {
-    setFilters((prev) => ([
-      ...prev, ...filter
-    ]))
+    if (action === PLPFilterActions.Add) {
+      setFilters((prev) => ([
+        ...prev, ...filterlist
+      ]))
+      return;
+    }
+
+    if (action === PLPFilterActions.Remove) {
+      const updatedFilters = filters.filter((filter) => !filterlist.includes(filter))
+      setFilters(updatedFilters);
+    }
+
   }
 
-  console.log('filters', filters)
   return (
     <PLPContext.Provider value={{
       selectedProductCategory,

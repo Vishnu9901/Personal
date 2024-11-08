@@ -13,6 +13,10 @@ import { MobileSubMenu } from '../HeaderMobileSubMenu';
 import { HeaderSearch } from '../HeaderSearch';
 import { useNavigate } from 'react-router-dom';
 import { LoginPopover, LoginPopoverConstants } from '../LoginPopover';
+import CartIcon from '@ui/atoms/SvgAtoms/CartIcon';
+import { IconWithHoverEffect } from '@ui/molecules/IconWithHoverEffect';
+import ProfileIcon from '@ui/atoms/SvgAtoms/ProfileIcon';
+import SearchIcon from '@ui/atoms/SvgAtoms/SearchIcon';
 
 
 
@@ -126,21 +130,36 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
               <Button id="search-icon" aria-label='serch icon' className='headerContainer-icon search max-xsm:p-1' onClick={() => {
                 SetToggleSearch(true)
               }}>
-                <span className='search-icon w-6 h-6 bg-no-repeat'></span>
+                {/* <span className='search-icon w-6 h-6 bg-no-repeat'></span> */}
+                
+                <IconWithHoverEffect>
+                  <SearchIcon ></SearchIcon>
+                </IconWithHoverEffect>
               </Button>
               <Button id="profile-icon"
                 aria-label='profile icon'
                 className='headerContainer-icon profile lg:flex hidden'
                 onMouseEnter={openLoginPopover}
                 onMouseLeave={closeLoginPopover} >
-                <span className='profile-icon w-6 h-6 bg-no-repeat'></span>
+                {/* <span className='profile-icon w-6 h-6 bg-no-repeat'></span> */}
+                <IconWithHoverEffect>
+                  <ProfileIcon ></ProfileIcon>
+                </IconWithHoverEffect>
               </Button>
               <Button id="cart-icon"
                 aria-label='cart icon'
-                className='headerContainer-icon cart max-xsm:p-1'
+                className='headerContainer-icon cart max-xsm:p-1 group'
                 onMouseEnter={openLoginPopover}
                 onMouseLeave={closeLoginPopover}>
-                <span className='cart-icon w-6 h-6 bg-no-repeat'></span>
+                <IconWithHoverEffect>
+                  <CartIcon ></CartIcon>
+                </IconWithHoverEffect>
+                {/* <span className='group-hover:hidden'>
+                  <CartIcon fillColor='gray'></CartIcon>
+                </span>
+                <span className='hidden group-hover:block'>
+                  <CartIcon ></CartIcon>
+                </span> */}
               </Button>
             </div>
             <div className='lg:hidden flex justify-end lg:gap-8'>
@@ -163,7 +182,8 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
                   className='headerContainer-icon cart max-xsm:p-1'
                   onMouseLeave={closeLoginPopover}
                   onClick={toggleLoginPopover}>
-                  <span className='cart-icon w-6 h-6 bg-no-repeat'></span>
+                  {/* <span className='cart-icon w-6 h-6 bg-no-repeat'></span> */}
+                  <CartIcon></CartIcon>
                 </Button>
               </div>
             </div>

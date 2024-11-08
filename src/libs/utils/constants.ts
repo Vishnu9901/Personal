@@ -155,3 +155,10 @@ export const plpFilters = [
   }
  
 ]
+
+export const SortOptions = {
+  ALPHABETICAL_AZ: 'Alphabetical A - Z',
+  ALPHABETICAL_ZA: 'Alphabetical Z - A',
+  PRICE_LOW_HIGH: 'Price Low to High',
+  PRICE_HIGH_LOW: 'Price High to Low',
+};

@@ -2,7 +2,7 @@ import { useProductsContext } from "@hooks/ProductsContextHook";
 import CheckboxAccordion from "@ui/molecules/CheckBoxAccordion";
 import LabelAccordion from "@ui/molecules/LabelAccordion"
 import { plpFilters } from "@utils/constants";
-import { AccordionType } from "@utils/enums";
+import { AccordionType, PLPFilterActions } from "@utils/enums";
 import React, { useState, useEffect } from 'react';
 // import LabelAccordion from '../PlpLabelAccordian';
 // import CheckboxAccordion from '../PlpCheckBoxAccordian';
@@ -47,7 +47,7 @@ const PlpAccordians: React.FC<SidebarProps> = ({
 
     const {
         // filters,
-        // updateFilters
+        updateFilters
     } = useProductsContext()
 
 
@@ -60,19 +60,21 @@ const PlpAccordians: React.FC<SidebarProps> = ({
 
 
     const handleCheckboxChange = (option:any) => {
-        console.log('option handleCheckboxChange', option?.value ,option?.target?.value)
+        console.log('option handleCheckboxChange', option)
         onCategorySelect(option)
         setCheckedFilters((prev) => ({
             ...prev,
             [option]: !prev[option],
         }));
-        // updateFilters([option])
+        const action = !checkedFilters[option] ? PLPFilterActions.Add : PLPFilterActions.Remove;
+        updateFilters([option], action);
     };
 
     const handleProductCategoryClick = (category: string) => {
         const isSelected = category === selectedProductCategory;
         setSelectedProductCategory(isSelected ? null : category);
         onCategorySelect(isSelected ? null : category);
+        updateFilters([category], PLPFilterActions.Add);
     };
 
     const toggleShowCategories = () => {

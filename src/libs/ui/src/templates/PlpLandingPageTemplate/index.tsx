@@ -1,8 +1,11 @@
 import { useProductsContext } from "@hooks/ProductsContextHook";
 import Breadcrumb from "@ui/molecules/BreadCrum"
+import { FilterBadge } from "@ui/molecules/FilterBadge";
+import FilterDropdown from "@ui/molecules/FilterDropdown";
 import Product from "@ui/molecules/Product";
 import { LearnMore } from "@ui/organisms/LearnMoreButton";
 import PlpAccordians from "@ui/organisms/PlpSidebar";
+import { SortOptions } from "@utils/constants";
 import { Variants } from "@utils/enums";
 const breadcrumbs = [
     { label: 'Home', href: '/' },
@@ -10,9 +13,10 @@ const breadcrumbs = [
 ];
 export const PLPPageTemplate = () => {
     const {
+        filters,
         products
     } = useProductsContext()
-    
+
     const onSortChange = (data: any) => {
         console.log('onSortChange', data)
     }
@@ -39,11 +43,31 @@ export const PLPPageTemplate = () => {
                             enableBestSeller={false}></PlpAccordians>
                     </div>
                     <div className="col-start-2 col-end-3 h-full">
+                        <div className="flex justify-between">
+                            <div id="filters" className="flex flex-wrap">
+                                {filters.map((filter) => {
+                                    return <FilterBadge onRemove={() => {
+
+                                    }}>{filter}</FilterBadge>
+                                })}
+                            </div>
+                            <FilterDropdown options={[
+                                SortOptions.ALPHABETICAL_AZ,
+                                SortOptions.ALPHABETICAL_ZA,
+                                SortOptions.PRICE_LOW_HIGH,
+                                SortOptions.PRICE_HIGH_LOW,
+                            ]}
+                                onSelect={() => { }}></FilterDropdown>
+                        </div>
+
+
                         <div className="flex flex-wrap gap-x-6">
                             {products.map((product) => (
                                 <Product {...product} key={product.id} />
                             ))}
                         </div>
+
+
                         <div className="flex items-center flex-col">
                             <p className="pb-2">Viewing 9 out of 50 products</p>
                             <LearnMore onClick={() => { console.log('Clicked') }}

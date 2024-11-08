@@ -30,7 +30,7 @@ const LabelAccordion: React.FC<LabelAccordionProps> = ({
     contentClassName="bg-white text-left tm:pr-4 tm:pl-4"
     containerClassName="border-b pt-3 pb-3"
     className='font-HeroNewBold font-bold lg:pr-0 lg:pl-0'
-    svgIconColor='var(--primary-color)'
+    svgIconColor='rgb(var(--primary-color))'
   >
     <ul className={`space-y-1 ${ulClassName}`}>
       {items.map((item, index) => (
