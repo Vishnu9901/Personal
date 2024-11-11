@@ -20,7 +20,7 @@ const CheckboxAccordion: React.FC<CheckboxAccordionProps> = ({
   ulClassName,
   liClassName,
 }) => {
-    console.log('checkedFilters', checkedFilters)
+    // console.log('checkedFilters', checkedFilters)
     return   (
         <AccordionItem
           title={title}

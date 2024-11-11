@@ -28,7 +28,7 @@ const LabelAccordion: React.FC<LabelAccordionProps> = ({
     title={title}
     titleClassName="text-tertiary-400 font-bold lg:text-xl text-xl text-gray-700 tracking-normal leading-7 text-left"
     contentClassName="bg-white text-left tm:pr-4 tm:pl-4"
-    containerClassName="border-b pt-3 pb-3"
+    containerClassName="border-b pt-3 pb-6"
     className='font-HeroNewBold font-bold lg:pr-0 lg:pl-0'
     svgIconColor='rgb(var(--primary-color))'
   >

@@ -93,8 +93,8 @@ export const links = [
   {
     title: 'Student',
     submenu: [{ title: 'Student Products', items: [], hasMore: true },
-      { title: 'Student courses', items: ['Enhancing Student Curriculum', 'Peel Certification for Students'] },
-      { title: 'Student Store', items: ['FAQ'] }
+    { title: 'Student courses', items: ['Enhancing Student Curriculum', 'Peel Certification for Students'] },
+    { title: 'Student Store', items: ['FAQ'] }
     ],
   },
 ];
@@ -153,7 +153,7 @@ export const plpFilters = [
     AccordionType: AccordionType.Radio,
     options: [{ title: 'Alphabetical A - Z' }, { title: 'Alphabetical Z - A' }, { title: 'Price Low to High' }, { title: 'Price High to Low' }]
   }
- 
+
 ]
 
 export const SortOptions = {
@@ -161,4 +161,8 @@ export const SortOptions = {
   ALPHABETICAL_ZA: 'Alphabetical Z - A',
   PRICE_LOW_HIGH: 'Price Low to High',
   PRICE_HIGH_LOW: 'Price High to Low',
+  "Alphabetical A - Z": "asc",
+  "Alphabetical Z - A": "dsc",
+  "Price Low to High": "asc",
+  "Price High to Low": "dsc"
 };

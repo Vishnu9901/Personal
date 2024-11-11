@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, ReactNode } from 'react';
-import Dropdown from '../../../assets/Dropdown.svg';
-import { Image } from '@ui/atoms/Image';
+import DropDownIcon from '@ui/atoms/SvgAtoms/DropDown';
+import { Button } from '@ui/atoms/Button';
 
 interface FilterDropdownProps {
   options: string[];
@@ -29,18 +29,18 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
   };
 
   const handleOptionSelect = (option: string) => {
-    setPrevOption(selectedOption); // Save previous option
+    setPrevOption(selectedOption); 
     setSelectedOption(option);
-    onSelect(option); // Send selected option to parent
-    setIsOpen(false); // Close dropdown after selection
+    onSelect(option); 
+    setIsOpen(false); 
   };
 
-  // Close the dropdown when clicking outside of it
+ 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
-        setSelectedOption(prevOption); // Revert to previous option if closed
+        setSelectedOption(prevOption);
       }
     };
 
@@ -52,13 +52,13 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
 
   return (
     <div className="relative inline-block" ref={dropdownRef}>
-      <button
+      <Button
         onClick={toggleDropdown}
         className={`flex items-center px-1 py-3 min-w-44 bg-white border rounded-full shadow-sm focus:outline-none ${isOpen ? 'border-appTheme' : 'border-black'} ${buttonClassName}`}
       >
-        {/* <Image alt="drowp" src={Dropdown} className="h-4 w-4 text-blue-500 text-appTheme float-left" /> */}
+        <DropDownIcon stroke='whites'></DropDownIcon>
         <span className="text-sm font-medium ml-1 text-gray-700">{selectedOption}</span>
-      </button>
+      </Button>
 
       {isOpen && (
         <div className="absolute z-10 w-full bg-white border border-black rounded-md shadow-lg">

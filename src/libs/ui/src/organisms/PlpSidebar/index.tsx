@@ -46,7 +46,6 @@ const PlpAccordians: React.FC<SidebarProps> = ({
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const {
-        // filters,
         updateFilters
     } = useProductsContext()
 

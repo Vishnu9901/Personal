@@ -21,6 +21,14 @@ export enum AccordionType {
 }
 
 export enum PLPFilterActions {
-    Add='Add',
-    Remove ='Remove'
+    Add = 'Add',
+    Remove = 'Remove',
+    ClearAll = 'ClearAll'
+}
+
+export enum EnumSortOptions {
+    "Alphabetical A - Z" = "asc",
+    "Alphabetical Z - A" = "dsc",
+    "Price Low to High" = "asc",
+    "Price High to Low" = "dsc"
 }

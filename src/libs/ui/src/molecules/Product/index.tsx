@@ -41,7 +41,7 @@ export const Product: React.FC<ProductProps> = ({ image, name, isBestSeller, rat
             {rating} (150)
           </span>
         </div>
-        <h3 className="mt-2.5  text-appTextColor text-[1rem] h-12 font-HeroNewBold font-bold">
+        <h3 title={name} className="mt-2.5  text-appTextColor text-[1rem] h-12 font-HeroNewBold font-bold ">
           {name}
         </h3>
       </div>

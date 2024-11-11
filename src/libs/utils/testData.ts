@@ -20,13 +20,13 @@ export const IndividualBenefits = [
   },
   {
     imageSrc:AcademyIcon,
-    title: 'Academy ',
+    title: 'Academy',
     description: 'Get access to the entire education library via the our new single sign-on. All the product knowledge is at your fingertips.',
     imageAlt: 'Academy'
   },
   {
     imageSrc: LoyaltyIcon,
-    title: 'Loyalty ',
+    title: 'Loyalty',
     description: 'Sign up to access exclusive perks, rewards, and special offers through our loyalty program. Your success is our success.',
     imageAlt: 'Loyalty'
   },
