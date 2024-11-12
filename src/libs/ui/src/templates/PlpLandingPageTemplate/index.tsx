@@ -1,4 +1,5 @@
 import { useProductsContext } from "@hooks/ProductsContextHook";
+import { RootState } from "@store/store";
 import Breadcrumb from "@ui/molecules/BreadCrum"
 import { FilterContainer } from "@ui/molecules/FilterContainer";
 import FilterDropdown from "@ui/molecules/FilterDropdown";
@@ -7,7 +8,8 @@ import { LearnMore } from "@ui/organisms/LearnMoreButton";
 import PlpAccordians from "@ui/organisms/PlpSidebar";
 import { SortOptions } from "@utils/constants";
 import { PLPFilterActions, Variants } from "@utils/enums";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'All Products', href: '/products' },
@@ -21,7 +23,11 @@ export const PLPPageTemplate = () => {
         loadMore,
         totalProducts,
         showLoadMore
-    } = useProductsContext()
+    } = useProductsContext();
+
+    const pageData = useSelector((state: RootState) => state.PageData.plpPage);
+    const [pageInfo, setPageInfo] = useState<any>(breadcrumbs);
+
 
     const onSortChange = (data: any) => {
         console.log('onSortChange', data)
@@ -32,11 +38,33 @@ export const PLPPageTemplate = () => {
     const onBestSellerChange = (data: any) => {
         console.log('onBestSellerChange', data)
     }
+
+    useEffect(() => {
+       
+        if(!pageData?.subCategory){
+            return
+        }   
+        if (pageData?.subCategory === 'View All' 
+            || pageData?.subCategory === "Best Seller" || 
+            ["By skin type", "By skin concern"].includes(pageData?.category)) {
+            setPageInfo([
+                { label: 'Home', href: '/' },
+                { label: 'All Products', href: '/products' },
+            ])
+        } else {
+            setPageInfo([
+                { label: 'Home', href: '/' },
+                { label: 'All Products', href: '' },
+                { label: pageData?.subCategory, href: '' },
+            ])
+        }
+
+    }, [pageData])
     return (
 
         <div className="grid grid-cols-2 grid-rows-[100px,2fr] w-full h-full container px-5 lg:pl-appPaddingLeft lg:pr-appPaddingRight mx-auto mt-10">
             <div className="row-start-1 row-end-2 col-start-1 col-end-3">
-                <Breadcrumb breadcrumbs={breadcrumbs}></Breadcrumb>
+                <Breadcrumb breadcrumbs={pageInfo}></Breadcrumb>
             </div>
             <div className="row-start-2 row-end-3 col-start-1 col-end-3">
                 <div className="grid grid-cols-[23%,2fr]">
@@ -45,8 +73,8 @@ export const PLPPageTemplate = () => {
                             onSortChange={onSortChange}
                             onCategorySelect={onCategorySelect}
                             onBestSellerChange={onBestSellerChange}
-                            enableBestSeller={false} 
-                            >
+                            enableBestSeller={false}
+                        >
 
                         </PlpAccordians>
                     </div>

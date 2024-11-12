@@ -19,6 +19,8 @@ import ProfileIcon from '@ui/atoms/SvgAtoms/ProfileIcon';
 import SearchIcon from '@ui/atoms/SvgAtoms/SearchIcon';
 import { HeaderNavigationItem } from '@utils/interfaces';
 import { makeUrlQuery } from '@utils/appFunctions';
+import { useDispatch } from 'react-redux';
+import { setPLPPageData } from '@store/services/slices/PageDataSlice';
 
 
 
@@ -31,7 +33,8 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
   const [toggleMobileSubMenu, SettoggleMobileSubMenu] = useState(false);
   const [toggleSearch, SetToggleSearch] = useState(false);
   const [clickedProfile, SetClickedProfile] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [subMenu, SetSubMenu] = useState<HeaderNavigationItem[]>([])
 
@@ -43,9 +46,6 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
   const mouseEnter = (title: string) => {
     try {
       const subMenuOptions = links.filter((option) => option.title.toLocaleLowerCase() === title.toLocaleLowerCase());
-      // console.log('subMenuOptions', subMenuOptions)
-      // const mainCategory = subMenuOptions[0].title;
-      // SetMainCategory(mainCategory);
       SetSubMenu(subMenuOptions[0].submenu)
       setShowSubMenu(true);
     } catch (err) {
@@ -99,10 +99,11 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
   }
 
   const optionSeleted = (name: string, title: string) => {
+    dispatch(setPLPPageData({ subCategory: name, category: title }))
     let queryParams = makeUrlQuery(name, title, subMenu);
     navigate(`products?${queryParams}`);
   }
-  
+
   useEffect(() => {
 
     window.addEventListener('scroll', handleScroll);

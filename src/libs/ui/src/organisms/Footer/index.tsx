@@ -13,8 +13,11 @@ import './footer.styles.scss'
 import { FooterSection } from '@ui/molecules/FooterSetion';
 import { FooterAccordion } from '@ui/molecules/FooterAccordion';
 import { FooterLogoSection } from '@ui/molecules/FooterLogoSection';
+import { RootState } from '@store/store';
+import { useSelector } from 'react-redux';
 
 export const Footer = () => {
+  const footerData= useSelector((state:RootState)=> state.PageData.footer)
   return (
     <div className="footer bg-black">
       <div className="container marginLeftRightAuto px-6 lg:pl-appPaddingLeft lg:pr-appPaddingRight">
