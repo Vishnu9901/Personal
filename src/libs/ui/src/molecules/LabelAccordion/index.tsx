@@ -4,7 +4,6 @@ import AccordionItem from '../Accordion';
 
 interface LabelAccordionProps {
   title: string;
-  selectedItem: string | null;
   onItemClick: (item: string) => void;
   ulClassName?: string;
   liClassName?: string;
@@ -13,16 +12,17 @@ interface LabelAccordionProps {
     title: string;
     count?: number;
   }[];
+  options:string[]
 }
 
 const LabelAccordion: React.FC<LabelAccordionProps> = ({
   title,
-  selectedItem,
   onItemClick,
   ulClassName,
   liClassName,
   children, // Include children here
   items,
+  options
 }) => (
   <AccordionItem
     title={title}
@@ -36,9 +36,9 @@ const LabelAccordion: React.FC<LabelAccordionProps> = ({
       {items.map((item, index) => (
         <li
           key={index}
-          className={`${selectedItem === item.title 
-            ? 'text-black py-2 focus-visible:px-3 font-bold'
-            : 'text-gray-700 py-2 hover:text-appTheme hover:font-bold'
+          className={`${options.includes(item.title) 
+            ? 'text-black py-2 focus-visible:px-3 font-HeroNewExtraBold'
+            : 'text-gray-700 py-2 hover:text-appTheme hover:font-HeroNewExtraBold '
           } cursor-pointer ${liClassName}`}
           onClick={() => onItemClick(item.title)} 
         >

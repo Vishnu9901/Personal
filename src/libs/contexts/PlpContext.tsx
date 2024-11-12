@@ -4,6 +4,7 @@ import { viewAllProducts } from '@utils/testData';
 import { Product } from '@utils/interfaces';
 import { PLPFilterActions } from '@utils/enums';
 import { useLocation } from 'react-router-dom';
+import { SortOptions } from '@utils/constants';
 
 
 interface ProductContextType {
@@ -18,7 +19,8 @@ interface ProductContextType {
   updateSortFilters: (filters: string[], action: PLPFilterActions) => void;
   loadMore: () => void;
   totalProducts: number;
-  showLoadMore: boolean
+  showLoadMore: boolean;
+  clearFilters: () => void
 }
 
 // Create the context
@@ -49,31 +51,45 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
 
 
   const updateFilters = (filterlist: string[] = [], action: string = '') => {
-    if (action === PLPFilterActions.ClearAll) {
-      setFilters([]);
-      return
-    }
-    
-    let tempList = [...filters];
-    filterlist.forEach((newFilter) => {
-      const hasFilter = tempList.findIndex((filter) => filter === newFilter);
-      if (hasFilter > -1) {
-        tempList = tempList.filter((filter) => filter != newFilter);
-      } else {
-        tempList.push(newFilter);
-      }
-    })
-    console.log('tempList update', tempList)
-    setFilters(tempList);
+    setFilters(prev => {
+      let tempList = [...prev];
+      filterlist.forEach((newFilter) => {
+        const hasFilter = tempList.findIndex((filter) => filter === newFilter);
+        if (hasFilter > -1) {
+          tempList = tempList.filter((filter) => filter != newFilter);
+        } else {
+          tempList.push(newFilter);
+        }
+      })
+      return tempList
+    });
   }
 
 
+  const clearFilters = () => {
+    setFilters([]);
+  };
 
 
   const updateSortFilters = (sortOption: string[]) => {
     console.log('sortOption', sortOption)
     SetSortOptions([...sortOption])
   }
+
+  const sortProducts = (products: Product[], filter: string) => {
+    switch (filter) {
+      case SortOptions.ALPHABETICAL_AZ:
+        return products.sort((a, b) => a.name.localeCompare(b.name));
+      case SortOptions.ALPHABETICAL_ZA:
+        return products.sort((a, b) => b.name.localeCompare(a.name));
+      case SortOptions.PRICE_LOW_HIGH:
+        return products.sort((a, b) => a.price - b.price);
+      case SortOptions.PRICE_HIGH_LOW:
+        return products.sort((a, b) => b.price - a.price);
+      default:
+        return products;
+    }
+  };
 
   const loadMore = () => {
     SetLimit((prev) => prev + 1)
@@ -93,7 +109,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
       return true;
     });
 
-    setProducts(products.slice(0, limit + 1));
+    setProducts(sortProducts(products.slice(0, limit + 1), sortOption[0]));
     SetTotalProducts(products.length);
     SetShowLoadMore(products.length - 1 > limit);
   }, [selectedProductCategory, isBestSeller, filters, sortOption, limit])
@@ -112,7 +128,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
     }
   }, [location])
 
- 
+
 
   return (
     <PLPContext.Provider value={{
@@ -127,7 +143,8 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
       updateSortFilters,
       loadMore,
       totalProducts,
-      showLoadMore
+      showLoadMore,
+      clearFilters,
     }}>
       {children}
     </PLPContext.Provider>

@@ -22,7 +22,8 @@ export const PLPPageTemplate = () => {
         updateFilters,
         loadMore,
         totalProducts,
-        showLoadMore
+        showLoadMore,
+        clearFilters
     } = useProductsContext();
 
     const pageData = useSelector((state: RootState) => state.PageData.plpPage);
@@ -72,7 +73,6 @@ export const PLPPageTemplate = () => {
                         <PlpAccordians
                             onSortChange={onSortChange}
                             onCategorySelect={onCategorySelect}
-                            onBestSellerChange={onBestSellerChange}
                             enableBestSeller={false}
                         >
 
@@ -83,7 +83,7 @@ export const PLPPageTemplate = () => {
                             <div className="flex basis-[65%] items-start px-3">
                                 <FilterContainer filters={filters}
                                     onRemoveFilter={(filter) => { updateFilters([filter]) }}
-                                    onClearAll={() => updateFilters([], PLPFilterActions.ClearAll)}>
+                                    onClearAll={() => clearFilters()}>
                                 </FilterContainer>
                             </div>
 
