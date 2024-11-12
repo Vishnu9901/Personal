@@ -17,6 +17,8 @@ import CartIcon from '@ui/atoms/SvgAtoms/CartIcon';
 import { IconWithHoverEffect } from '@ui/molecules/IconWithHoverEffect';
 import ProfileIcon from '@ui/atoms/SvgAtoms/ProfileIcon';
 import SearchIcon from '@ui/atoms/SvgAtoms/SearchIcon';
+import { HeaderNavigationItem } from '@utils/interfaces';
+import { makeUrlQuery } from '@utils/appFunctions';
 
 
 
@@ -31,8 +33,7 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
   const [clickedProfile, SetClickedProfile] = useState(false);
   const navigate = useNavigate()
 
-  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-  const [subMenu, SetSubMenu] = useState<any>([])
+  const [subMenu, SetSubMenu] = useState<HeaderNavigationItem[]>([])
 
   const handleScroll = () => {
     setIsFixed(window.scrollY > import.meta.env.VITE_SCROLL_TOP_HEADER_HEIGHT);
@@ -40,9 +41,17 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
 
 
   const mouseEnter = (title: string) => {
-    const subMenuOptions = links.filter((option) => option.title.toLocaleLowerCase() === title.toLocaleLowerCase());
-    SetSubMenu(subMenuOptions[0].submenu)
-    setShowSubMenu(true);
+    try {
+      const subMenuOptions = links.filter((option) => option.title.toLocaleLowerCase() === title.toLocaleLowerCase());
+      // console.log('subMenuOptions', subMenuOptions)
+      // const mainCategory = subMenuOptions[0].title;
+      // SetMainCategory(mainCategory);
+      SetSubMenu(subMenuOptions[0].submenu)
+      setShowSubMenu(true);
+    } catch (err) {
+      console.log('err', err)
+    }
+
   }
 
   const mouseLeave = () => {
@@ -89,6 +98,11 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
     SetClickedProfile(!clickedProfile)
   }
 
+  const optionSeleted = (name: string, title: string) => {
+    let queryParams = makeUrlQuery(name, title, subMenu);
+    navigate(`products?${queryParams}`);
+  }
+  
   useEffect(() => {
 
     window.addEventListener('scroll', handleScroll);
@@ -131,7 +145,7 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
                 SetToggleSearch(true)
               }}>
                 {/* <span className='search-icon w-6 h-6 bg-no-repeat'></span> */}
-                
+
                 <IconWithHoverEffect>
                   <SearchIcon ></SearchIcon>
                 </IconWithHoverEffect>
@@ -194,6 +208,7 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
             className='shadow-bottom'
             onMouseEnter={subMenuEnter}
             onMouseLeave={subMenuLeave}
+            onClick={optionSeleted}
           >
           </SubMenu>
         </div>}

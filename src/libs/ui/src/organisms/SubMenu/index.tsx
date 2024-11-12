@@ -7,8 +7,10 @@ interface SubMenuProps {
   className?: string
   onMouseEnter?: () => void
   onMouseLeave?: () => void
+  onClick: (name: string, title: string) => void
 }
-export const SubMenu: React.FC<SubMenuProps> = ({ options, className, onMouseEnter = () => console.log(''), onMouseLeave = () => console.log('') }) => {
+export const SubMenu: React.FC<SubMenuProps> = ({ options, className, onMouseEnter = () => console.log(''), onMouseLeave = () => console.log(''), onClick }) => {
+
   return (
     <div className={`flex pl-appPaddingLeft pr-appPaddingRight py-8 ${className}`}
       onMouseEnter={onMouseEnter}
@@ -17,9 +19,15 @@ export const SubMenu: React.FC<SubMenuProps> = ({ options, className, onMouseEnt
       {options.map((option) => {
         return (
           <div className="flex-1" key={option?.title}>
-            {option.title && <ul><SubMenuItem className="font-bold !font-HeroNewBold !hover:text-black hover:no-underline submenu">{option.title}</SubMenuItem></ul>}
-            <SubMenuConatiner options={option.items}></SubMenuConatiner>
-            {option.hasMore && <ul><SubMenuItem className="font-bold !font-HeroNewBold text-[rgb(18,92,224)]">{'View All'}</SubMenuItem></ul>}
+            {option.title && <ul><SubMenuItem onClick={(name) => {
+              onClick(name, option?.title)
+            }} className="font-bold !font-HeroNewBold !hover:text-black hover:no-underline submenu">{option.title}</SubMenuItem></ul>}
+            <SubMenuConatiner onClick={(name) => {
+              onClick(name, option?.title)
+            }} options={option.items}></SubMenuConatiner>
+            {option.hasMore && <ul><SubMenuItem onClick={(name) => {
+              onClick(name, option?.title)
+            }} className="font-bold !font-HeroNewBold text-[rgb(18,92,224)]">{'View All'}</SubMenuItem></ul>}
           </div>
         )
       })}

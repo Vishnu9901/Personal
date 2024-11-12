@@ -15,6 +15,7 @@ export const HeaderNavigationItem: React.FC<HeaderNavigationItem> = ({
   onMouseEnter = () => { console.log('MouseEnter') },
   onMouseLeave = () => { console.log('MouseLeave') },
 }) => {
+  console.log('children Name', children)
   return (
     <li onClick={() => {
       onClick(children)

@@ -1,5 +1,5 @@
 import React from 'react';
-import CancelIcon from '../../../assets/close-bluebg.aa950da4.svg';
+import BadgeCloseIcon from '@ui/atoms/SvgAtoms/BadgeClose';
 
 interface FilterBadgeProps {
   onRemove: () => void;
@@ -17,7 +17,7 @@ export const FilterBadge: React.FC<FilterBadgeProps> = ({ children, onRemove }) 
         className="ml-4 bg-transparent p-0 border-none text-appTheme hover:text-appTheme-opacity-30 hover:font-bold"
         aria-label="Remove Filter"
       >
-        <img src={CancelIcon} alt="cancel Logo" className="w-5 h-5" />
+        <BadgeCloseIcon></BadgeCloseIcon>
       </button>
     </div>
   );

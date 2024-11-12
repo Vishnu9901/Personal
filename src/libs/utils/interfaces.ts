@@ -17,5 +17,6 @@ export interface Product {
 export interface HeaderNavigationItem {
     title: string,
     items: string[],
-    hasMore?: boolean
+    hasMore?: boolean,
+    category:string
 }

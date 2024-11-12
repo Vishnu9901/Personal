@@ -5,8 +5,8 @@ import { useState } from 'react';
 import './headerMobileSubMenu.styles.scss'
 
 interface SubMenuProps {
-    options: any,
-    goBack?: () => void
+  options: any,
+  goBack?: () => void
 }
 
 export const MobileSubMenu: React.FC<SubMenuProps> = ({ options, goBack }) => {
@@ -31,7 +31,7 @@ export const MobileSubMenu: React.FC<SubMenuProps> = ({ options, goBack }) => {
             openSubCatagory('back')
           }}>
             <Image src={back} alt='back' className='cursor-pointer'></Image>
-                             </div>}
+          </div>}
           {showBackOption && <h3 className="heading text-tertiary-400 font-bold text-l text-xl tracking-normal leading-none font-HeroNewBold">{catagory}</h3>}
           <div onClick={goBack} className="close h-6 w-6"></div>
         </div>
@@ -55,23 +55,23 @@ export const MobileSubMenu: React.FC<SubMenuProps> = ({ options, goBack }) => {
             </ul>
           )}
           {showBackOption &&
-                        (<div className={'flex flex-col'}>
-                          {subMenu.map((option: { title: string, label: string, items: [], hasMore: boolean }) => {
-                            return (
-                              <div className="flex-1 sub-cta" key={option?.title}>
-                                {option.title && <p className='font-bold !font-HeroNewBold py-4'>{option.title}</p>}
-                                <ul>
-                                  {option.items.map((item) => {
-                                    return <li className={' hover:text-blue-600 pl-[9px] py-3 cursor-pointer hover:underline font-HeroNewLight font-light'}>
-                                      {item}
-                                           </li>
-                                  })}
-                                </ul>
-                                {option.hasMore && <ul><li className="font-bold pl-[9px] !font-HeroNewBold text-[rgb(18,92,224)] p-2 hover:underline">{'View All'}</li></ul>}
-                              </div>
-                            )
-                          })}
-                        </div>)}
+            (<div className={'flex flex-col'}>
+              {subMenu.map((option: { title: string, label: string, items: [], hasMore: boolean }) => {
+                return (
+                  <div className="flex-1 sub-cta" key={option?.title}>
+                    {option.title && <p className='font-bold !font-HeroNewBold py-4'>{option.title}</p>}
+                    <ul>
+                      {option.items.map((item) => {
+                        return <li className={' hover:text-blue-600 pl-[9px] py-3 cursor-pointer hover:underline font-HeroNewLight font-light'}>
+                          {item}
+                        </li>
+                      })}
+                    </ul>
+                    {option.hasMore && <ul><li className="font-bold pl-[9px] !font-HeroNewBold text-[rgb(18,92,224)] p-2 hover:underline">{'View All'}</li></ul>}
+                  </div>
+                )
+              })}
+            </div>)}
         </div>
       </div>
 
@@ -85,5 +85,5 @@ export const MobileSubMenu: React.FC<SubMenuProps> = ({ options, goBack }) => {
         </div>
       </div>
     </div>
-          </div>)
+  </div>)
 }

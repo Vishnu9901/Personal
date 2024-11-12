@@ -1,12 +1,15 @@
 import React from 'react'
 import './sunmenuitem.styles.scss'
 interface SubMenuItemProp {
-    className?: string
-    children: React.ReactNode
+  className?: string
+  children: React.ReactNode,
+  onClick: (name: string) => void
 }
-export const SubMenuItem: React.FC<SubMenuItemProp> = ({ children, className }) => {
+export const SubMenuItem: React.FC<SubMenuItemProp> = ({ children, className, onClick }) => {
   return (
-    <li className={`subMenuItem hover:text-blue-600 pl-[9px] py-2 cursor-pointer hover:underline font-HeroNewLight ${className}`}>
+    <li onClick={() => {
+      onClick(children as string)
+    }} className={`subMenuItem hover:text-blue-600 pl-[9px] py-2 cursor-pointer hover:underline font-HeroNewLight ${className}`}>
       {children}
     </li>
   )

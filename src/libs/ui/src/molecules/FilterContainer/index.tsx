@@ -13,9 +13,9 @@ interface FilterContainerProps {
 export const FilterContainer: React.FC<FilterContainerProps> = ({ filters, onRemoveFilter, onClearAll, showClearButton = true }) => {
     return (
         <div className="flex flex-wrap items-center whitespace-nowrap">
-            {filters.map((filter) => (
+            {filters.map((filter, index) => (
                 <FilterBadge
-                    key={filter}
+                    key={index}
                     onRemove={() => onRemoveFilter(filter)}
                 >
                     {filter}

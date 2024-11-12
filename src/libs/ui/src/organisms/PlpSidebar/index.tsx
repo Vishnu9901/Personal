@@ -36,7 +36,7 @@ const PlpAccordians: React.FC<SidebarProps> = ({
     onBestSellerChange,
     onCategorySelect,
     onSortChange,
-    enableBestSeller
+    enableBestSeller,
 }) => {
     const [showAllCategories, setShowAllCategories] = useState(false);
     const [selectedProductCategory, setSelectedProductCategory] = useState<string | null>(null);
@@ -46,7 +46,8 @@ const PlpAccordians: React.FC<SidebarProps> = ({
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const {
-        updateFilters
+        updateFilters,
+        filters
     } = useProductsContext()
 
 
@@ -59,21 +60,20 @@ const PlpAccordians: React.FC<SidebarProps> = ({
 
 
     const handleCheckboxChange = (option:any) => {
-        console.log('option handleCheckboxChange', option)
         onCategorySelect(option)
         setCheckedFilters((prev) => ({
             ...prev,
             [option]: !prev[option],
         }));
-        const action = !checkedFilters[option] ? PLPFilterActions.Add : PLPFilterActions.Remove;
-        updateFilters([option], action);
+        console.log('updateFilters', option);
+        updateFilters([option]);
     };
 
     const handleProductCategoryClick = (category: string) => {
         const isSelected = category === selectedProductCategory;
         setSelectedProductCategory(isSelected ? null : category);
         onCategorySelect(isSelected ? null : category);
-        updateFilters([category], PLPFilterActions.Add);
+        updateFilters([category]);
     };
 
     const toggleShowCategories = () => {
@@ -134,6 +134,7 @@ const PlpAccordians: React.FC<SidebarProps> = ({
                                 onCheckboxChange={handleCheckboxChange}
                                 ulClassName={ulClassName}
                                 liClassName={liClassName}
+                                filters={filters}
                             />
                         )}
                     </div>

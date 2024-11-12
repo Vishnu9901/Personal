@@ -7,6 +7,7 @@ import { LearnMore } from "@ui/organisms/LearnMoreButton";
 import PlpAccordians from "@ui/organisms/PlpSidebar";
 import { SortOptions } from "@utils/constants";
 import { PLPFilterActions, Variants } from "@utils/enums";
+import { useEffect } from "react";
 const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'All Products', href: '/products' },
@@ -19,6 +20,7 @@ export const PLPPageTemplate = () => {
         updateFilters,
         loadMore,
         totalProducts,
+        showLoadMore
     } = useProductsContext()
 
     const onSortChange = (data: any) => {
@@ -43,7 +45,8 @@ export const PLPPageTemplate = () => {
                             onSortChange={onSortChange}
                             onCategorySelect={onCategorySelect}
                             onBestSellerChange={onBestSellerChange}
-                            enableBestSeller={false}>
+                            enableBestSeller={false} 
+                            >
 
                         </PlpAccordians>
                     </div>
@@ -51,7 +54,7 @@ export const PLPPageTemplate = () => {
                         <div className="flex justify-between">
                             <div className="flex basis-[65%] items-start px-3">
                                 <FilterContainer filters={filters}
-                                    onRemoveFilter={(filter) => { updateFilters([filter], PLPFilterActions.Remove) }}
+                                    onRemoveFilter={(filter) => { updateFilters([filter]) }}
                                     onClearAll={() => updateFilters([], PLPFilterActions.ClearAll)}>
                                 </FilterContainer>
                             </div>
@@ -83,14 +86,16 @@ export const PLPPageTemplate = () => {
                             ))}
                         </div>
 
-                        <div className="flex items-center flex-col">
-                            <p className="pb-2">Viewing {products.length} out of {totalProducts} products</p>
-                            <LearnMore onClick={() => { loadMore() }}
-                                title="Load More"
-                                variant={Variants.Secondary}
-                                showIcon={false}
-                                className="!p-4"></LearnMore>
-                        </div>
+                        {products.length > 0 && <>
+                            <div className="flex items-center flex-col">
+                                <p className="pb-2">Viewing {products.length} out of {totalProducts} products</p>
+                                {showLoadMore && <LearnMore onClick={() => { loadMore() }}
+                                    title="Load More"
+                                    variant={Variants.Secondary}
+                                    showIcon={false}
+                                    className="!p-4"></LearnMore>}
+                            </div>
+                        </>}
                     </div>
                 </div>
             </div>

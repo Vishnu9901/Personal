@@ -10,6 +10,7 @@ interface CheckboxAccordionProps {
   onCheckboxChange: (option: any) => void;
   ulClassName?: string;
   liClassName?: string;
+  filters:string[]
 }
 
 const CheckboxAccordion: React.FC<CheckboxAccordionProps> = ({
@@ -19,8 +20,9 @@ const CheckboxAccordion: React.FC<CheckboxAccordionProps> = ({
   onCheckboxChange,
   ulClassName,
   liClassName,
+  filters=[]
 }) => {
-    // console.log('checkedFilters', checkedFilters)
+   
     return   (
         <AccordionItem
           title={title}
@@ -34,12 +36,12 @@ const CheckboxAccordion: React.FC<CheckboxAccordionProps> = ({
             {options.map((option:any, index) => (
               <li
                 key={index}
-                className={`${checkedFilters[option] ? 'text-appTextColor font-bold pl-2 pb-1 mr-2' : 'text-gray-700 pl-2 pb-1 mr-2 hover:font-bold hover:text-appTheme'
+                className={`${filters?.includes(option) ? 'text-appTextColor font-bold pl-2 pb-1 mr-2' : 'text-gray-700 pl-2 pb-1 mr-2 hover:font-bold hover:text-appTheme'
                 } cursor-pointer ${liClassName}`}
               >
                 <Checkbox
                   className="mr-2"
-                  checked={checkedFilters[option] || false}
+                  checked={filters?.includes(option) || false}
                   onChange={(e) => {
                       console.log('e', e, option)
                       onCheckboxChange(option)
