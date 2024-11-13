@@ -41,7 +41,7 @@ const RadioAccordion: React.FC<RadioAccordionProps> = ({
           onOptionChange(option)
         }}
           key={index}
-          className={`${isSelected ? 'text-appTextColor font-bold pl-2 pb-1 mr-2 ' : 'text-gray-700 pl-2 pb-1 mr-2 dark:text-appWhiteTheme-opacity-50'
+          className={` py-2 ${isSelected ? 'text-appTextColor font-bold' : 'text-gray-700 dark:text-appWhiteTheme-opacity-50'
             } cursor-pointer ${liClassName}`}
         >
           <input

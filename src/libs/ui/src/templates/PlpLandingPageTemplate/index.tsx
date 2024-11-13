@@ -10,7 +10,8 @@ import { SortOptions } from "@utils/constants";
 import { PLPFilterActions, Variants } from "@utils/enums";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
+import { products as popularProductsData } from '@utils/testData';
+import { RecentlyViewedProducts } from "@ui/organisms/RecentlyViewedProducts";
 const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'All Products', href: '/products' },
@@ -65,73 +66,83 @@ export const PLPPageTemplate = () => {
 
     }, [pageData])
     return (
-
-        <div className="grid grid-cols-2 grid-rows-[100px,2fr] w-full h-full container px-5 lg:pl-appPaddingLeft lg:pr-appPaddingRight mx-auto mt-10">
-            <div className="row-start-1 row-end-2 col-start-1 col-end-3">
-                <Breadcrumb breadcrumbs={pageInfo}></Breadcrumb>
-            </div>
-            <div className="row-start-2 row-end-3 col-start-1 col-end-3">
-                <div className="grid grid-cols-[23%,2fr] grid-rows-[80px,2fr] lg:grid-rows-1">
-                    <div className="h-full col-start-1 col-end-3 lg:col-start-1 lg:col-end-2">
-                        <PlpAccordians
-                            onSortChange={onSortChange}
-                            onCategorySelect={onCategorySelect}
-                            enableBestSeller={false}
-                        >
-                        </PlpAccordians>
-                    </div>
-
-                    <div className="col-start-1 col-end-3 row-start-2 row-end-3 lg:row-start-1 lg:row-end-2 lg:col-start-2  lg:col-end-3 h-full px-4">
-                        <div className="flex justify-between">
-                            <div className="flex lg:basis-[65%] flex-col items-start px-3">
-                                <FilterContainer filters={filters}
-                                    onRemoveFilter={(filter) => { updateFilters([filter]) }}
-                                    onClearAll={() => clearFilters()}>
-                                </FilterContainer>
-                                <p className="lg:hidden mr-4 text-gray-500 text-nowrap">{totalProducts} Products</p>
-                            </div>
-
-                            <div className="hidden lg:flex basis-[35%] justify-end items-start">
-                                <div className="flex items-center">
-                                    <p className="mr-4 text-gray-500 text-nowrap">{totalProducts} Products</p>
-                                    <FilterDropdown options={[
-                                        SortOptions.ALPHABETICAL_AZ,
-                                        SortOptions.ALPHABETICAL_ZA,
-                                        SortOptions.PRICE_LOW_HIGH,
-                                        SortOptions.PRICE_HIGH_LOW,
-                                    ]}
-                                        selectedSortOption={plpSortOptions[0]}
-                                        onSelect={(option) => {
-                                            updateSortFilters([option], PLPFilterActions.Add)
-                                        }}></FilterDropdown>
-                                </div>
-                            </div>
-
+        <div className="h-full">
+            <div className="grid grid-cols-2 grid-rows-[100px,2fr] w-full h-full container px-5 lg:pl-appPaddingLeft lg:pr-appPaddingRight mx-auto mt-10">
+                <div className="row-start-1 row-end-2 col-start-1 col-end-3">
+                    <Breadcrumb breadcrumbs={pageInfo}></Breadcrumb>
+                </div>
+                <div className="row-start-2 row-end-3 col-start-1 col-end-3">
+                    <div className="grid grid-cols-[23%,2fr] grid-rows-[80px,2fr] lg:grid-rows-1">
+                        <div className="h-full col-start-1 col-end-3 lg:col-start-1 lg:col-end-2">
+                            <PlpAccordians
+                                onSortChange={onSortChange}
+                                onCategorySelect={onCategorySelect}
+                                enableBestSeller={false}
+                            >
+                            </PlpAccordians>
                         </div>
 
-
-                        <div className="grid grid-cols-12">
-                            {products.map((product) => (
-                                <div className="col-span-12 md:col-span-6 lg:col-span-4">
-                                    <Product {...product} key={product.id} />
+                        <div className="col-start-1 col-end-3 row-start-2 row-end-3 lg:row-start-1 lg:row-end-2 lg:col-start-2  lg:col-end-3 h-full px-4">
+                            <div className="flex justify-between">
+                                <div className="flex lg:basis-[65%] flex-col items-start px-3">
+                                    <FilterContainer filters={filters}
+                                        onRemoveFilter={(filter) => { updateFilters([filter]) }}
+                                        onClearAll={() => clearFilters()}>
+                                    </FilterContainer>
+                                    <p className="lg:hidden mr-4 text-gray-500 text-nowrap">{totalProducts} Products</p>
                                 </div>
 
-                            ))}
-                        </div>
+                                <div className="hidden lg:flex basis-[35%] justify-end items-start">
+                                    <div className="flex items-center">
+                                        <p className="mr-4 text-gray-500 text-nowrap">{totalProducts} Products</p>
+                                        <FilterDropdown options={[
+                                            SortOptions.ALPHABETICAL_AZ,
+                                            SortOptions.ALPHABETICAL_ZA,
+                                            SortOptions.PRICE_LOW_HIGH,
+                                            SortOptions.PRICE_HIGH_LOW,
+                                        ]}
+                                            selectedSortOption={plpSortOptions[0]}
+                                            onSelect={(option) => {
+                                                updateSortFilters([option], PLPFilterActions.Add)
+                                            }}></FilterDropdown>
+                                    </div>
+                                </div>
 
-                        {products.length > 0 && <>
-                            <div className="flex items-center flex-col">
-                                <p className="pb-2">Viewing {products.length} out of {totalProducts} products</p>
-                                {showLoadMore && <LearnMore onClick={() => { loadMore() }}
-                                    title="Load More"
-                                    variant={Variants.Secondary}
-                                    showIcon={false}
-                                    className="!p-4"></LearnMore>}
                             </div>
-                        </>}
+
+
+                            <div className="grid grid-cols-12">
+                                {products.map((product) => (
+                                    <div className="col-span-12 md:col-span-6 lg:col-span-4">
+                                        <Product {...product} key={product.id} />
+                                    </div>
+
+                                ))}
+                                {products.length === 0 && <p className="col-span-12 justify-center flex pt-16">
+                                    No Products found
+                                </p>}
+                            </div>
+
+                            {products.length > 0 && <>
+                                <div className="flex items-center flex-col pt-8">
+                                    <p className="pb-2">Viewing {products.length} out of {totalProducts} products</p>
+                                    {showLoadMore && <LearnMore onClick={() => { loadMore() }}
+                                        title="Load More"
+                                        variant={Variants.Secondary}
+                                        showIcon={false}
+                                        className="!p-4"></LearnMore>}
+                                </div>
+                            </>}
+                        </div>
                     </div>
                 </div>
             </div>
+            <div className="bg-gray-100 mt-40 pt-16 pb-8">
+                <div className="flex flex-col container px-5 lg:pl-appPaddingLeft lg:pr-appPaddingRight mx-auto mt-10">
+                    <RecentlyViewedProducts products={popularProductsData} />
+                </div>
+            </div>
         </div>
+
     )
 }

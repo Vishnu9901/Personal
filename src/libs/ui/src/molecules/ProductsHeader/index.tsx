@@ -6,20 +6,21 @@ import NavigatePrevBlue from '../../../assets/Navigateprevblue.svg';
 import NavigatePrevBlueDark from '../../../assets/Navigateprevbluedark.svg';
 
 interface PopularProductsHeaderProps {
-    title: string,
-    description: string,
-    handleScroll: (direction: string) => void
+  title: string,
+  description?: string,
+  handleScroll: (direction: string) => void
+  showDescription?: boolean
 
 }
-export const PopularProductsHeader: React.FC<PopularProductsHeaderProps> = ({ title, description, handleScroll }) => {
+export const PopularProductsHeader: React.FC<PopularProductsHeaderProps> = ({ title, description='', handleScroll, showDescription = true }) => {
   return (
     <>
       <div>
         <h2 className="font-bold text-xl lg:text-[1.75rem] text-[#555555] font-HeroNewExtraBold leading-8 hover:font-HeroNewBold">
           {title}
         </h2>
-        <div className="mb-6 flex flex-col lg:flex-row lg:justify-between">
-          <div className="flex flex-col lg:flex-row items-start mt-4">
+        <div className={`mb-6 flex flex-col lg:flex-row lg:justify-between ${showDescription?'':'!justify-end'}`}>
+          {showDescription && <div className="flex flex-col lg:flex-row items-start mt-4">
             <p className="mr-6 text-base text-slate-600 font-HeroNewLight">
               {description}
             </p>
@@ -29,11 +30,11 @@ export const PopularProductsHeader: React.FC<PopularProductsHeaderProps> = ({ ti
               type="submit"
               aria-label='login view price button'
             >
-                            Log in to view prices
+              Log in to view prices
             </Button>
-          </div>
+          </div>}
 
-          <div className="flex space-x-0.5 mt-3 lg:mt-0">
+          <div className="flex space-x-0.5 mt-3 lg:mt-0 justify-end">
             <PrimaryButton
               className="w-10 h-10 hover:bg-appTheme relative overflow-hidden !p-0"
               onClick={() => handleScroll('left')}

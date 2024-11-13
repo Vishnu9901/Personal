@@ -9,8 +9,8 @@ export interface Product {
     image: string;
     rating: number;
     isBestSeller: boolean;
-    category: string;
-    price:number;
+    category?: string;
+    price?:number;
   }
 
 

@@ -45,7 +45,6 @@ const PlpAccordians: React.FC<SidebarProps> = ({
   const [showAllCategories, setShowAllCategories] = useState(false);
   const [checkedFilters, setCheckedFilters] = useState<{ [key: string]: boolean }>({});
   const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
-  const [selectedSort, setSelectedSort] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
   const {
@@ -60,10 +59,7 @@ const PlpAccordians: React.FC<SidebarProps> = ({
 
 
   const handleSortChange = (sortOption: string) => {
-    console.log('sortOption',sortOption)
     updateSortFilters([sortOption], PLPFilterActions.Add)
-      // setSelectedSort(sortOption);
-      // onSortChange(sortOption);
   };
 
 
@@ -96,20 +92,9 @@ const PlpAccordians: React.FC<SidebarProps> = ({
     : plpFilters.filter((filter: any) => filter.title !== 'Best Seller');
 
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 1020);
-    };
 
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
   return (
-    <div className={`w-full ${isSmallScreen ? '' : 'pl-2 space-y-6'} text-center rounded-lg ${className}`}>
+    <div className={`w-full text-center rounded-lg ${className}`}>
       <div className="block lg:hidden">
         <Button
           onClick={() => setIsModalOpen(true)}
@@ -147,134 +132,57 @@ const PlpAccordians: React.FC<SidebarProps> = ({
                 ulClassName={ulClassName}
                 liClassName={liClassName}
                 selectedFilters={filters}
-                
+
               />
             )}
           </div>
         ))}
       </div>
-      {isSmallScreen &&  <PLPMobileMenu isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Filter & Sort">
-          {displayFilters.map((filter, index) => (
-            <div key={index}>
-              {filter.AccordionType === AccordionType.Radio && (
-                <RadioAccordion
-                  title={filter.title}
-                  options={filter.options.map(option => option.title)}
-                  selectedOption={sortOption[0]}
-                  onOptionChange={handleSortChange}
-                  ulClassName={ulClassName}
-                  liClassName={liClassName}
-                  className=''
-                />
-              )}
-              {filter.AccordionType === AccordionType.Label && (
-                <LabelAccordion
-                  title={filter.title}
-                  options={filters}
-                  // selectedItem={selectedProductCategory}
-                  onItemClick={handleProductCategoryClick}
-                  ulClassName={ulClassName}
-                  liClassName={liClassName}
-                  items={showAllCategories ? filter.options : filter.options.slice(0, 5)}
-                  accordionClassNames="!px-0"
-                >
-                  <button onClick={toggleShowCategories} className="text-appTheme mt-2">
-                    {showAllCategories ? 'Show Less Categories' : 'Show All Categories'}
-                  </button>
-                </LabelAccordion>
-              )}
+      {isModalOpen && <PLPMobileMenu onClose={() => setIsModalOpen(false)} title="Filter & Sort">
+        {displayFilters.map((filter, index) => (
+          <div key={index}>
+            {filter.AccordionType === AccordionType.Radio && (
+              <RadioAccordion
+                title={filter.title}
+                options={filter.options.map(option => option.title)}
+                selectedOption={sortOption[0]}
+                onOptionChange={handleSortChange}
+                ulClassName={ulClassName}
+                liClassName={liClassName}
+                className=''
+              />
+            )}
+            {filter.AccordionType === AccordionType.Label && (
+              <LabelAccordion
+                title={filter.title}
+                options={filters}
+                onItemClick={handleProductCategoryClick}
+                ulClassName={ulClassName}
+                liClassName={liClassName}
+                items={showAllCategories ? filter.options : filter.options.slice(0, 5)}
+                accordionClassNames="!px-0"
+              >
+                <button onClick={toggleShowCategories} className="text-appTheme mt-2">
+                  {showAllCategories ? 'Show Less Categories' : 'Show All Categories'}
+                </button>
+              </LabelAccordion>
+            )}
 
-              {filter.AccordionType === AccordionType.Checkbox && (
-                <CheckboxAccordion
-                  title={filter.title}
-                  options={filter.options.map((option: any) => option.title)}
-                  checkedFilters={checkedFilters}
-                  onCheckboxChange={handleCheckboxChange}
-                  ulClassName={ulClassName}
-                  liClassName={liClassName}
-                  selectedFilters={filters}
-                  accordionClassNames="!px-0"
-                />
-              )}
-            </div>
-          ))}
-        </PLPMobileMenu>}
-      {/* {isSmallScreen ? (
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Filter & Sort">
-          {displayFilters.map((filter, index) => (
-            <div key={index}>
-              {filter.AccordionType === AccordionType.Radio && (
-                <RadioAccordion
-                  title={filter.title}
-                  options={filter.options.map(option => option.title)}
-                  selectedOption={selectedSort}
-                  onOptionChange={handleSortChange}
-                  ulClassName={ulClassName}
-                  liClassName={liClassName}
-                  className=''
-                />
-              )}
-              {filter.AccordionType === AccordionType.Label && (
-                <LabelAccordion
-                  title={filter.title}
-                  selectedItem={selectedProductCategory}
-                  onItemClick={handleProductCategoryClick}
-                  ulClassName={ulClassName}
-                  liClassName={liClassName}
-                  items={showAllCategories ? filter.options : filter.options.slice(0, 5)}
-                >
-                  <button onClick={toggleShowCategories} className="text-blue-600 mt-2">
-                    {showAllCategories ? 'Show Less Categories' : 'Show All Categories'}
-                  </button>
-                </LabelAccordion>
-              )}
-
-              {filter.AccordionType === AccordionType.Checkbox && (
-                <CheckboxAccordion
-                  title={filter.title}
-                  options={filter.options.map(option => option.title)}
-                  checkedFilters={checkedFilters}
-                  onCheckboxChange={handleCheckboxChange}
-                  ulClassName={ulClassName}
-                  liClassName={liClassName}
-                />
-              )}
-            </div>
-          ))}
-        </Modal>
-      ) : (
-        <div>
-          {displayFilters.map((filter, index) => (
-            <div key={index}>
-              {filter.AccordionType === AccordionType.Label && (
-                <LabelAccordion
-                  title={filter.title}
-                  selectedItem={selectedProductCategory}
-                  onItemClick={handleProductCategoryClick}
-                  ulClassName={ulClassName}
-                  liClassName={liClassName}
-                  items={showAllCategories ? filter.options : filter.options.slice(0, 5)}
-                >
-                  <button onClick={toggleShowCategories} className="text-blue-600 mt-2">
-                    {showAllCategories ? 'Show Less Categories' : 'Show All Categories'}
-                  </button>
-                </LabelAccordion>
-              )}
-
-              {filter.AccordionType === AccordionType.Checkbox && (
-                <CheckboxAccordion
-                  title={filter.title}
-                  options={filter.options.map(option => option.title)}
-                  checkedFilters={checkedFilters}
-                  onCheckboxChange={handleCheckboxChange}
-                  ulClassName={ulClassName}
-                  liClassName={liClassName}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-      )} */}
+            {filter.AccordionType === AccordionType.Checkbox && (
+              <CheckboxAccordion
+                title={filter.title}
+                options={filter.options.map((option: any) => option.title)}
+                checkedFilters={checkedFilters}
+                onCheckboxChange={handleCheckboxChange}
+                ulClassName={ulClassName}
+                liClassName={liClassName}
+                selectedFilters={filters}
+                accordionClassNames="!px-0"
+              />
+            )}
+          </div>
+        ))}
+      </PLPMobileMenu>}
     </div>
   );
 };

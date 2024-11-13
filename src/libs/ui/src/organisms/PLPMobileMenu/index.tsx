@@ -6,22 +6,20 @@ import { Button } from '@ui/atoms/Button';
 import { PrimaryButton } from '@ui/molecules/PrimaryButton';
 import Paragraph from '@ui/atoms/Paragraph';
 
-interface ModalProps {
-    isOpen: boolean;
+interface PLPMobileMenuProps {
     onClose: () => void;
     title: React.ReactNode;
     children: React.ReactNode;
 }
 
-const PLPMobileMenu: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const PLPMobileMenu: React.FC<PLPMobileMenuProps> = ({ onClose, title, children }) => {
     const {
         products
     } = useProductsContext();
 
-    if (!isOpen) return null;
-
+    
     return (
-        <div className="fixed inset-0 flex items-start justify-center z-50 bg-black bg-opacity-50 h-[91%]">
+        <div className="lg:hidden fixed inset-0 flex items-start justify-center z-50 bg-black bg-opacity-50 h-[91%]">
             <div className="bg-gray-100 w-full shadow-lg dark:bg-appModalColor max-h-[114vh] overflow-y-auto"> {/* Constrained height */}
                 <div className='bg-white px-6 pt-4'>
                     <div className="flex justify-between items-center">

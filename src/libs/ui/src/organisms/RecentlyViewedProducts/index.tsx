@@ -8,12 +8,13 @@ import { useRef } from 'react';
 import { sliderSettings } from '@utils/settings';
 import { Product } from '@ui/molecules/Product';
 import { Product as ProductProps } from '@utils/interfaces'
+
 interface PopularProductsProps {
     products: ProductProps[]
 }
 
 
-export const PopularProducts: React.FC<PopularProductsProps> = ({ products }) => {
+export const RecentlyViewedProducts: React.FC<PopularProductsProps> = ({ products }) => {
   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const sliderRef = useRef<any>(null);
 
@@ -30,9 +31,9 @@ export const PopularProducts: React.FC<PopularProductsProps> = ({ products }) =>
     <div className="flex flex-col mx-5 lg:mx-0">
       <div>
         <PopularProductsHeader
-          title="Popular Products"
-          description="A selection of our highly recommended products, endorsed by industry professionals, to initiate your professional journey."
+          title="Recently Viewed Products"
           handleScroll={handleScroll}
+          showDescription={false}
         >
         </PopularProductsHeader>
       </div>
