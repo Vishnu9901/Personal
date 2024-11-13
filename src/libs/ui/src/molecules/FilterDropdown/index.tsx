@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, ReactNode } from 'react';
 import DropDownIcon from '@ui/atoms/SvgAtoms/DropDown';
 import { Button } from '@ui/atoms/Button';
+import { EnumSortOptions } from '@utils/enums';
 
 interface FilterDropdownProps {
   options: string[];
@@ -9,6 +10,7 @@ interface FilterDropdownProps {
   ulClassName?: string; 
   liClassName?: string;
   children?: ReactNode;
+  selectedSortOption: any
 }
 
 const FilterDropdown: React.FC<FilterDropdownProps> = ({
@@ -17,11 +19,12 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
   buttonClassName = '',
   ulClassName = '',
   liClassName = '',
-  children
+  children,
+  selectedSortOption
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [prevOption, setPrevOption] = useState(options[0]);
+  const [selectedOption, setSelectedOption] = useState(selectedSortOption);
+  const [prevOption, setPrevOption] = useState(selectedSortOption);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const toggleDropdown = () => {

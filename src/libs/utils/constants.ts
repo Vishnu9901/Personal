@@ -101,6 +101,11 @@ export const links = [
 
 export const plpFilters = [
   {
+    title: 'Sort By',
+    AccordionType: AccordionType.Radio,
+    options: [{ title: 'Alphabetical A - Z' }, { title: 'Alphabetical Z - A' }, { title: 'Price Low to High' }, { title: 'Price High to Low' }]
+  },
+  {
     title: 'Product Category',
     AccordionType: AccordionType.Label,
     options: [
@@ -148,11 +153,7 @@ export const plpFilters = [
     options: [{ title: 'Coombination', count: 1 }, { title: 'Dry', count: 2 }, { title: 'Normal', count: 3 }, { title: 'Oily', count: 4 }, { title: 'Sensitive', count: 5 }]
   },
 
-  {
-    title: 'Sort By',
-    AccordionType: AccordionType.Radio,
-    options: [{ title: 'Alphabetical A - Z' }, { title: 'Alphabetical Z - A' }, { title: 'Price Low to High' }, { title: 'Price High to Low' }]
-  }
+  
 
 ]
 

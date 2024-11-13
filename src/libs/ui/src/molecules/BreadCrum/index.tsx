@@ -15,7 +15,7 @@ const Breadcrumb: React.FC<PageTitleHeaderProps> = ({ breadcrumbs, children }) =
 
   return (
     <div className="mb-6">
-      <div className="text-sm text-gray-500 mb-2">
+      <div className="text-xs text-gray-500 mb-2">
         {breadcrumbs.map((crumb, index) => (
           <span key={index}>
             {index < breadcrumbs.length - 1 ? (
@@ -23,14 +23,14 @@ const Breadcrumb: React.FC<PageTitleHeaderProps> = ({ breadcrumbs, children }) =
                 {crumb.label}
               </a>
             ) : (
-              <span className="text-gray-500">{crumb.label}</span>
+              <span className="text-gray-500 font-HeroNewRegular">{crumb.label}</span>
             )}
             {index < breadcrumbs.length - 1 && ' / '}
           </span>
         ))}
       </div>
 
-      <h1 className="text-3xl lg:text-[2.375rem] font-HeroNewBold font-extrabold text-appTheme">{title}</h1>
+      <h1 className="text-3xl lg:text-[2.375rem] font-HeroNewBold text-appTheme">{title}</h1>
 
       {children && <div className="mt-4">{children}</div>}
     </div>

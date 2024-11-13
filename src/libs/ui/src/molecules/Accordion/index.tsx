@@ -46,7 +46,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   return (
     <div className={`mb-2 ${containerClassName}`}>
       <div
-        className={`${className} p-4 cursor-pointer flex justify-between items-center`}
+        className={`p-4 cursor-pointer flex justify-between items-center ${className}`}
         onClick={handleClick}
       >
         <h3 className={titleClassName}>{title}</h3>

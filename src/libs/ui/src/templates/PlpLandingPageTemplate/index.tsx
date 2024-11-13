@@ -10,10 +10,12 @@ import { SortOptions } from "@utils/constants";
 import { PLPFilterActions, Variants } from "@utils/enums";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
 const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'All Products', href: '/products' },
 ];
+
 export const PLPPageTemplate = () => {
     const {
         filters,
@@ -23,7 +25,8 @@ export const PLPPageTemplate = () => {
         loadMore,
         totalProducts,
         showLoadMore,
-        clearFilters
+        clearFilters,
+        sortOption: plpSortOptions
     } = useProductsContext();
 
     const pageData = useSelector((state: RootState) => state.PageData.plpPage);
@@ -41,12 +44,12 @@ export const PLPPageTemplate = () => {
     }
 
     useEffect(() => {
-       
-        if(!pageData?.subCategory){
+
+        if (!pageData?.subCategory) {
             return
-        }   
-        if (pageData?.subCategory === 'View All' 
-            || pageData?.subCategory === "Best Seller" || 
+        }
+        if (pageData?.subCategory === 'View All'
+            || pageData?.subCategory === "Best Seller" ||
             ["By skin type", "By skin concern"].includes(pageData?.category)) {
             setPageInfo([
                 { label: 'Home', href: '/' },
@@ -68,26 +71,27 @@ export const PLPPageTemplate = () => {
                 <Breadcrumb breadcrumbs={pageInfo}></Breadcrumb>
             </div>
             <div className="row-start-2 row-end-3 col-start-1 col-end-3">
-                <div className="grid grid-cols-[23%,2fr]">
-                    <div className="h-full col-start-1 col-end-2 hidden lg:block">
+                <div className="grid grid-cols-[23%,2fr] grid-rows-[80px,2fr] lg:grid-rows-1">
+                    <div className="h-full col-start-1 col-end-3 lg:col-start-1 lg:col-end-2">
                         <PlpAccordians
                             onSortChange={onSortChange}
                             onCategorySelect={onCategorySelect}
                             enableBestSeller={false}
                         >
-
                         </PlpAccordians>
                     </div>
-                    <div className="col-start-1 col-end-3 lg:col-start-2 lg:col-end-3 h-full px-4">
+
+                    <div className="col-start-1 col-end-3 row-start-2 row-end-3 lg:row-start-1 lg:row-end-2 lg:col-start-2  lg:col-end-3 h-full px-4">
                         <div className="flex justify-between">
-                            <div className="flex basis-[65%] items-start px-3">
+                            <div className="flex lg:basis-[65%] flex-col items-start px-3">
                                 <FilterContainer filters={filters}
                                     onRemoveFilter={(filter) => { updateFilters([filter]) }}
                                     onClearAll={() => clearFilters()}>
                                 </FilterContainer>
+                                <p className="lg:hidden mr-4 text-gray-500 text-nowrap">{totalProducts} Products</p>
                             </div>
 
-                            <div className="flex basis-[35%] justify-end items-start">
+                            <div className="hidden lg:flex basis-[35%] justify-end items-start">
                                 <div className="flex items-center">
                                     <p className="mr-4 text-gray-500 text-nowrap">{totalProducts} Products</p>
                                     <FilterDropdown options={[
@@ -96,6 +100,7 @@ export const PLPPageTemplate = () => {
                                         SortOptions.PRICE_LOW_HIGH,
                                         SortOptions.PRICE_HIGH_LOW,
                                     ]}
+                                        selectedSortOption={plpSortOptions[0]}
                                         onSelect={(option) => {
                                             updateSortFilters([option], PLPFilterActions.Add)
                                         }}></FilterDropdown>
@@ -107,7 +112,7 @@ export const PLPPageTemplate = () => {
 
                         <div className="grid grid-cols-12">
                             {products.map((product) => (
-                                <div className="col-span-4">
+                                <div className="col-span-12 md:col-span-6 lg:col-span-4">
                                     <Product {...product} key={product.id} />
                                 </div>
 
