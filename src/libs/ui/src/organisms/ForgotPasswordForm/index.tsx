@@ -70,7 +70,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
         <div className="flex justify-end items-center">
           <Button
             onClick={() => loginModal(false)} // Go to Already Registered form
-            className="bg-none text-[14px] text-blue-600"
+            className="bg-none text-[14px] text-appTheme"
             type='submit'
           >
             <span className='text-!sm mr-4 font-HeroNewRegular hover:font-semibold'>

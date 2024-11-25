@@ -1,8 +1,7 @@
 import { SecondaryButton } from '@ui/molecules/ScecondaryButton'
-import arrowIcon from '../../../assets/Arrow-right-blue.495910aa.svg';
-import hoverArrowIcon from '../../../assets/Arrow-right.8d33ac71.svg'
 import './learnMoreButton.styles.scss'
 import { Variants } from '@utils/enums';
+import RightArrow from '@ui/atoms/SvgAtoms/RightArrow';
 
 interface LearnMoreProps {
   onClick: () => void
@@ -10,10 +9,10 @@ interface LearnMoreProps {
   className?: string
   iconSize?: string
   showIcon?: boolean,
-  title?:string
+  title?: string
 }
 
-export const LearnMore: React.FC<LearnMoreProps> = ({ onClick, variant = Variants.Primary, className = '', iconSize = '', showIcon = true, title="Learn More" }) => {
+export const LearnMore: React.FC<LearnMoreProps> = ({ onClick, variant = Variants.Primary, className = '', iconSize = '', showIcon = true, title = "Learn More" }) => {
 
   return (
     <>
@@ -23,16 +22,14 @@ export const LearnMore: React.FC<LearnMoreProps> = ({ onClick, variant = Variant
       >
         {title}
         {showIcon && <div className="ml-2 flex items-center">
-          <img
-            src={variant === Variants.Primary ? hoverArrowIcon : arrowIcon}
-            alt="Arrow hover icon"
-            className={`flex group-hover:hidden ${iconSize}`}
-          />
-          <img
-            src={hoverArrowIcon}
-            alt="Arrow hover icon"
-            className={`hidden group-hover:flex ${iconSize}`}
-          />
+          <div className='block group-hover:hidden'>
+            {variant === Variants.Primary && <RightArrow fillColor="rgb(var(--app-White)" width={15} height={15}></RightArrow>}
+            {variant === Variants.Secondary && <RightArrow fillColor="rgb(var(--primary-color))" width={15} height={15}></RightArrow>}
+          </div>
+          <div className='hidden group-hover:block'>
+            <RightArrow fillColor="rgb(var(--app-White)" width={15} height={15}></RightArrow>
+          </div>
+
         </div>}
       </SecondaryButton>
     </>

@@ -22,6 +22,8 @@
   /* App Theam */
   --background-color: white;
   --primary-color: 3, 168, 244;
+  --app-White: 255, 255, 255;
+  --hover-icon-color:#1b5796;
   --secondary-color: #000000;
   --app-errorMessage-color: #ce4635;
   --form-field-border: #595959;

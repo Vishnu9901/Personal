@@ -21,6 +21,7 @@ import { HeaderNavigationItem } from '@utils/interfaces';
 import { makeUrlQuery } from '@utils/appFunctions';
 import { useDispatch } from 'react-redux';
 import { setPLPPageData } from '@store/services/slices/PageDataSlice';
+import { HeaderLogo } from '@ui/molecules/HeaderLogo';
 
 
 
@@ -125,8 +126,11 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
         <header className={'shadow-bottom '}>
           <div className="container pl-6 pr-6 headerContainer lg:pl-appPaddingLeft lg:pr-appPaddingRight items-center">
             <div onMouseEnter={subMenuLeave}>
-              <div className='lg:h-[var(--navigation-logo-height-mobile)] lg:py-2' onClick={navigateHome}>
-                <Image src={logo} alt='logo' className='lg:flex hidden h-full w-full' ></Image>
+              <div className='lg:h-[var(--navigation-logo-height-mobile)]' onClick={navigateHome}>
+                {/* <Image src={logo} alt='logo' className='lg:flex hidden h-full w-full' ></Image> */}
+                {/*  */}
+                <HeaderLogo  className='lg:flex hidden h-full w-full'></HeaderLogo>
+                
               </div>
 
               <Button id="menu" aria-label='hambargar-menu' className='lg:hidden flex' onClick={openMobileSubMenu}>
@@ -179,7 +183,7 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
             </div>
             <div className='lg:hidden flex justify-end lg:gap-8'>
               <div className='flex items-center h-[var(--navigation-logo-height-mobile)] py-2' onClick={navigateHome}>
-                <Image src={logo} alt='logo' className='lg:hidden flex w-full h-full'></Image>
+                <HeaderLogo className='lg:hidden flex w-full h-full'></HeaderLogo>
               </div>
 
               <div className='flex'>

@@ -62,12 +62,12 @@ export const MobileSubMenu: React.FC<SubMenuProps> = ({ options, goBack }) => {
                     {option.title && <p className='font-bold !font-HeroNewBold py-4'>{option.title}</p>}
                     <ul>
                       {option.items.map((item) => {
-                        return <li className={' hover:text-blue-600 pl-[9px] py-3 cursor-pointer hover:underline font-HeroNewLight font-light'}>
+                        return <li className={' hover:text-appTheme pl-[9px] py-3 cursor-pointer hover:underline font-HeroNewLight font-light'}>
                           {item}
                         </li>
                       })}
                     </ul>
-                    {option.hasMore && <ul><li className="font-bold pl-[9px] !font-HeroNewBold text-[rgb(18,92,224)] p-2 hover:underline">{'View All'}</li></ul>}
+                    {option.hasMore && <ul><li className="font-bold pl-[9px] !font-HeroNewBold text-appTheme p-2 hover:underline">{'View All'}</li></ul>}
                   </div>
                 )
               })}

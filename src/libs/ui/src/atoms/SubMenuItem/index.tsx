@@ -9,7 +9,7 @@ export const SubMenuItem: React.FC<SubMenuItemProp> = ({ children, className, on
   return (
     <li onClick={() => {
       onClick(children as string)
-    }} className={`subMenuItem hover:text-blue-600 pl-[9px] py-2 cursor-pointer hover:underline font-HeroNewLight ${className}`}>
+    }} className={`subMenuItem hover:text-appTheme pl-[9px] py-2 cursor-pointer hover:underline font-HeroNewLight ${className}`}>
       {children}
     </li>
   )

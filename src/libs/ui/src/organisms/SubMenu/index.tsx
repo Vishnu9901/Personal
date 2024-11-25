@@ -27,7 +27,7 @@ export const SubMenu: React.FC<SubMenuProps> = ({ options, className, onMouseEnt
             }} options={option.items}></SubMenuConatiner>
             {option.hasMore && <ul><SubMenuItem onClick={(name) => {
               onClick(name, option?.title)
-            }} className="font-bold !font-HeroNewBold text-[rgb(18,92,224)]">{'View All'}</SubMenuItem></ul>}
+            }} className="font-bold !font-HeroNewBold text-appTheme">{'View All'}</SubMenuItem></ul>}
           </div>
         )
       })}

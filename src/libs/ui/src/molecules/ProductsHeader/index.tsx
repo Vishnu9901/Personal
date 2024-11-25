@@ -1,25 +1,24 @@
 import { Button } from '@ui/atoms/Button';
 import { PrimaryButton } from '@ui/molecules/PrimaryButton';
-import NavigateNextBlue from '../../../assets/Navigatenextblue.svg';
-import NavigateNextBlueDark from '../../../assets/Navigate-next-bluedark.svg';
-import NavigatePrevBlue from '../../../assets/Navigateprevblue.svg';
-import NavigatePrevBlueDark from '../../../assets/Navigateprevbluedark.svg';
+import ArrowPrevIcon from '@ui/atoms/SvgAtoms/ArrowPrevIcon';
+import ArrowNextIcon from '@ui/atoms/SvgAtoms/ArrowNextIcon';
 
 interface PopularProductsHeaderProps {
   title: string,
   description?: string,
   handleScroll: (direction: string) => void
   showDescription?: boolean
-
+  disableLeftButton: boolean,
+  disableRightButton: boolean
 }
-export const PopularProductsHeader: React.FC<PopularProductsHeaderProps> = ({ title, description='', handleScroll, showDescription = true }) => {
+export const PopularProductsHeader: React.FC<PopularProductsHeaderProps> = ({ title, description = '', handleScroll, showDescription = true, disableLeftButton, disableRightButton }) => {
   return (
     <>
       <div>
         <h2 className="font-bold text-xl lg:text-[1.75rem] text-[#555555] font-HeroNewExtraBold leading-8 hover:font-HeroNewBold">
           {title}
         </h2>
-        <div className={`mb-6 flex flex-col lg:flex-row lg:justify-between ${showDescription?'':'!justify-end'}`}>
+        <div className={`mb-6 flex flex-col lg:flex-row lg:justify-between ${showDescription ? '' : '!justify-end'}`}>
           {showDescription && <div className="flex flex-col lg:flex-row items-start mt-4">
             <p className="mr-6 text-base text-slate-600 font-HeroNewLight">
               {description}
@@ -35,38 +34,49 @@ export const PopularProductsHeader: React.FC<PopularProductsHeaderProps> = ({ ti
           </div>}
 
           <div className="flex space-x-0.5 mt-3 lg:mt-0 justify-end">
-            <PrimaryButton
-              className="w-10 h-10 hover:bg-appTheme relative overflow-hidden !p-0"
-              onClick={() => handleScroll('left')}
-            >
-              <img
-                src={NavigatePrevBlue}
-                alt="Navigate Prev"
-                className="absolute inset-0 transition-opacity duration-100"
-              />
-              <img
-                src={NavigatePrevBlueDark}
-                alt="Navigate Prev Dark"
-                className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-100"
-              />
-            </PrimaryButton>
 
             <PrimaryButton
-              className="w-10 h-10 hover:bg-appTheme relative overflow-hidden !p-0"
-              onClick={() => handleScroll('right')}
+              className={`w-11 h-12 relative overflow-hidden !p-0 ${disableLeftButton ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+              onClick={() => handleScroll('left')}
+              disabled={disableLeftButton}
             >
-              <img
-                src={NavigateNextBlue}
-                alt="Navigate Next"
-                className="absolute inset-0 transition-opacity duration-100"
-              />
-              <img
-                src={NavigateNextBlueDark}
-                alt="Navigate Next Dark"
-                className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-100"
-              />
+              <div
+                className={`absolute inset-0 ${disableLeftButton ? '' : 'opacity-100 hover:opacity-0'
+                  } transition-opacity duration-100`}
+              >
+                <ArrowPrevIcon />
+              </div>
+              <div
+                className={`absolute inset-0 ${disableLeftButton ? '' : 'opacity-0 hover:opacity-100'
+                  } transition-opacity duration-100`}
+              >
+                <ArrowPrevIcon fillColor="var(--hover-icon-color)" />
+              </div>
+            </PrimaryButton>
+
+            {/* Right Navigation Button */}
+            <PrimaryButton
+              className={`w-11 h-12 relative overflow-hidden !p-0 ${disableRightButton ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+              onClick={() => handleScroll('right')}
+              disabled={disableRightButton}
+            >
+              <div
+                className={`absolute inset-0 ${disableRightButton ? '' : 'opacity-100 hover:opacity-0'
+                  } transition-opacity duration-100`}
+              >
+                <ArrowNextIcon />
+              </div>
+              <div
+                className={`absolute inset-0 ${disableRightButton ? '' : 'opacity-0 hover:opacity-100'
+                  } transition-opacity duration-100`}
+              >
+                <ArrowNextIcon fillColor="var(--hover-icon-color)" />
+              </div>
             </PrimaryButton>
           </div>
+
         </div>
       </div>
     </>
