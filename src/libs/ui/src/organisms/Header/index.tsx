@@ -129,8 +129,8 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
               <div className='lg:h-[var(--navigation-logo-height-mobile)]' onClick={navigateHome}>
                 {/* <Image src={logo} alt='logo' className='lg:flex hidden h-full w-full' ></Image> */}
                 {/*  */}
-                <HeaderLogo  className='lg:flex hidden h-full w-full'></HeaderLogo>
-                
+                <HeaderLogo className='lg:flex hidden h-full w-full'></HeaderLogo>
+
               </div>
 
               <Button id="menu" aria-label='hambargar-menu' className='lg:hidden flex' onClick={openMobileSubMenu}>
@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
             </div>
 
             <div className='hidden lg:flex justify-end lg:gap-8' onMouseEnter={subMenuLeave}>
-              <Button id="search-icon" aria-label='serch icon' className='headerContainer-icon search max-xsm:p-1' onClick={() => {
+              <Button id="search-icon" aria-label='serch icon' className='headerContainer-icon search max-xsm:p-1 group' onClick={() => {
                 SetToggleSearch(true)
               }}>
                 {/* <span className='search-icon w-6 h-6 bg-no-repeat'></span> */}
@@ -157,13 +157,15 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
               </Button>
               <Button id="profile-icon"
                 aria-label='profile icon'
-                className='headerContainer-icon profile lg:flex hidden'
+                className='headerContainer-icon profile lg:flex hidden group'
                 onMouseEnter={openLoginPopover}
                 onMouseLeave={closeLoginPopover} >
                 {/* <span className='profile-icon w-6 h-6 bg-no-repeat'></span> */}
                 <IconWithHoverEffect>
                   <ProfileIcon ></ProfileIcon>
                 </IconWithHoverEffect>
+                {/* fillColor="var(--primary-color)" */}
+                 {/* <ProfileIcon fillColor = 'rgb(var(--primary-color))'></ProfileIcon> */}
               </Button>
               <Button id="cart-icon"
                 aria-label='cart icon'
@@ -173,36 +175,35 @@ export const Header: React.FC<HeaderProps> = ({ openLogin }) => {
                 <IconWithHoverEffect>
                   <CartIcon ></CartIcon>
                 </IconWithHoverEffect>
-                {/* <span className='group-hover:hidden'>
-                  <CartIcon fillColor='gray'></CartIcon>
-                </span>
-                <span className='hidden group-hover:block'>
-                  <CartIcon ></CartIcon>
-                </span> */}
               </Button>
             </div>
             <div className='lg:hidden flex justify-end lg:gap-8'>
-              <div className='flex items-center h-[var(--navigation-logo-height-mobile)] py-2' onClick={navigateHome}>
+              <div className='flex items-center h-[var(--navigation-logo-height-mobile)] py-2 px-4' onClick={navigateHome}>
                 <HeaderLogo className='lg:hidden flex w-full h-full'></HeaderLogo>
               </div>
 
               <div className='flex'>
                 <Button id="search-icon"
                   aria-label='search icon'
-                  className='headerContainer-icon search max-xsm:p-1'
+                  className='headerContainer-icon search max-xsm:p-1 group'
                   onClick={() => {
                     SetToggleSearch(true)
                     SetClickedProfile(false)
                   }}>
-                  <span className='search-icon w-6 h-6 bg-no-repeat'></span>
+                  {/* <span className='search-icon w-6 h-6 bg-no-repeat'></span> */}
+                  <IconWithHoverEffect>
+                  <SearchIcon ></SearchIcon>
+                </IconWithHoverEffect>
                 </Button>
                 <Button id="cart-icon"
                   aria-label='cart icon'
-                  className='headerContainer-icon cart max-xsm:p-1'
+                  className='headerContainer-icon cart max-xsm:p-1 group'
                   onMouseLeave={closeLoginPopover}
                   onClick={toggleLoginPopover}>
                   {/* <span className='cart-icon w-6 h-6 bg-no-repeat'></span> */}
-                  <CartIcon></CartIcon>
+                  <IconWithHoverEffect>
+                    <CartIcon ></CartIcon>
+                  </IconWithHoverEffect>
                 </Button>
               </div>
             </div>

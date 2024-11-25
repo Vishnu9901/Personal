@@ -5,7 +5,7 @@ interface IconWithHoverEffectProps {
     defualtColor?: string,
     hoverColor?: string
 }
-
+// Parent Element should have group class
 export const IconWithHoverEffect: React.FC<IconWithHoverEffectProps> = ({
     children,
     defualtColor="gray",

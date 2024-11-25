@@ -18,7 +18,7 @@ const SearchBarHeader: React.FC<SearchBarHeaderProps> = ({ searchQuery, setSearc
    
   return (<div className="headerSearchbar grid grid-cols-12">
     <div className="tm:hidden col-start-1 col-end-3" onClick={()=>{navigate('/'); onClose()}}>
-      <Image src={Logo} alt='logo'  />
+      <Image src={Logo} alt='logo'  className='w-4/5' />
     </div>
     <div className="w-full flex col-start-1 lg:col-start-3 col-end-12">
       <div className='relative w-full'>
